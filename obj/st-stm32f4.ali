@@ -1,0 +1,30 @@
+V "GNAT Lib v2018"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -g
+A -gnatwa
+A -gnatQ
+A -gnatw.X
+P ES ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U st.stm32f4%s		st-stm32f4.ads		26ff32f6 NE OO PU PK IU
+W st%s			st.ads			st.ali
+
+D st.ads		20180524060830 2a9112eb st%s
+D st-stm32f4.ads	20180524060830 0c6e201d st.stm32f4%s
+D system.ads		20180524194940 db831581 system%s
+D c:\gnat\2018-arm-elf\share\examples\gnat-cross\led_flasher-stm32f4\gnat.adc  20180524060830 00000000
+X 1 st.ads
+10K9*ST 32e7 2|5r9 6r5
+X 2 st-stm32f4.ads
+5K12*STM32F4 1|10k9 2|6l8 6e15
+

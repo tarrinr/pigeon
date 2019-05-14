@@ -1,0 +1,41 @@
+V "GNAT Lib v2018"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -g
+A -gnatwa
+A -gnatQ
+A -gnatw.X
+P ES ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U st%s			st.ads			2a9112eb NE OO PU PK IU
+
+D st.ads		20180524060830 2a9112eb st%s
+D system.ads		20180524194940 db831581 system%s
+D c:\gnat\2018-arm-elf\share\examples\gnat-cross\led_flasher-stm32f4\gnat.adc  20180524060830 00000000
+X 1 st.ads
+10K9*ST 32l5 32e7
+12E9*Enable_Type 12e41 13r8
+12n25*Disable{12E9} 13r25
+12n34*Enable{12E9} 13r39
+16E9*Enabled_Type 16e44 17r8
+16n26*Disabled{16E9} 17r26
+16n36*Enabled{16E9} 17r41
+20E9*Occurred_Type 20e50 21r8
+20n27*Not_Occurred{20E9} 21r27
+20n41*Occurred{20E9} 21r46
+24E9*Clear_Type 24e44 25r8
+24n24*Do_Not_Clear{24E9} 25r24
+24n38*Clear{24E9} 25r43
+28E9*Reset_Type 28e44 29r8
+28n24*Do_Not_Reset{28E9} 29r24
+28n38*Reset{28E9} 29r43
+

@@ -1,0 +1,26 @@
+[GENERATED OBJECT FILE]
+b__led_flasher.o
+[PROJECT FILES]
+C:\GNAT\2018-arm-elf\share\examples\gnat-cross\led_flasher-stm32f4\flasher.gpr
+20180524060830
+[BOUND OBJECT FILES]
+C:\GNAT\2018-arm-elf\share\examples\gnat-cross\led_flasher-stm32f4\obj\st.o
+C:\GNAT\2018-arm-elf\share\examples\gnat-cross\led_flasher-stm32f4\obj\st-stm32f4.o
+C:\GNAT\2018-arm-elf\share\examples\gnat-cross\led_flasher-stm32f4\obj\st-stm32f4-gpio.o
+C:\GNAT\2018-arm-elf\share\examples\gnat-cross\led_flasher-stm32f4\obj\st-stm32f4-rcc.o
+C:\GNAT\2018-arm-elf\share\examples\gnat-cross\led_flasher-stm32f4\obj\st-stm32f4-exti.o
+C:\GNAT\2018-arm-elf\share\examples\gnat-cross\led_flasher-stm32f4\obj\button.o
+C:\GNAT\2018-arm-elf\share\examples\gnat-cross\led_flasher-stm32f4\obj\lights.o
+C:\GNAT\2018-arm-elf\share\examples\gnat-cross\led_flasher-stm32f4\obj\led_flasher.o
+[GENERATED SOURCE FILES]
+b__led_flasher.ads
+b__led_flasher.adb
+b__led_flasher.ali
+[RESULTING OPTIONS]
+-LC:\GNAT\2018-arm-elf\share\examples\gnat-cross\led_flasher-stm32f4\obj\
+-LC:\GNAT\2018-arm-elf\share\examples\gnat-cross\led_flasher-stm32f4\obj\
+-LC:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\adalib\
+-static
+-static-libgcc
+C:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\adalib\libgnarl.a
+C:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\adalib\libgnat.a

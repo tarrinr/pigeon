@@ -1,0 +1,383 @@
+V "GNAT Lib v2018"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -g
+A -gnatwa
+A -gnatQ
+A -gnatw.X
+P DB ES ZX
+
+RN
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U st.stm32f4.rcc%s	st-stm32f4-rcc.ads	114223ba EE OO PR PK IU
+W st.stm32f4%s		st-stm32f4.ads		st-stm32f4.ali
+W system%s		system.ads		system.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D st.ads		20180524060830 2a9112eb st%s
+D st-stm32f4.ads	20180524060830 0c6e201d st.stm32f4%s
+D st-stm32f4-rcc.ads	20180524060830 c6af1626 st.stm32f4.rcc%s
+D system.ads		20180524194940 db831581 system%s
+D s-stoele.ads		20180524194940 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20180524194940 34867c83 system.unsigned_types%s
+D c:\gnat\2018-arm-elf\share\examples\gnat-cross\led_flasher-stm32f4\gnat.adc  20180524060830 00000000
+X 1 st.ads
+10K9*ST 32e7 3|11r9 768r5
+12E9*Enable_Type 12e41 3|150r47 152r47 153r47 154r47 156r47 160r47 193r48
+. 194r48 195r48 196r48 197r48 198r48 278r31 279r31 280r31 281r31 282r31 283r31
+. 284r31 285r31 286r31 287r31 288r31 289r31 290r31 291r31 292r31 293r31 294r31
+. 295r31 296r31 297r31 301r33 302r33 303r33 304r33 305r33 309r43 313r25 314r25
+. 315r25 316r25 317r25 318r25 319r25 320r25 321r25 322r25 323r25 324r25 325r25
+. 326r25 327r25 328r25 329r25 330r25 331r25 332r25 333r25 334r25 335r25 339r41
+. 340r41 341r41 342r41 343r41 344r41 345r41 346r41 347r41 348r41 349r41 350r41
+. 351r41 356r41 358r41 360r41 373r40 377r36
+20E9*Occurred_Type 20e50 3|364r40 365r40 366r40 367r40 368r40 369r40 370r40
+X 2 st-stm32f4.ads
+5K12*STM32F4 1|10k9 2|6e15 3|11r12 768r8
+X 3 st-stm32f4-rcc.ads
+11K20*RCC 2|5k12 3|768l16 768e19
+71N4*RCC_Base_Address 679r27 683r27 687r27 691r27 695r27 699r27 703r27 707r27
+. 711r27 715r27 719r27 723r27 727r27 731r27 735r27 739r27 743r27 747r27 751r27
+. 755r27 759r27 763r27 767r27
+72N4*CR_Offset_Address 679r46
+73N4*PLLCFGR_Offset_Address 683r46
+74N4*CFGR_Offset_Address 687r46
+75N4*CIR_Offset_Address 691r46
+76N4*AHB1RSTR_Offset_Address 695r46
+77N4*AHB2RSTR_Offset_Address 699r46
+78N4*AHB3RSTR_Offset_Address 703r46
+79N4*APB1RSTR_Offset_Address 707r46
+80N4*APB2RSTR_Offset_Address 711r46
+81N4*AHB1ENR_Offset_Address 715r46
+82N4*AHB2ENR_Offset_Address 719r46
+83N4*AHB3ENR_Offset_Address 723r46
+84N4*APB1ENR_Offset_Address 727r46
+85N4*APB2ENR_Offset_Address 731r46
+86N4*AHB1LPENR_Offset_Address 735r46
+87N4*AHB2LPENR_Offset_Address 739r46
+88N4*AHB3LPENR_Offset_Address 743r46
+89N4*APB1LPENR_Offset_Address 747r46
+90N4*APB2LPENR_Offset_Address 751r46
+91N4*BDCR_Offset_Address 755r46
+92N4*CSR_Offset_Address 759r46
+93N4*SSCGR_Offset_Address 763r46
+94N4*PLLI2SCF_Offset_Address 767r46
+100M9*HSI_Clock_Calibration 157r47
+101M9*HSI_Clock_Trimming 158r47
+103M9*Peripheral_Division_Factor 164r34
+104E9*Entry_Clock_Source_Type 105e60 165r34
+105n7*High_Speed_Internal_Clock{104E9}
+105n34*High_Speed_External_Clock{104E9}
+106E9*System_Division_Factor 107e61 166r34
+106n36*Divide_By_2{106E9}
+106n49*Divide_By_4{106E9}
+107n36*Divide_By_6{106E9}
+107n49*Divide_By_8{106E9}
+108M9*Multiplication_Factor 167r34
+109M9*Input_Clock_Factor 168r34
+111E9*MCO2_Clock_Source 112e36 172r50
+111n31*System_Clock{111E9}
+111n45*PLL_I2S{111E9}
+111n54*High_Speed_External_Clock{111E9}
+112n26*PLL_Clock{111E9}
+113E9*MCO1_Clock_Source 116e41 176r50
+113n31*High_Speed_Internal_Clock{113E9}
+114n31*Low_Speed_External_Clock{113E9}
+115n31*High_Speed_External_Clock{113E9}
+116n31*PLL_Clock{113E9}
+117E9*MCO_Prescale_Factor 118e58 173r50 174r50 418r8
+117n33*No_Division{117E9} 418r33
+117n46*Divide_By_2{117E9} 419r33
+117n59*Divide_By_3{117E9} 420r33
+118n33*Divide_By_4{117E9} 421r33
+118n46*Divide_By_5{117E9} 422r33
+119E9*I2S_Clock_Source 119e48 175r50
+119n30*PLL_I2S{119E9}
+119n39*External{119E9}
+120M9*RTC_Prescale_Factor 177r50
+121E9*APB_Prescale_Factor 122e59 178r50 179r50 432r8
+121n33*No_Division{121E9} 432r33
+121n46*Divide_By_2{121E9} 433r33
+121n59*Divide_By_4{121E9} 434r33
+122n33*Divide_By_8{121E9} 435r33
+122n46*Divide_By_16{121E9} 436r33
+123E9*AHB_Prescale_Factor 125e77 180r50 439r8
+123n33*No_Division{123E9} 439r33
+123n46*Divide_By_2{123E9} 440r33
+123n59*Divide_By_4{123E9} 441r33
+124n33*Divide_By_8{123E9} 442r33
+124n46*Divide_By_16{123E9} 443r33
+124n60*Divide_By_64{123E9} 444r33
+125n33*Divide_By_128{123E9} 445r33
+125n48*Divide_By_256{123E9} 446r33
+125n63*Divide_By_512{123E9} 447r33
+126E9*System_Clock_Source_Type 128e42 181r50 182r50
+126n38*High_Speed_Internal_Clock{126E9}
+127n38*High_Speed_External_Clock{126E9}
+128n38*PLL{126E9}
+130E9*Reset_Type 130e44 209r22 210r22 211r22 212r22 213r22 214r22 215r22
+. 216r22 217r22 218r22 219r22 220r22 221r22 222r22 226r33 227r33 228r33 229r33
+. 230r33 234r43 238r25 239r25 240r25 241r25 242r25 243r25 244r25 245r25 246r25
+. 247r25 248r25 249r25 250r25 251r25 252r25 253r25 254r25 255r25 256r25 257r25
+. 258r25 259r25 260r25 264r41 265r41 266r41 267r41 268r41 269r41 270r41 271r41
+. 272r41 273r41 274r41 355r41
+130n24*Do_Not_Reset{130E9}
+130n38*Reset{130E9}
+132E9*RTC_Clock_Source_Type 135e69 357r41
+132n35*No_Clock{132E9}
+133n35*Low_Speed_External_Clock{132E9}
+134n35*Low_Speed_Internal_Clock{132E9}
+135n35*High_Speed_External_Clock_Derived{132E9}
+137E9*Spread_Selection 137e57 378r36
+137n30*Center_Spread{137E9}
+137n45*Down_Spread{137E9}
+138M9*Incrementation_Step_Size 379r36
+139M9*Modulation_Period_Type 380r36
+141M9*I2S_Clock_Division_Factor 384r28
+142M9*VCO_Multiplaction_Factor 385r28
+148R9*Clock_Control 161e14 392r8 677r29
+149b7*PLL_I2S_Locked{boolean} 393r7
+150e7*PLL_I2S{1|12E9} 394r7
+151b7*PLL_Main_Locked{boolean} 395r7
+152e7*PLL_Main{1|12E9} 396r7
+153e7*Clock_Security_System{1|12E9} 397r7
+154e7*High_Speed_External_Clock_Bypass{1|12E9} 398r7
+155b7*High_Speed_External_Clock_Ready{boolean} 399r7
+156e7*High_Speed_External_Clock{1|12E9} 400r7
+157m7*High_Speed_Internal_Clock_Calibration{100M9} 401r7
+158m7*High_Speed_Internal_Clock_Trimming{101M9} 402r7
+159b7*High_Speed_Internal_Clock_Ready{boolean} 403r7
+160e7*High_Speed_Internal_Clock{1|12E9} 404r7
+163R9*PLL_Configuration 169e14 410r8 681r33
+164m7*Peripheral_Clock_Divider{103M9} 411r7
+165e7*Clock_Source{104E9} 412r7
+166e7*System_Clock_Divider{106E9} 413r7
+167m7*VCO_Multiplier{108M9} 414r7
+168m7*Input_Clock_Divider{109M9} 415r7
+171R9*Clock_Configuration 183e14 449r8 685r35
+172e7*Microcontroller_Clock_Output_2{111E9} 450r7
+173e7*Microcontroller_Clock_Output_2_Prescaler{117E9} 451r7
+174e7*Microcontroller_Clock_Output_1_Prescaler{117E9} 452r7
+175e7*I2S_Clock_Selection{119E9} 453r7
+176e7*Microcontroller_Clock_Output_1{113E9} 454r7
+177m7*HSE_Clock_Divider_For_RTC{120M9} 455r7
+178e7*APB2_Prescaler{121E9} 456r7
+179e7*APB1_Prescaler{121E9} 457r7
+180e7*AHB_Prescaler{123E9} 458r7
+181e7*System_Clock_Status{126E9} 459r7
+182e7*System_Clock_Source{126E9} 460r7
+185R9*Clock_Interrupt 206e14 463r8 689r31
+186b7*Clock_Security_System_Clear{boolean} 464r7
+187b7*PLL_I2S_Ready_Clear{boolean} 465r7
+188b7*Main_PLL_Ready_Clear{boolean} 466r7
+189b7*High_Speed_External_Clock_Ready_Clear{boolean} 467r7
+190b7*High_Speed_Internal_Clock_Ready_Clear{boolean} 468r7
+191b7*Low_Speed_External_Clock_Ready_Clear{boolean} 469r7
+192b7*Low_Speed_Internal_Clock_Ready_Clear{boolean} 470r7
+193e7*PLL_I2S_Ready_Enable{1|12E9} 471r7
+194e7*Main_PLL_Read_Enable{1|12E9} 472r7
+195e7*High_Speed_External_Clock_Ready_Enable{1|12E9} 473r7
+196e7*High_Speed_Internal_Clock_Ready_Enable{1|12E9} 474r7
+197e7*Low_Speed_External_Clock_Ready_Enable{1|12E9} 475r7
+198e7*Low_Speed_Internal_Clock_Ready_Enable{1|12E9} 476r7
+199b7*Clock_Security_System{boolean} 477r7
+200b7*PLL_I2S_Ready{boolean} 478r7
+201b7*Main_PLL_Ready{boolean} 479r7
+202b7*High_Speed_External_Clock_Ready{boolean} 480r7
+203b7*High_Speed_Internal_Clock_Ready{boolean} 481r7
+204b7*Low_Speed_External_Clock_Ready{boolean} 482r7
+205b7*Low_Speed_Internal_Clock_Ready{boolean} 483r7
+208R9*AHB1_Peripheral_Reset 223e14 486r8 693r37
+209e7*USB_OTG_HS{130E9} 487r7
+210e7*Ethernet_Mac{130E9} 488r7
+211e7*DMA2{130E9} 489r7
+212e7*DMA1{130E9} 490r7
+213e7*CRC{130E9} 491r7
+214e7*IO_Port_I{130E9} 492r7
+215e7*IO_Port_H{130E9} 493r7
+216e7*IO_Port_G{130E9} 494r7
+217e7*IO_Port_F{130E9} 495r7
+218e7*IO_Port_E{130E9} 496r7
+219e7*IO_Port_D{130E9} 497r7
+220e7*IO_Port_C{130E9} 498r7
+221e7*IO_Port_B{130E9} 499r7
+222e7*IO_Port_A{130E9} 500r7
+225R9*AHB2_Peripheral_Reset 231e14 503r8 697r37
+226e7*USB_OTG_FS{130E9} 504r7
+227e7*Random_Number_Generator{130E9} 505r7
+228e7*Hash{130E9} 506r7
+229e7*Cryptographic{130E9} 507r7
+230e7*Camera_Interface{130E9} 508r7
+233R9*AHB3_Peripheral_Reset 235e14 511r8 701r37
+234e7*Flexible_Static_Memory_Controller{130E9} 512r7
+237R9*APB1_Peripheral_Reset 261e14 515r8 705r37
+238e7*DAC{130E9} 516r7
+239e7*Power_Interface{130E9} 517r7
+240e7*CAN2{130E9} 518r7
+241e7*CAN1{130E9} 519r7
+242e7*I2C3{130E9} 520r7
+243e7*I2C2{130E9} 521r7
+244e7*I2C1{130E9} 522r7
+245e7*UART5{130E9} 523r7
+246e7*UART4{130E9} 524r7
+247e7*UART3{130E9} 525r7
+248e7*UART2{130E9} 526r7
+249e7*SPI3{130E9} 527r7
+250e7*SPI2{130E9} 528r7
+251e7*Window_Watchdog{130E9} 529r7
+252e7*TIM14{130E9} 530r7
+253e7*TIM13{130E9} 531r7
+254e7*TIM12{130E9} 532r7
+255e7*TIM7{130E9} 533r7
+256e7*TIM6{130E9} 534r7
+257e7*TIM5{130E9} 535r7
+258e7*TIM4{130E9} 536r7
+259e7*TIM3{130E9} 537r7
+260e7*TIM2{130E9} 538r7
+263R9*APB2_Peripheral_Reset 275e14 541r8 709r37
+264e7*TIM11{130E9} 542r7
+265e7*TIM10{130E9} 543r7
+266e7*TIM9{130E9} 544r7
+267e7*System_Configuration_Controller{130E9} 545r7
+268e7*SPI1{130E9} 546r7
+269e7*SDIO{130E9} 547r7
+270e7*ADC{130E9} 548r7
+271e7*USART6{130E9} 549r7
+272e7*USART1{130E9} 550r7
+273e7*TIM8{130E9} 551r7
+274e7*TIM1{130E9} 552r7
+277R9*AHB1_Peripheral_Clock_Enable 298e14 555r8 713r44 733r51
+278e7*USB_OTG_HS_ULPI{1|12E9} 556r7
+279e7*USB_OTG_HS{1|12E9} 557r7
+280e7*Ethernet_PTP{1|12E9} 558r7
+281e7*Ethernet_Reception{1|12E9} 559r7
+282e7*Ethernet_Transmission{1|12E9} 560r7
+283e7*Ethernet_Mac{1|12E9} 561r7
+284e7*DMA2{1|12E9} 562r7
+285e7*DMA1{1|12E9} 563r7
+286e7*CCM_Data_Ram{1|12E9} 564r7
+287e7*Backup_SRAM{1|12E9} 565r7
+288e7*CRC{1|12E9} 566r7
+289e7*IO_Port_I{1|12E9} 567r7
+290e7*IO_Port_H{1|12E9} 568r7
+291e7*IO_Port_G{1|12E9} 569r7
+292e7*IO_Port_F{1|12E9} 570r7
+293e7*IO_Port_E{1|12E9} 571r7
+294e7*IO_Port_D{1|12E9} 572r7
+295e7*IO_Port_C{1|12E9} 573r7
+296e7*IO_Port_B{1|12E9} 574r7
+297e7*IO_Port_A{1|12E9} 575r7
+300R9*AHB2_Peripheral_Clock_Enable 306e14 578r8 717r44 737r51
+301e7*USB_OTG_FS{1|12E9} 579r7
+302e7*Random_Number_Generator{1|12E9} 580r7
+303e7*Hash{1|12E9} 581r7
+304e7*Cryptographic{1|12E9} 582r7
+305e7*Camera_Interface{1|12E9} 583r7
+308R9*AHB3_Peripheral_Clock_Enable 310e14 586r8 721r44 741r51
+309e7*Flexible_Static_Memory_Controller{1|12E9} 587r7
+312R9*APB1_Peripheral_Clock_Enable 336e14 590r8 725r44 745r51
+313e7*DAC{1|12E9} 591r7
+314e7*Power_Interface{1|12E9} 592r7
+315e7*CAN2{1|12E9} 593r7
+316e7*CAN1{1|12E9} 594r7
+317e7*I2C3{1|12E9} 595r7
+318e7*I2C2{1|12E9} 596r7
+319e7*I2C1{1|12E9} 597r7
+320e7*UART5{1|12E9} 598r7
+321e7*UART4{1|12E9} 599r7
+322e7*UART3{1|12E9} 600r7
+323e7*UART2{1|12E9} 601r7
+324e7*SPI3{1|12E9} 602r7
+325e7*SPI2{1|12E9} 603r7
+326e7*Window_Watchdog{1|12E9} 604r7
+327e7*TIM14{1|12E9} 605r7
+328e7*TIM13{1|12E9} 606r7
+329e7*TIM12{1|12E9} 607r7
+330e7*TIM7{1|12E9} 608r7
+331e7*TIM6{1|12E9} 609r7
+332e7*TIM5{1|12E9} 610r7
+333e7*TIM4{1|12E9} 611r7
+334e7*TIM3{1|12E9} 612r7
+335e7*TIM2{1|12E9} 613r7
+338R9*APB2_Peripheral_Clock_Enable 352e14 616r8 729r44 749r51
+339e7*TIM11{1|12E9} 617r7
+340e7*TIM10{1|12E9} 618r7
+341e7*TIM9{1|12E9} 619r7
+342e7*System_Configuration_Controller{1|12E9} 620r7
+343e7*SPI1{1|12E9} 621r7
+344e7*SDIO{1|12E9} 622r7
+345e7*ADC3{1|12E9} 623r7
+346e7*ADC2{1|12E9} 624r7
+347e7*ADC1{1|12E9} 625r7
+348e7*USART6{1|12E9} 626r7
+349e7*USART1{1|12E9} 627r7
+350e7*TIM8{1|12E9} 628r7
+351e7*TIM1{1|12E9} 629r7
+354R9*Backup_Domain_Control 361e14 632r8 753r37
+355e7*Reset{130E9} 633r7
+356e7*RTC_Clock{1|12E9} 634r7
+357e7*RTC_Clock_Source{132E9} 635r7
+358e7*Low_Speed_External_Clock_Bypass{1|12E9} 636r7
+359b7*Low_Speed_External_Clock_Ready{boolean} 637r7
+360e7*Low_Speed_External_Clock{1|12E9} 638r7
+363R9*Clock_Control_And_Status 374e14 641r8 757r40
+364e7*Low_Power_Reset{1|20E9} 642r7
+365e7*Window_Watchdog_Reset{1|20E9} 643r7
+366e7*Independent_Watchdog_Reset{1|20E9} 644r7
+367e7*Software_Reset{1|20E9} 645r7
+368e7*POR_PDR_Reset{1|20E9} 646r7
+369e7*PIN_Reset{1|20E9} 647r7
+370e7*BOR_Reset{1|20E9} 648r7
+371b7*Remove_Reset_Flag{boolean} 649r7
+372b7*Low_Speed_Internal_Clock_Ready{boolean} 650r7
+373e7*Low_Speed_Internal_Clock{1|12E9} 651r7
+376R9*Spread_Spectrum_Clock_Generation 381e14 654r8 761r48
+377e7*Spread_Spectrum_Modulation{1|12E9} 655r7
+378e7*Spread{137E9} 656r7
+379m7*Incrementation_Step{138M9} 657r7
+380m7*Modulation_Period{139M9} 658r7
+383R9*PLL_I2S_Configuration 386e14 661r8 765r37
+384m7*I2S_Clocks_Divider{141M9} 662r7
+385m7*VCO_Multiplier{142M9} 663r7
+677r4*Clock_Control_Register{148R9}
+681r4*PLL_Configuration_Register{163R9}
+685r4*Clock_Configuration_Register{171R9}
+689r4*Clock_Interrupt_Register{185R9}
+693r4*AHB1_Peripheral_Reset_Register{208R9}
+697r4*AHB2_Peripheral_Reset_Register{225R9}
+701r4*AHB3_Peripheral_Reset_Register{233R9}
+705r4*APB1_Peripheral_Reset_Register{237R9}
+709r4*APB2_Peripheral_Reset_Register{263R9}
+713r4*AHB1_Peripheral_Clock_Enable_Register{277R9}
+717r4*AHB2_Peripheral_Clock_Enable_Register{300R9}
+721r4*AHB3_Peripheral_Clock_Enable_Register{308R9}
+725r4*APB1_Peripheral_Clock_Enable_Register{312R9}
+729r4*APB2_Peripheral_Clock_Enable_Register{338R9}
+733r4*AHB1_Peripheral_Clock_In_Sleep_Mode_Register{277R9}
+737r4*AHB2_Peripheral_Clock_In_Sleep_Mode_Register{300R9}
+741r4*AHB3_Peripheral_Clock_In_Sleep_Mode_Register{308R9}
+745r4*APB1_Peripheral_Clock_In_Sleep_Mode_Register{312R9}
+749r4*APB2_Peripheral_Clock_In_Sleep_Mode_Register{338R9}
+753r4*Backup_Domain_Control_Register{354R9}
+757r4*Clock_Control_And_Status_Register{363R9}
+761r4*Spread_Spectrum_Clock_Generation_Register{376R9}
+765r4*PLL_I2S_Configuration_Register{383R9}
+X 4 system.ads
+50K9*System 3|9w6 9r18 679r8 683r8 687r8 691r8 695r8 699r8 703r8 707r8 711r8
+. 715r8 719r8 723r8 727r8 731r8 735r8 739r8 743r8 747r8 751r8 755r8 759r8
+. 763r8 767r8 4|164e11
+80M9*Address 3|679r8 683r8 687r8 691r8 695r8 699r8 703r8 707r8 711r8 715r8
+. 719r8 723r8 727r8 731r8 735r8 739r8 743r8 747r8 751r8 755r8 759r8 763r8
+. 767r8
+

@@ -1,0 +1,112 @@
+V "GNAT Lib v2018"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -gnatA
+A -gnatWb
+A -gnatiw
+A -gnatws
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -g
+P DB ZX
+
+RN
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U ada_main%b		b__led_flasher.adb	cfb094e2 OO PK IL
+Z system%s		system.ads		system.ali
+
+U ada_main%s		b__led_flasher.ads	948e17a2 EE NE OO PK IL
+W system%s		system.ads		system.ali
+W system.parameters%s	s-parame.adb		s-parame.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+D b__led_flasher.ads	20190514200732 c8a99521 ada_main%s
+D b__led_flasher.adb	20190514200732 071901c3 ada_main%b
+D system.ads		20180524194940 db831581 system%s
+D s-parame.ads		20180524194940 d106111e system.parameters%s
+D s-secsta.ads		20180524194940 56a2861c system.secondary_stack%s
+D s-stoele.ads		20180524194940 2dc34a04 system.storage_elements%s
+X 1 b__led_flasher.ads
+6K9*ada_main 169l5 169e13 2|7b14 192l5 192t13
+9a4*GNAT_Version{string} 11r22
+13a4*Ada_Main_Program_Name{string} 14r22 2|164r52
+16U14*adainit 17i<c,adainit>22 2|44b14 151l8 151t15 169s7
+19U14*adafinal 20i<c,adafinal>22 2|28b14 42l8 42t16 171s7
+22U14*main 23i<c,main>22 2|156b14 173t7
+X 2 b__led_flasher.adb
+9i4 E098{short_integer} 9m46 9r46 129m7 129r15
+10i4 E045{short_integer} 10m46 10r46 132m7 132r15
+11i4 E043{short_integer} 11m46 11r46 127m7 127r15
+12i4 E112{short_integer} 12m46 12r46 131m7 131r15
+13i4 E006{short_integer} 13m46 13r46 134m7 134r15
+14i4 E127{short_integer} 14m46 14r46 136m7 136r15
+15i4 E134{short_integer} 15m46 15r46 138m7 138r15
+16i4 E139{short_integer} 16m46 16r46 140m7 140r15
+17i4 E138{short_integer} 17m46 17r46 142m7 142r15
+18i4 E122{short_integer} 18m46 18r46 145m7 145r15
+19i4 E120{short_integer} 19m46 19r46 148m7 148r15
+21a4 Sec_Default_Sized_Stacks(5|43R9) 121m32 121r32
+23a4 Local_Priority_Specific_Dispatching{string} 108r9
+24a4 Local_Interrupt_States{string} 111r27
+26b4 Is_Elaborated{boolean} 36r14 39m7 96r10 99m7
+29U17*s_stalib_adafinal 30b<c,system__standard_library__adafinal>25 41s7
+32U17*Runtime_Finalize 33b<c,__gnat_runtime_finalize>25 40s7
+45i7*Main_Priority{integer} 46m25 46r25 100m7
+47i7*Time_Slice_Value{integer} 48m25 48r25 101m7
+49e7*WC_Encoding{character} 50m25 50r25 102m7
+51e7*Locking_Policy{character} 52m25 52r25 103m7
+53e7*Queuing_Policy{character} 54m25 54r25 104m7
+55e7*Task_Dispatching_Policy{character} 56m25 56r25 105m7
+57m7*Priority_Specific_Dispatching{3|80M9} 58m25 58r25 107m7
+59i7*Num_Specific_Dispatching{integer} 60m25 60r25 109m7
+61i7*Main_CPU{integer} 62m25 62r25 110m7
+63m7*Interrupt_States{3|80M9} 64m25 64r25 111m7
+65i7*Num_Interrupt_States{integer} 66m25 66r25 112m7
+67i7*Unreserve_All_Interrupts{integer} 68m25 68r25 113m7
+69i7*Detect_Blocking{integer} 70m25 70r25 114m7
+71i7*Default_Stack_Size{integer} 72m25 72r25 115m7
+73i7*Default_Secondary_Stack_Size{4|56I9} 74m25 74r25 119m7
+75i7*Leap_Seconds_Support{integer} 76m25 76r25 116m7
+77m7*Bind_Env_Addr{3|80M9} 78m25 78r25
+80U17*Runtime_Initialize 80>37 81b<c,__gnat_runtime_initialize>25 123s7
+80i37 Install_Handler{integer}
+82U17*Install_Restricted_Handlers_Sequential 83b<c,__gnat_attach_all_handlers>24
+. 149s7
+85e7*Partition_Elaboration_Policy{character} 86m25 86r25 106m7
+88U17*Activate_All_Tasks_Sequential 89b<c,__gnat_activate_all_tasks>25 150s7
+90i7*Binder_Sec_Stacks_Count{natural} 91m27 91r27 120m7
+92m7*Default_Sized_SS_Pool{3|80M9} 93m27 93r27 121m7
+153U14 Ada_Main_Program 154b<ada,_ada_led_flasher>24 170s7
+157U17*Initialize 157>29 158b<c,__gnat_initialize>25 168s7
+157m29 Addr{3|80M9}
+160U17*Finalize 161b<c,__gnat_finalize>25 172s7
+162a7 SEH(integer) 168m19 168r19
+164m7 Ensure_Reference{3|80M9} 165r24
+X 3 system.ads
+50K9*System 1|3w6 4r6 5r6 2|21r57 21r90 57r39 63r26 73r38 77r23 92r31 119r39
+. 157r36 164r34 3|164e11
+80M9*Address 2|57r46 63r33 77r30 92r38 157r43 164r41
+X 4 s-parame.ads
+49K16*Parameters 1|4w13 2|21r97 73r45 119r46 4|186e22
+56I9*Size_Type<integer> 2|73r56
+87i4*Runtime_Default_Sec_Stack_Size{56I9} 2|21r108 119r57
+X 5 s-secsta.ads
+37K16*Secondary_Stack 1|5w13 2|21r64 5|154e27
+43R9*SS_Stack 2|21r80 5|119e14
+
