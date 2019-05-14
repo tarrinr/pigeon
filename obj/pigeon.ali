@@ -8,7 +8,6 @@ A -mfloat-abi=hard
 A -mcpu=cortex-m4
 A -mfpu=fpv4-sp-d16
 A -mthumb
-A -g
 A -gnatwa
 A -gnatQ
 A -gnatw.X
@@ -19,7 +18,7 @@ RV NO_DELAY
 RV NO_IMPLEMENTATION_PRAGMAS
 RV SPARK_05
 
-U led_flasher%b		led_flasher.adb		11f82b90 NE OO SU
+U pigeon%b		pigeon.adb		7a4349c5 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.real_time%s	a-reatim.adb		a-reatim.ali
 Z ada.real_time.delays%s  a-retide.adb		a-retide.ali
@@ -33,8 +32,8 @@ D a-unccon.ads		20180524194940 0e9b276f ada.unchecked_conversion%s
 D interfac.ads		20180524194940 5ab55268 interfaces%s
 D i-stm32.ads		20180524194940 4d2e1e9b interfaces.stm32%s
 D i-stm32-pwr.ads	20180524194940 10ed2a13 interfaces.stm32.pwr%s
-D led_flasher.adb	20180524060830 507b7ca3 led_flasher%b
 D lights.ads		20180524060830 0d95c03d lights%s
+D pigeon.adb		20190514225150 3bc01ef6 pigeon%b
 D st.ads		20180524060830 2a9112eb st%s
 D st-stm32f4.ads	20180524060830 0c6e201d st.stm32f4%s
 D st-stm32f4-gpio.ads	20180524060830 83c32d28 st.stm32f4.gpio%s
@@ -65,15 +64,15 @@ D s-traent.ads		20180524194940 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20180524194940 34867c83 system.unsigned_types%s
 D c:\users\trasmussen\documents\stm\pigeon\gnat.adc  20180524060830 00000000
 X 1 ada.ads
-16K9*Ada 20e8 9|63r6 76r19
+16K9*Ada 20e8 10|3r6 12r19
 X 3 a-reatim.ads
-41K13*Real_Time 182e18 9|63w10 76r23
+41K13*Real_Time 182e18 10|3w10 12r23
 51M9*Time<24|46M9>
-53m4*Time_Last{51M9} 9|76r33
-X 9 led_flasher.adb
-73U11*LED_Flasher 73b11 78l5 78t16
-X 10 lights.ads
-10K9*Lights 9|57w6 57r35 10|61e11
+53m4*Time_Last{51M9} 10|12r33
+X 9 lights.ads
+10K9*Lights 61e11 10|1w6 1r35
+X 10 pigeon.adb
+9U11*pigeon 9b11 14l5 14t11
 X 24 s-bbtime.ads
 46M9*Time
 X 28 s-secsta.ads

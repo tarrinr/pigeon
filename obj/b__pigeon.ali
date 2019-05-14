@@ -16,7 +16,6 @@ A -mfloat-abi=hard
 A -mcpu=cortex-m4
 A -mfpu=fpv4-sp-d16
 A -mthumb
-A -g
 P DB ZX
 
 RN
@@ -28,28 +27,28 @@ RV NO_ELABORATION_CODE
 RV NO_OBSOLESCENT_FEATURES
 RV SPARK_05
 
-U ada_main%b		b__led_flasher.adb	cfb094e2 OO PK IL
+U ada_main%b		b__pigeon.adb		e4766651 OO PK IL
 Z system%s		system.ads		system.ali
 
-U ada_main%s		b__led_flasher.ads	948e17a2 EE NE OO PK IL
+U ada_main%s		b__pigeon.ads		b96f3683 EE NE OO PK IL
 W system%s		system.ads		system.ali
 W system.parameters%s	s-parame.adb		s-parame.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
-D b__led_flasher.ads	20190514220630 c8a99521 ada_main%s
-D b__led_flasher.adb	20190514220630 071901c3 ada_main%b
+D b__pigeon.ads		20190514225840 e548b400 ada_main%s
+D b__pigeon.adb		20190514225840 013ed251 ada_main%b
 D system.ads		20180524194940 db831581 system%s
 D s-parame.ads		20180524194940 d106111e system.parameters%s
 D s-secsta.ads		20180524194940 56a2861c system.secondary_stack%s
 D s-stoele.ads		20180524194940 2dc34a04 system.storage_elements%s
-X 1 b__led_flasher.ads
+X 1 b__pigeon.ads
 6K9*ada_main 169l5 169e13 2|7b14 192l5 192t13
 9a4*GNAT_Version{string} 11r22
 13a4*Ada_Main_Program_Name{string} 14r22 2|164r52
 16U14*adainit 17i<c,adainit>22 2|44b14 151l8 151t15 169s7
 19U14*adafinal 20i<c,adafinal>22 2|28b14 42l8 42t16 171s7
 22U14*main 23i<c,main>22 2|156b14 173t7
-X 2 b__led_flasher.adb
+X 2 b__pigeon.adb
 9i4 E098{short_integer} 9m46 9r46 129m7 129r15
 10i4 E045{short_integer} 10m46 10r46 132m7 132r15
 11i4 E043{short_integer} 11m46 11r46 127m7 127r15
@@ -92,7 +91,7 @@ X 2 b__led_flasher.adb
 88U17*Activate_All_Tasks_Sequential 89b<c,__gnat_activate_all_tasks>25 150s7
 90i7*Binder_Sec_Stacks_Count{natural} 91m27 91r27 120m7
 92m7*Default_Sized_SS_Pool{3|80M9} 93m27 93r27 121m7
-153U14 Ada_Main_Program 154b<ada,_ada_led_flasher>24 170s7
+153U14 Ada_Main_Program 154b<ada,_ada_pigeon>24 170s7
 157U17*Initialize 157>29 158b<c,__gnat_initialize>25 168s7
 157m29 Addr{3|80M9}
 160U17*Finalize 161b<c,__gnat_finalize>25 172s7

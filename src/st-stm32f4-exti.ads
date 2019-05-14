@@ -8,7 +8,7 @@
 
 with System; use System;
 
-package ST.STM32F4.EXTI is
+package ST.STM32F4.EXTI with Preelaborate is
 
    ---------------------------
    -- EXTI Memory Addresses --

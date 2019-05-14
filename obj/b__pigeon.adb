@@ -1,7 +1,7 @@
 pragma Warnings (Off);
 pragma Ada_95;
-pragma Source_File_Name (ada_main, Spec_File_Name => "b__led_flasher.ads");
-pragma Source_File_Name (ada_main, Body_File_Name => "b__led_flasher.adb");
+pragma Source_File_Name (ada_main, Spec_File_Name => "b__pigeon.ads");
+pragma Source_File_Name (ada_main, Body_File_Name => "b__pigeon.adb");
 pragma Suppress (Overflow_Check);
 
 package body ada_main is
@@ -151,7 +151,7 @@ package body ada_main is
    end adainit;
 
    procedure Ada_Main_Program;
-   pragma Import (Ada, Ada_Main_Program, "_ada_led_flasher");
+   pragma Import (Ada, Ada_Main_Program, "_ada_pigeon");
 
    procedure main is
       procedure Initialize (Addr : System.Address);
@@ -175,12 +175,12 @@ package body ada_main is
 --  BEGIN Object file/option list
    --   C:\Users\trasmussen\Documents\STM\pigeon\obj\st.o
    --   C:\Users\trasmussen\Documents\STM\pigeon\obj\st-stm32f4.o
+   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\st-stm32f4-exti.o
    --   C:\Users\trasmussen\Documents\STM\pigeon\obj\st-stm32f4-gpio.o
    --   C:\Users\trasmussen\Documents\STM\pigeon\obj\st-stm32f4-rcc.o
-   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\st-stm32f4-exti.o
    --   C:\Users\trasmussen\Documents\STM\pigeon\obj\button.o
    --   C:\Users\trasmussen\Documents\STM\pigeon\obj\lights.o
-   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\led_flasher.o
+   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\pigeon.o
    --   -LC:\Users\trasmussen\Documents\STM\pigeon\obj\
    --   -LC:\Users\trasmussen\Documents\STM\pigeon\obj\
    --   -LC:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\adalib\

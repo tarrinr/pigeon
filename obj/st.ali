@@ -20,7 +20,7 @@ U st%s			st.ads			2a9112eb NE OO PU PK IU
 
 D st.ads		20180524060830 2a9112eb st%s
 D system.ads		20180524194940 db831581 system%s
-D c:\gnat\2018-arm-elf\share\examples\gnat-cross\led_flasher-stm32f4\gnat.adc  20180524060830 00000000
+D c:\users\trasmussen\documents\stm\pigeon\gnat.adc  20180524060830 00000000
 X 1 st.ads
 10K9*ST 32l5 32e7
 12E9*Enable_Type 12e41 13r8

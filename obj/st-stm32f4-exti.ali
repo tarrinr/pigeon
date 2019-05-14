@@ -1,5 +1,5 @@
 V "GNAT Lib v2018"
-A -O0
+A -O2
 A -gnatA
 A --RTS=C:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\
 A -mlittle-endian
@@ -7,7 +7,6 @@ A -mfloat-abi=hard
 A -mcpu=cortex-m4
 A -mfpu=fpv4-sp-d16
 A -mthumb
-A -g
 A -gnatwa
 A -gnatQ
 A -gnatw.X
@@ -18,17 +17,17 @@ RV NO_IMPLEMENTATION_ATTRIBUTES
 RV NO_IMPLEMENTATION_PRAGMAS
 RV SPARK_05
 
-U st.stm32f4.exti%s	st-stm32f4-exti.ads	452a6116 NE OO PK IU
+U st.stm32f4.exti%s	st-stm32f4-exti.ads	d65c81f3 NE OO PR PK IU
 W st.stm32f4%s		st-stm32f4.ads		st-stm32f4.ali
 W system%s		system.ads		system.ali
 Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
 
 D st.ads		20180524060830 2a9112eb st%s
 D st-stm32f4.ads	20180524060830 0c6e201d st.stm32f4%s
-D st-stm32f4-exti.ads	20180524060830 92c7548a st.stm32f4.exti%s
+D st-stm32f4-exti.ads	20190514225838 01b1b46f st.stm32f4.exti%s
 D system.ads		20180524194940 db831581 system%s
 D s-unstyp.ads		20180524194940 34867c83 system.unsigned_types%s
-D c:\gnat\2018-arm-elf\share\examples\gnat-cross\led_flasher-stm32f4\gnat.adc  20180524060830 00000000
+D c:\users\trasmussen\documents\stm\pigeon\gnat.adc  20180524060830 00000000
 X 1 st.ads
 10K9*ST 32e7 3|11r9 108r5
 16E9*Enabled_Type 16e44 3|34r55
