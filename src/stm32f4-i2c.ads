@@ -1,64 +1,250 @@
---
---  Access to the STM32F407 I2C registers
---
 
---  For register details see:
---  Chapter 27 - Inter-integrated circuit (I2C) interface,
+--  Chapter 27 - Inter-integrated circuit (I2C) interface
 --  STMicroelectronic RM0090 Reference Manual
 
 with System; use System;
 
-package ST.STM32F4.I2C with Preelaborate is
+package STM32F4.I2C with Preelaborate is
 
-   --------------------------
-   -- I2C Memory Addresses --
-   --------------------------
 
-   RCC_Base_Address         : constant := 16#4000_5400#;
-   CR1_Offset_Address       : constant := 16#00#;
-   CR2_Offset_Address       : constant := 16#04#;
-   OAR1_Offset_Address      : constant := 16#08#;
-   OAR2_Offset_Address      : constant := 16#0C#;
-   DR_Offset_Address        : constant := 16#10#;
-   SR1_Offset_Address       : constant := 16#14#;
-   SR2_Offset_Address       : constant := 16#18#;
-   CCR_Offset_Address       : constant := 16#1C#;
-   TRISE_Offset_Address     : constant := 16#20#;
-   FLTR_Offset_Address      : constant := 16#24#;
+   ----------------------
+   -- MEMORY ADDRESSES --
+   ----------------------
 
-   -----------------------
-   -- Hardware Features --
-   -----------------------
+   RCC_BASE_ADDRESS     : constant := 16#4000_5400#;
 
-   type I2C_Ports is (Port_1, Port_2, Port_3);
+   CR1_OFFSET_ADDRESS   : constant := 16#00#;
+   CR2_OFFSET_ADDRESS   : constant := 16#04#;
+   OAR1_OFFSET_ADDRESS  : constant := 16#08#;
+   OAR2_OFFSET_ADDRESS  : constant := 16#0C#;
+   DR_OFFSET_ADDRESS    : constant := 16#10#;
+   SR1_OFFSET_ADDRESS   : constant := 16#14#;
+   SR2_OFFSET_ADDRESS   : constant := 16#18#;
+   CCR_OFFSET_ADDRESS   : constant := 16#1C#;
+   TRISE_OFFSET_ADDRESS : constant := 16#20#;
+   FLTR_OFFSET_ADDRESS  : constant := 16#24#;
 
-   type SMBus_Mode is (I2C_Mode, SMBus_Mode);
-   type SMBus_Type is (SMBus_Device, SMBus_Host);
-   type POS_Type is (Current_Byte, Next_Byte);
-   type SMBus_Alert_Type is (SMBA_High, SMBA_Low);
 
-   type Clock_Freq is mod 2 ** 6;
+   ------------------
+   -- REGISTER MAP --
+   ------------------
 
-   type Interface_Address_Type is mod 2 ** 10;
-   type Address_Mode_Type is (7_Bit_Address, 10_Bit_Address);
+   --
+   -- Control register 1
+   --
 
-   type Dual_Interface_Address_Type is mod 2 ** 7;
+   -- Data types
+   type SWRST_type     is mod 2 ** 1;
+   type ALERT_type     is mod 2 ** 1;
+   type PEC_type       is mod 2 ** 1;
+   type POS_type       is mod 2 ** 1;
+   type ACK_type       is mod 2 ** 1;
+   type STOP_type      is mod 2 ** 1;
+   type START_type     is mod 2 ** 1;
+   type NOSTRETCH_type is mod 2 ** 1;
+   type ENGC_type      is mod 2 ** 1;
+   type ENPEC_type     is mod 2 ** 1;
+   type ENARP_type     is mod 2 ** 1;
+   type SMBTYPE_type   is mod 2 ** 1;
+   type SMBUS_type     is mod 2 ** 1;
+   type PE_type        is mod 2 ** 1;
 
-   type Data_Type is mod 2 ** 8;
+   -- Register type
+   type CR1 is record
+      SWRST     : SWRST_type;
+      ALERT     : ALERT_type;
+      PEC       : PEC_type;
+      POS       : POS_type;
+      ACK       : ACK_type;
+      STOP      : STOP_type;
+      START     : START_type;
+      NOSTRETCH : NOSTRETCH_type;
+      ENGC      : ENGC_type;
+      ENPEC     : ENPEC_type;
+      ENARP     : ENARP_type;
+      SMBTYPE   : SMBTYPE_type;
+      SMBUS     : SMBUS_type;
+      PE        : PE_type;
+   end record;
 
-   type PEC_Type is mod 2 ** 8;
+   -- Hardware representation
+   for CR1 use record
+      SWRST     at 0 range 15 .. 15;
+      ALERT     at 0 range 13 .. 13;
+      PEC       at 0 range 12 .. 12;
+      POS       at 0 range 11 .. 11;
+      ACK       at 0 range 10 .. 10;
+      STOP      at 0 range 9 .. 9;
+      START     at 0 range 8 .. 8;
+      NOSTRETCH at 0 range 7 .. 7;
+      ENGC      at 0 range 6 .. 6;
+      ENPEC     at 0 range 5 .. 5;
+      ENARP     at 0 range 4 .. 4;
+      SMBTYPE   at 0 range 3 .. 3;
+      SMBUS     at 0 range 1 .. 1;
+      PE        at 0 range 0 .. 0;
+   end record;
 
-   type CCR_Type is mod 2 ** 12;
-   type Duty_Cycle_Mode is (Fm_Mode_2, Fm_Mode_16_9);
-   type Master_Mode_Type is (Sm_Mode, Fm_Mode);
 
-   type Rise_Time_Type is mod 2 ** 6;
+   --
+   -- Control register 2
+   --
 
-   type Digital_Noise_Filter_Type is (Disable, Enable_TPCLK_1, Enable_TPCLK_2, Enable_TPCLK_3,
-                                      Enable_TPCLK_4, Enable_TPCLK_5, Enable_TPCLK_6,
-                                      Enable_TPCLK_7, Enable_TPCLK_8, Enable_TPCLK_9,
-                                      Enable_TPCLK_10, Enable_TPCLK_11, Enable_TPCLK_12,
-                                      Enable_TPCLK_13, Enable_TPCLK_14, Enable_TPCLK_15);
+   -- Data types
+   type LAST_type    is mod 2 ** 1;
+   type DMAEN_type   is mod 2 ** 1;
+   type ITBUFEN_type is mod 2 ** 1;
+   type ITEVTEN_type is mod 2 ** 1;
+   type ITERREN_type is mod 2 ** 1;
+   type FREQ_type    is mod 2 ** 6;
+
+   -- Register type
+   type CR2 is record
+      LAST    : LAST_type;
+      DMAEN   : DMAEN_type;
+      ITBUFEN : ITBUFEN_type;
+      ITEVTEN : ITEVTEN_type;
+      ITERREN : ITERREN_type;
+      FREQ    : FREQ_type;
+   end record;
+
+   -- Hardware representation
+   for CR2 use record
+      LAST    at 0 range 12 .. 12;
+      DMAEN   at 0 range 11 .. 11;
+      ITBUFEN at 0 range 10 .. 10;
+      ITEVTEN at 0 range 9 .. 9;
+      ITERREN at 0 range 8 .. 8;
+      FREQ    at 0 range 0 .. 5;
+   end record;
+
+
+   --
+   -- Own address register 1
+   --
+
+   -- Data types
+   type ADDMODE_type is mod 2 ** 1;
+   type ADD_type     is mod 2 ** 10;
+
+   -- Register type
+   type OAR1 is record
+      ADDMODE : ADDMODE_type;
+      ADD     : ADD_type;
+   end record;
+
+   -- Hardware representation
+   for OAR1 use record
+      ADDMODE at 0 range 15 .. 15;
+      ADD     at 0 range 0 .. 9;
+   end record;
+
+
+   --
+   -- Own address register 2
+   --
+
+   -- Data types
+   type ADD2_type   is mod 2 ** 7;
+   type ENDUAL_type is mod 2 ** 1;
+
+   -- Register type
+   type OAR2 is record
+      ADD2   : ADD2_type;
+      ENDUAL : ENDUAL_type;
+   end record;
+
+   -- Hardware representation
+   for OAR1 use record
+      ADD2   at 0 range 1 .. 7;
+      ENDUAL at 0 range 0 .. 0;
+   end record;
+
+
+   --
+   -- Data register
+   --
+
+   -- Data types
+   type DR_type is mod 2 ** 8;
+
+   -- Register type
+   type DR is record
+      DR : DR_type;
+   end record;
+
+   -- Hardware representation
+   for DR use record
+      DR at 0 range 0 .. 7;
+   end record;
+
+   
+   --
+   -- Status register 1
+   --
+
+   -- Data types
+   type SMBALERT_type is mod 2 ** 1;
+   type TIMEOUT_type  is mod 2 ** 1;
+   type PECERR_type   is mod 2 ** 1;
+   type OVR_type      is mod 2 ** 1;
+   type AF_type       is mod 2 ** 1;
+   type ARLO_type     is mod 2 ** 1;
+   type BERR_type     is mod 2 ** 1;
+   type TxE_type      is mod 2 ** 1;
+   type RxNE_type     is mod 2 ** 1;
+   type STOPF_type    is mod 2 ** 1;
+   type ADD10_type    is mod 2 ** 1;
+   type BTF_type      is mod 2 ** 1;
+   type ADDR_type     is mod 2 ** 1;
+   type SB_type       is mod 2 ** 1;
+
+   -- Register type
+   type SR1 is record
+      SMBALERT : SMBALERT_type;
+      TIMEOUT  : TIMEOUT_type;
+      PECERR   : PECERR_type;
+      OVR      : OVR_type;
+      AF       : AF_type;
+      ARLO     : ARLO_type;
+      BERR     : BERR_type;
+      TxE      : TxE_type;
+      RxNE     : RxNE_type;
+      STOPF    : STOPF_type;
+      ADD10    : ADD10_type;
+      BTF      : BTF_type;
+      ADDR     : ADDR_type;
+      SB       : SB_type;
+   end record;
+
+   -- Hardware representation
+   for SR1 use record
+      SMBALERT at 0 range 15 .. 15;
+      TIMEOUT  at 0 range 14 .. 14;
+      PECERR   at 0 range 12 .. 12;
+      OVR      at 0 range 11 .. 11;
+      AF       at 0 range 10 .. 10;
+      ARLO     at 0 range 9 .. 9;
+      BERR     at 0 range 8 .. 8;
+      TxE      at 0 range 7 .. 7;
+      RxNE     at 0 range 6 .. 6;
+      STOPF    at 0 range 4 .. 4;
+      ADD10    at 0 range 3 .. 3;
+      BTF      at 0 range 2 .. 2;
+      ADDR     at 0 range 1 .. 1;
+      SB       at 0 range 0 .. 0;
+   end record;
+
+
+
+
+
+
+
+
+
+
+
    --------------------
    -- Register Types --
    --------------------
@@ -248,16 +434,16 @@ package ST.STM32F4.I2C with Preelaborate is
    end record;
 
    for I2C_Port_Registers use record
-      Control_1_Register     at CR1_Offset_Address   range 0 .. 15;
-      Control_2_Register     at CR2_Offset_Address   range 0 .. 12;
-      Own_Address_1_Register at OAR1_Offset_Address  range 0 .. 15;
-      Own_Address_2_Register at OAR2_Offset_Address  range 0 .. 7;
-      Data_Register          at DR_Offset_Address    range 0 .. 7;
-      Status_1_Register      at SR1_Offset_Address   range 0 .. 15;
-      Status_2_Register      at SR2_Offset_Address   range 0 .. 15;
-      Clock_Control_Register at CCR_Offset_Address   range 0 .. 15;
-      TRISE_Register         at TRISE_Offset_Address range 0 .. 5;
-      FLTR_Register          at FLTR_Offset_Address  range 0 .. 4;
+      Control_1_Register     at CR1_OFFSET_ADDRESS   range 0 .. 15;
+      Control_2_Register     at CR2_OFFSET_ADDRESS   range 0 .. 12;
+      Own_Address_1_Register at OAR1_OFFSET_ADDRESS  range 0 .. 15;
+      Own_Address_2_Register at OAR2_OFFSET_ADDRESS  range 0 .. 7;
+      Data_Register          at DR_OFFSET_ADDRESS    range 0 .. 7;
+      Status_1_Register      at SR1_OFFSET_ADDRESS   range 0 .. 15;
+      Status_2_Register      at SR2_OFFSET_ADDRESS   range 0 .. 15;
+      Clock_Control_Register at CCR_OFFSET_ADDRESS   range 0 .. 15;
+      TRISE_Register         at TRISE_OFFSET_ADDRESS range 0 .. 5;
+      FLTR_Register          at FLTR_OFFSET_ADDRESS  range 0 .. 4;
    end record;
 
    -------------------

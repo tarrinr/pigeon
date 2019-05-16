@@ -33,49 +33,18 @@ package ST.STM32F4.USART with Preelaborate is
    -- Hardware Features --
    -----------------------
 
-   type HSI_Clock_Calibration is mod 2 ** 8;
-   type HSI_Clock_Trimming is mod 2 ** 5;
+   type Data_Type is mod 2 ** 8;
 
-   type Peripheral_Division_Factor is mod 2 ** 4;
-   type Entry_Clock_Source_Type is
-     (High_Speed_Internal_Clock, High_Speed_External_Clock);
-   type System_Division_Factor is (Divide_By_2, Divide_By_4,
-                                   Divide_By_6, Divide_By_8);
-   type Multiplication_Factor is mod 2 ** 9;
-   type Input_Clock_Factor is mod 2 ** 6;
+   type Mantissa_Type is mod 2 ** 12;
+   type Fraction_Type is mod 2 ** 4;
 
-   type MCO2_Clock_Source is (System_Clock, PLL_I2S, High_Speed_External_Clock,
-                         PLL_Clock);
-   type MCO1_Clock_Source is (High_Speed_Internal_Clock,
-                              Low_Speed_External_Clock,
-                              High_Speed_External_Clock,
-                              PLL_Clock);
-   type MCO_Prescale_Factor is (No_Division, Divide_By_2, Divide_By_3,
-                                Divide_By_4, Divide_By_5);
-   type I2S_Clock_Source is (PLL_I2S, External);
-   type RTC_Prescale_Factor is mod 2 ** 5;
-   type APB_Prescale_Factor is (No_Division, Divide_By_2, Divide_By_4,
-                                Divide_By_8, Divide_By_16);
-   type AHB_Prescale_Factor is (No_Division, Divide_By_2, Divide_By_4,
-                                Divide_By_8, Divide_By_16, Divide_By_64,
-                                Divide_By_128, Divide_By_256, Divide_By_512);
-   type System_Clock_Source_Type is (High_Speed_Internal_Clock,
-                                     High_Speed_External_Clock,
-                                     PLL);
-
-   type Reset_Type is (Do_Not_Reset, Reset);
-
-   type RTC_Clock_Source_Type is (No_Clock,
-                                  Low_Speed_External_Clock,
-                                  Low_Speed_Internal_Clock,
-                                  High_Speed_External_Clock_Derived);
-
-   type Spread_Selection is (Center_Spread, Down_Spread);
-   type Incrementation_Step_Size is mod 2 ** 15;
-   type Modulation_Period_Type is mod 2 ** 13;
-
-   type I2S_Clock_Division_Factor is mod 2 ** 3;
-   type VCO_Multiplaction_Factor is mod 2 ** 9;
+   type Oversampling_Type is (Oversampling_16, Oversampling_8);
+   type Word_Length_Type is (Databits_8, Databits_9);
+   type Wakeup_Type is (Idle_Line, Address_Mark);
+   type Parity_Type is (Even, Odd);
+   type RX_Wakeup_Type is (Active_Mode, Mute_Mode);
+   type Stop_Bits_Type is (Stop_Bit_1, Stop_Bit_0_5, Stop_Bit_2, Stop_Bit_1_5);
+   type Clock_Polarity_Type is (Steady_High, Steady_Low);
 
    --------------------
    -- Register Types --
@@ -94,244 +63,38 @@ package ST.STM32F4.USART with Preelaborate is
       Parity_Error          : Occurred_Type;
    end record;
 
-   type Clock_Control is record
-      PLL_I2S_Locked                        : Boolean;
-      PLL_I2S                               : Enable_Type;
-      PLL_Main_Locked                       : Boolean;
-      PLL_Main                              : Enable_Type;
-      Clock_Security_System                 : Enable_Type;
-      High_Speed_External_Clock_Bypass      : Enable_Type;
-      High_Speed_External_Clock_Ready       : Boolean;
-      High_Speed_External_Clock             : Enable_Type;
-      High_Speed_Internal_Clock_Calibration : HSI_Clock_Calibration;
-      High_Speed_Internal_Clock_Trimming    : HSI_Clock_Trimming;
-      High_Speed_Internal_Clock_Ready       : Boolean;
-      High_Speed_Internal_Clock             : Enable_Type;
+   type Data is record
+      Data_Buffer : Data_Type;
+   end record
+
+   type Baud_Rate is record
+      DIV_Mantissa : Mantissa_Type;
+      DIV_Fraction : Fraction_Type;
    end record;
 
-   type PLL_Configuration is record
-      Peripheral_Clock_Divider : Peripheral_Division_Factor;
-      Clock_Source             : Entry_Clock_Source_Type;
-      System_Clock_Divider     : System_Division_Factor;
-      VCO_Multiplier           : Multiplication_Factor;
-      Input_Clock_Divider      : Input_Clock_Factor;
+   type Control_1 is record
+      Oversampling_Mode     : Oversampling_Type;
+      USART_Enable          : Enable_Type;
+      Word_Length           : Word_Length_Type;
+      Wakeup_Method         : Wakeup_Type;
+      Parity_Control        : Enable_Type;
+      Parity_Selection      : Parity_Type;
+      PE_Interrupt          : Enable_Type;
+      TXE_Interrupt         : Enable_Type;
+      TX_Complete_Interrupt : Enable_Type;
+      RXNE_Interrupt        : Enable_Type;
+      IDLE_Interrupt        : Enable_Type;
+      Transmitter_Enable    : Enable_Type;
+      Receiver_Enable       : Enable_Type;
+      Receiver_Wakeup       : RX_Wakeup_Type;
+      Send_Break            : Enable_Type;
    end record;
 
-   type Clock_Configuration is record
-      Microcontroller_Clock_Output_2           : MCO2_Clock_Source;
-      Microcontroller_Clock_Output_2_Prescaler : MCO_Prescale_Factor;
-      Microcontroller_Clock_Output_1_Prescaler : MCO_Prescale_Factor;
-      I2S_Clock_Selection                      : I2S_Clock_Source;
-      Microcontroller_Clock_Output_1           : MCO1_Clock_Source;
-      HSE_Clock_Divider_For_RTC                : RTC_Prescale_Factor;
-      APB2_Prescaler                           : APB_Prescale_Factor;
-      APB1_Prescaler                           : APB_Prescale_Factor;
-      AHB_Prescaler                            : AHB_Prescale_Factor;
-      System_Clock_Status                      : System_Clock_Source_Type;
-      System_Clock_Source                      : System_Clock_Source_Type;
-   end record;
-
-   type Clock_Interrupt is record
-      Clock_Security_System_Clear            : Boolean;
-      PLL_I2S_Ready_Clear                    : Boolean;
-      Main_PLL_Ready_Clear                   : Boolean;
-      High_Speed_External_Clock_Ready_Clear  : Boolean;
-      High_Speed_Internal_Clock_Ready_Clear  : Boolean;
-      Low_Speed_External_Clock_Ready_Clear   : Boolean;
-      Low_Speed_Internal_Clock_Ready_Clear   : Boolean;
-      PLL_I2S_Ready_Enable                   : Enable_Type;
-      Main_PLL_Read_Enable                   : Enable_Type;
-      High_Speed_External_Clock_Ready_Enable : Enable_Type;
-      High_Speed_Internal_Clock_Ready_Enable : Enable_Type;
-      Low_Speed_External_Clock_Ready_Enable  : Enable_Type;
-      Low_Speed_Internal_Clock_Ready_Enable  : Enable_Type;
-      Clock_Security_System                  : Boolean;
-      PLL_I2S_Ready                          : Boolean;
-      Main_PLL_Ready                         : Boolean;
-      High_Speed_External_Clock_Ready        : Boolean;
-      High_Speed_Internal_Clock_Ready        : Boolean;
-      Low_Speed_External_Clock_Ready         : Boolean;
-      Low_Speed_Internal_Clock_Ready         : Boolean;
-   end record;
-
-   type AHB1_Peripheral_Reset is record
-      USB_OTG_HS   : Reset_Type;
-      Ethernet_Mac : Reset_Type;
-      DMA2         : Reset_Type;
-      DMA1         : Reset_Type;
-      CRC          : Reset_Type;
-      IO_Port_I    : Reset_Type;
-      IO_Port_H    : Reset_Type;
-      IO_Port_G    : Reset_Type;
-      IO_Port_F    : Reset_Type;
-      IO_Port_E    : Reset_Type;
-      IO_Port_D    : Reset_Type;
-      IO_Port_C    : Reset_Type;
-      IO_Port_B    : Reset_Type;
-      IO_Port_A    : Reset_Type;
-   end record;
-
-   type AHB2_Peripheral_Reset is record
-      USB_OTG_FS              : Reset_Type;
-      Random_Number_Generator : Reset_Type;
-      Hash                    : Reset_Type;
-      Cryptographic           : Reset_Type;
-      Camera_Interface        : Reset_Type;
-   end record;
-
-   type AHB3_Peripheral_Reset is record
-      Flexible_Static_Memory_Controller : Reset_Type;
-   end record;
-
-   type APB1_Peripheral_Reset is record
-      DAC             : Reset_Type;
-      Power_Interface : Reset_Type;
-      CAN2            : Reset_Type;
-      CAN1            : Reset_Type;
-      I2C3            : Reset_Type;
-      I2C2            : Reset_Type;
-      I2C1            : Reset_Type;
-      UART5           : Reset_Type;
-      UART4           : Reset_Type;
-      UART3           : Reset_Type;
-      UART2           : Reset_Type;
-      SPI3            : Reset_Type;
-      SPI2            : Reset_Type;
-      Window_Watchdog : Reset_Type;
-      TIM14           : Reset_Type;
-      TIM13           : Reset_Type;
-      TIM12           : Reset_Type;
-      TIM7            : Reset_Type;
-      TIM6            : Reset_Type;
-      TIM5            : Reset_Type;
-      TIM4            : Reset_Type;
-      TIM3            : Reset_Type;
-      TIM2            : Reset_Type;
-   end record;
-
-   type APB2_Peripheral_Reset is record
-      TIM11                           : Reset_Type;
-      TIM10                           : Reset_Type;
-      TIM9                            : Reset_Type;
-      System_Configuration_Controller : Reset_Type;
-      SPI1                            : Reset_Type;
-      SDIO                            : Reset_Type;
-      ADC                             : Reset_Type;
-      USART6                          : Reset_Type;
-      USART1                          : Reset_Type;
-      TIM8                            : Reset_Type;
-      TIM1                            : Reset_Type;
-   end record;
-
-   type AHB1_Peripheral_Clock_Enable is record
-      USB_OTG_HS_ULPI       : Enable_Type;
-      USB_OTG_HS            : Enable_Type;
-      Ethernet_PTP          : Enable_Type;
-      Ethernet_Reception    : Enable_Type;
-      Ethernet_Transmission : Enable_Type;
-      Ethernet_Mac          : Enable_Type;
-      DMA2                  : Enable_Type;
-      DMA1                  : Enable_Type;
-      CCM_Data_Ram          : Enable_Type;
-      Backup_SRAM           : Enable_Type;
-      CRC                   : Enable_Type;
-      IO_Port_I             : Enable_Type;
-      IO_Port_H             : Enable_Type;
-      IO_Port_G             : Enable_Type;
-      IO_Port_F             : Enable_Type;
-      IO_Port_E             : Enable_Type;
-      IO_Port_D             : Enable_Type;
-      IO_Port_C             : Enable_Type;
-      IO_Port_B             : Enable_Type;
-      IO_Port_A             : Enable_Type;
-   end record;
-
-   type AHB2_Peripheral_Clock_Enable is record
-      USB_OTG_FS              : Enable_Type;
-      Random_Number_Generator : Enable_Type;
-      Hash                    : Enable_Type;
-      Cryptographic           : Enable_Type;
-      Camera_Interface        : Enable_Type;
-   end record;
-
-   type AHB3_Peripheral_Clock_Enable is record
-      Flexible_Static_Memory_Controller : Enable_Type;
-   end record;
-
-   type APB1_Peripheral_Clock_Enable is record
-      DAC             : Enable_Type;
-      Power_Interface : Enable_Type;
-      CAN2            : Enable_Type;
-      CAN1            : Enable_Type;
-      I2C3            : Enable_Type;
-      I2C2            : Enable_Type;
-      I2C1            : Enable_Type;
-      UART5           : Enable_Type;
-      UART4           : Enable_Type;
-      UART3           : Enable_Type;
-      UART2           : Enable_Type;
-      SPI3            : Enable_Type;
-      SPI2            : Enable_Type;
-      Window_Watchdog : Enable_Type;
-      TIM14           : Enable_Type;
-      TIM13           : Enable_Type;
-      TIM12           : Enable_Type;
-      TIM7            : Enable_Type;
-      TIM6            : Enable_Type;
-      TIM5            : Enable_Type;
-      TIM4            : Enable_Type;
-      TIM3            : Enable_Type;
-      TIM2            : Enable_Type;
-   end record;
-
-   type APB2_Peripheral_Clock_Enable is record
-      TIM11                           : Enable_Type;
-      TIM10                           : Enable_Type;
-      TIM9                            : Enable_Type;
-      System_Configuration_Controller : Enable_Type;
-      SPI1                            : Enable_Type;
-      SDIO                            : Enable_Type;
-      ADC3                            : Enable_Type;
-      ADC2                            : Enable_Type;
-      ADC1                            : Enable_Type;
-      USART6                          : Enable_Type;
-      USART1                          : Enable_Type;
-      TIM8                            : Enable_Type;
-      TIM1                            : Enable_Type;
-   end record;
-
-   type Backup_Domain_Control is record
-      Reset                           : Reset_Type;
-      RTC_Clock                       : Enable_Type;
-      RTC_Clock_Source                : RTC_Clock_Source_Type;
-      Low_Speed_External_Clock_Bypass : Enable_Type;
-      Low_Speed_External_Clock_Ready  : Boolean;
-      Low_Speed_External_Clock        : Enable_Type;
-   end record;
-
-   type Clock_Control_And_Status is record
-      Low_Power_Reset                : Occurred_Type;
-      Window_Watchdog_Reset          : Occurred_Type;
-      Independent_Watchdog_Reset     : Occurred_Type;
-      Software_Reset                 : Occurred_Type;
-      POR_PDR_Reset                  : Occurred_Type;
-      PIN_Reset                      : Occurred_Type;
-      BOR_Reset                      : Occurred_Type;
-      Remove_Reset_Flag              : Boolean;
-      Low_Speed_Internal_Clock_Ready : Boolean;
-      Low_Speed_Internal_Clock       : Enable_Type;
-   end record;
-
-   type Spread_Spectrum_Clock_Generation is record
-      Spread_Spectrum_Modulation : Enable_Type;
-      Spread                     : Spread_Selection;
-      Incrementation_Step        : Incrementation_Step_Size;
-      Modulation_Period          : Modulation_Period_Type;
-   end record;
-
-   type PLL_I2S_Configuration is record
-      I2S_Clocks_Divider : I2S_Clock_Division_Factor;
-      VCO_Multiplier     : VCO_Multiplaction_Factor;
+   type Control_2 is record
+      LIN_Enable     : Enable_Type;
+      Stop_Bits      : Stop_Bits_Type;
+      Clock_Enable   : Enable_Type;
+      Clock_Polarity : Clock_Polarity_Type;
    end record;
 
    ------------------------------

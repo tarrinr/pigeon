@@ -1,5 +1,5 @@
 V "GNAT Lib v2018"
-A -O0
+A -O2
 A -gnatA
 A --RTS=C:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\
 A -mlittle-endian
@@ -7,7 +7,6 @@ A -mfloat-abi=hard
 A -mcpu=cortex-m4
 A -mfpu=fpv4-sp-d16
 A -mthumb
-A -g
 A -gnatwa
 A -gnatQ
 A -gnatw.X
@@ -31,7 +30,7 @@ D st-stm32f4-gpio.ads	20180524060830 83c32d28 st.stm32f4.gpio%s
 D system.ads		20180524194940 db831581 system%s
 D s-stoele.ads		20180524194940 2dc34a04 system.storage_elements%s
 D s-unstyp.ads		20180524194940 34867c83 system.unsigned_types%s
-D c:\users\trasmussen\documents\stm\pigeon\gnat.adc  20180524060830 00000000
+D c:\users\trasmussen\documents\stm\pigeon\gnat.adc  20190516144236 00000000
 X 1 st.ads
 10K9*ST 32e7 3|10r9 250r5
 X 2 st-stm32f4.ads
