@@ -104,20 +104,20 @@ package ST.STM32F4.I2C with Preelaborate is
    end record;
 
    type Status_1 is record
-      SMBus_Alert          : Enabled_Type;
-      Timeout              : Enabled_Type;
-      PEC_Error            : Enabled_Type;
-      Overrun_Underrun     : Enabled_Type;
-      Acknowledge_Fail     : Enabled_Type;
-      Arbitration_Lost     : Enabled_Type;
-      Bus_Error            : Enabled_Type;
-      DR_TX_Empty          : Enabled_Type;
-      DR_RX_Not_Empty      : Enabled_Type;
-      Stop_Detected        : Enabled_Type;
-      Header_Sent          : Enabled_Type;
-      Byte_Transfer_Done   : Enabled_Type;
-      Address_Sent_Matched : Enabled_Type;
-      Start_Bit            : Enabled_Type;
+      SMBus_Alert          : Occurred_Type;
+      Timeout              : Occurred_Type;
+      PEC_Error            : Occurred_Type;
+      Overrun_Underrun     : Occurred_Type;
+      Acknowledge_Fail     : Occurred_Type;
+      Arbitration_Lost     : Occurred_Type;
+      Bus_Error            : Occurred_Type;
+      DR_TX_Empty          : Occurred_Type;
+      DR_RX_Not_Empty      : Occurred_Type;
+      Stop_Detected        : Occurred_Type;
+      Header_Sent          : Occurred_Type;
+      Byte_Transfer_Done   : Occurred_Type;
+      Address_Sent_Matched : Occurred_Type;
+      Start_Bit            : Occurred_Type;
    end record;
 
    type Status_2 is record
