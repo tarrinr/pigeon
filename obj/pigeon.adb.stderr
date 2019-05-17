@@ -1,0 +1,7 @@
+pigeon.adb:1:06: file "st.ads" not found
+pigeon.adb:1:06: "pigeon (body)" depends on "lights (spec)"
+pigeon.adb:1:06: "lights (spec)" depends on "st (spec)"
+lights.ads:8:27: "ST" is undefined
+lights.ads:17:18: "GPIO_Ports" is undefined
+lights.ads:18:18: "GPIO_Pins" is undefined
+lights.ads:46:19: "Port_G" is undefined (more references follow)

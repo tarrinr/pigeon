@@ -1,2 +1,2 @@
-package ST.STM32F4 with Pure is
-end ST.STM32F4;
+package STM32F4 with Pure is
+end STM32F4;
