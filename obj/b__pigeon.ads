@@ -142,27 +142,9 @@ package ada_main is
    --  ada.real_time%b
    --  ada.real_time.delays%s
    --  ada.real_time.delays%b
-   --  system.tasking.protected_objects%s
-   --  system.tasking.protected_objects%b
-   --  system.tasking.restricted%s
-   --  system.tasking.restricted.stages%s
-   --  system.tasking.restricted.stages%b
-   --  ada.task_identification%s
-   --  ada.task_identification%b
-   --  system.interrupts%s
-   --  system.interrupts%b
-   --  ada.interrupts%s
-   --  ada.interrupts%b
-   --  ada.interrupts.names%s
-   --  st%s
-   --  st.stm32f4%s
-   --  st.stm32f4.exti%s
-   --  st.stm32f4.gpio%s
-   --  st.stm32f4.rcc%s
-   --  button%s
-   --  button%b
-   --  lights%s
-   --  lights%b
+   --  stm32f4%s
+   --  stm32f4.gpio%s
+   --  stm32f4.rcc%s
    --  pigeon%b
    --  END ELABORATION ORDER
 

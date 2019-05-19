@@ -29,7 +29,7 @@ package STM32F4.EXTI with Preelaborate is
    --
 
    -- Register type
-   type IMR is array (mod 23) of mod 2 ** 1 with Pack;
+   type IMR_register is array (mod 23) of mod 2 ** 1 with Pack;
 
 
    --
@@ -37,7 +37,7 @@ package STM32F4.EXTI with Preelaborate is
    --
 
    -- Register type
-   type EMR is array (mod 23) of mod 2 ** 1 with Pack;
+   type EMR_register is array (mod 23) of mod 2 ** 1 with Pack;
 
 
    --
@@ -45,7 +45,7 @@ package STM32F4.EXTI with Preelaborate is
    --
 
    -- Register type
-   type RTSR is array (mod 23) of mod 2 ** 1 with Pack;
+   type RTSR_register is array (mod 23) of mod 2 ** 1 with Pack;
 
 
    --
@@ -53,7 +53,7 @@ package STM32F4.EXTI with Preelaborate is
    --
 
    -- Register type
-   type FTSR is array (mod 23) of mod 2 ** 1 with Pack;
+   type FTSR_register is array (mod 23) of mod 2 ** 1 with Pack;
 
 
    --
@@ -61,7 +61,7 @@ package STM32F4.EXTI with Preelaborate is
    --
 
    -- Register type
-   type SWIER is array (mod 23) of mod 2 ** 1 with Pack;
+   type SWIER_register is array (mod 23) of mod 2 ** 1 with Pack;
 
 
    --
@@ -69,13 +69,24 @@ package STM32F4.EXTI with Preelaborate is
    --
 
    -- Register type
-   type PR is array (mod 23) of mod 2 ** 1 with Pack;
+   type PR_register is array (mod 23) of mod 2 ** 1 with Pack;
 
 
    ------------------
    -- REGISTER MAP --
    ------------------
 
+   -- Register type
+   type EXTI_Register_Map is record
+      IMR   : IMR_register;
+      EMR   : EMR_register;
+      RTSR  : RTSR_register;
+      FTSR  : FTSR_register;
+      SWIER : SWIER_register;
+      PR    : PR_register;
+   end record;
+
+   -- Hardware representation
    for EXTI_Register_Map use record
       IMR   at IMR_OFFSET_ADDRESS   range 0 .. 22;
       EMR   at EMR_OFFSET_ADDRESS   range 0 .. 22;
@@ -91,6 +102,6 @@ package STM32F4.EXTI with Preelaborate is
    -----------------------------
 
    EXTI : EXTI_Register_Map
-      with Address => System'To_Address (EXTI_Base_Address);
+      with Volatile, Address => System'To_Address (EXTI_BASE_ADDRESS);
 
 end STM32F4.EXTI;

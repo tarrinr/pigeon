@@ -34,25 +34,25 @@ package STM32F4.I2C with Preelaborate is
    --
 
    -- Register type
-   type CR1 is record
-      SWRST     : mod 2 ** 1;
-      ALERT     : mod 2 ** 1;
-      PEC       : mod 2 ** 1;
-      POS       : mod 2 ** 1;
-      ACK       : mod 2 ** 1;
-      STOP      : mod 2 ** 1;
-      START     : mod 2 ** 1;
-      NOSTRETCH : mod 2 ** 1;
-      ENGC      : mod 2 ** 1;
-      ENPEC     : mod 2 ** 1;
-      ENARP     : mod 2 ** 1;
-      SMBTYPE   : mod 2 ** 1;
-      SMBUS     : mod 2 ** 1;
-      PE        : mod 2 ** 1;
+   type CR1_register is record
+      SWRST     : Unsigned_1;
+      ALERT     : Unsigned_1;
+      PEC       : Unsigned_1;
+      POS       : Unsigned_1;
+      ACK       : Unsigned_1;
+      STOP      : Unsigned_1;
+      START     : Unsigned_1;
+      NOSTRETCH : Unsigned_1;
+      ENGC      : Unsigned_1;
+      ENPEC     : Unsigned_1;
+      ENARP     : Unsigned_1;
+      SMBTYPE   : Unsigned_1;
+      SMBUS     : Unsigned_1;
+      PE        : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for CR1 use record
+   for CR1_register use record
       SWRST     at 0 range 15 .. 15;
       ALERT     at 0 range 13 .. 13;
       PEC       at 0 range 12 .. 12;
@@ -75,17 +75,17 @@ package STM32F4.I2C with Preelaborate is
    --
 
    -- Register type
-   type CR2 is record
-      LAST    : is mod 2 ** 1;
-      DMAEN   : is mod 2 ** 1;
-      ITBUFEN : is mod 2 ** 1;
-      ITEVTEN : is mod 2 ** 1;
-      ITERREN : is mod 2 ** 1;
-      FREQ    : is mod 2 ** 6;
+   type CR2_register is record
+      LAST    : Unsigned_1;
+      DMAEN   : Unsigned_1;
+      ITBUFEN : Unsigned_1;
+      ITEVTEN : Unsigned_1;
+      ITERREN : Unsigned_1;
+      FREQ    : Unsigned_6;
    end record;
 
    -- Hardware representation
-   for CR2 use record
+   for CR2_register use record
       LAST    at 0 range 12 .. 12;
       DMAEN   at 0 range 11 .. 11;
       ITBUFEN at 0 range 10 .. 10;
@@ -100,13 +100,13 @@ package STM32F4.I2C with Preelaborate is
    --
 
    -- Register type
-   type OAR1 is record
-      ADDMODE : mod 2 ** 1;
-      ADD     : mod 2 ** 10;
+   type OAR1_register is record
+      ADDMODE : Unsigned_1;
+      ADD     : Unsigned_10;
    end record;
 
    -- Hardware representation
-   for OAR1 use record
+   for OAR1_register use record
       ADDMODE at 0 range 15 .. 15;
       ADD     at 0 range 0 .. 9;
    end record;
@@ -117,13 +117,13 @@ package STM32F4.I2C with Preelaborate is
    --
 
    -- Register type
-   type OAR2 is record
-      ADD2   : mod 2 ** 7;
-      ENDUAL : mod 2 ** 1;
+   type OAR2_register is record
+      ADD2   : Unsigned_7;
+      ENDUAL : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for OAR1 use record
+   for OAR2_register use record
       ADD2   at 0 range 1 .. 7;
       ENDUAL at 0 range 0 .. 0;
    end record;
@@ -134,7 +134,13 @@ package STM32F4.I2C with Preelaborate is
    --
 
    -- Register type
-   type DR is mod 2 ** 8;
+   type DR_register is record
+      DR : Unsigned_8;
+   end record;
+
+   -- Hardware representation
+   for DR_register use record
+      DR at 0 range 0 .. 7;
    end record;
 
    
@@ -143,25 +149,25 @@ package STM32F4.I2C with Preelaborate is
    --
 
    -- Register type
-   type SR1 is record
-      SMBALERT : mod 2 ** 1;
-      TIMEOUT  : mod 2 ** 1;
-      PECERR   : mod 2 ** 1;
-      OVR      : mod 2 ** 1;
-      AF       : mod 2 ** 1;
-      ARLO     : mod 2 ** 1;
-      BERR     : mod 2 ** 1;
-      TxE      : mod 2 ** 1;
-      RxNE     : mod 2 ** 1;
-      STOPF    : mod 2 ** 1;
-      ADD10    : mod 2 ** 1;
-      BTF      : mod 2 ** 1;
-      ADDR     : mod 2 ** 1;
-      SB       : mod 2 ** 1;
+   type SR1_register is record
+      SMBALERT : Unsigned_1;
+      TIMEOUT  : Unsigned_1;
+      PECERR   : Unsigned_1;
+      OVR      : Unsigned_1;
+      AF       : Unsigned_1;
+      ARLO     : Unsigned_1;
+      BERR     : Unsigned_1;
+      TxE      : Unsigned_1;
+      RxNE     : Unsigned_1;
+      STOPF    : Unsigned_1;
+      ADD10    : Unsigned_1;
+      BTF      : Unsigned_1;
+      ADDR     : Unsigned_1;
+      SB       : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for SR1 use record
+   for SR1_register use record
       SMBALERT at 0 range 15 .. 15;
       TIMEOUT  at 0 range 14 .. 14;
       PECERR   at 0 range 12 .. 12;
@@ -184,27 +190,27 @@ package STM32F4.I2C with Preelaborate is
    --
 
    -- Register type
-   type SR2 is record
-      PEC        : mod 2 ** 8;
-      DUALF      : mod 2 ** 1;
-      SMBHOST    : mod 2 ** 1;
-      SMBDEFAULT : mod 2 ** 1;
-      GENCALL    : mod 2 ** 1;
-      TRA        : mod 2 ** 1;
-      BUSY       : mod 2 ** 1;
-      MSL        : mod 2 ** 1;
+   type SR2_register is record
+      PEC        : Unsigned_8;
+      DUALF      : Unsigned_1;
+      SMBHOST    : Unsigned_1;
+      SMBDEFAULT : Unsigned_1;
+      GENCALL    : Unsigned_1;
+      TRA        : Unsigned_1;
+      BUSY       : Unsigned_1;
+      MSL        : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for SR2 use record
-      PEC                at 0 range 8 .. 15;
-      Dual_Address       at 0 range 7 .. 7;
-      SMBus_Host_Address at 0 range 6 .. 6;
-      SMBus_Default      at 0 range 5 .. 5;
-      General_Call       at 0 range 4 .. 4;
-      Data_Transmitted   at 0 range 2 .. 2;
-      Bus_Busy           at 0 range 1 .. 1;
-      Master_Mode        at 0 range 0 .. 0;
+   for SR2_register use record
+      PEC        at 0 range 8 .. 15;
+      DUALF      at 0 range 7 .. 7;
+      SMBHOST    at 0 range 6 .. 6;
+      SMBDEFAULT at 0 range 5 .. 5;
+      GENCALL    at 0 range 4 .. 4;
+      TRA        at 0 range 2 .. 2;
+      BUSY       at 0 range 1 .. 1;
+      MSL        at 0 range 0 .. 0;
    end record;
 
 
@@ -213,14 +219,14 @@ package STM32F4.I2C with Preelaborate is
    --
 
    -- Register type
-   type CCR is record
-      FS   : mod 2 ** 1;
-      DUTY : mod 2 ** 1;
-      CCR  : mod 2 ** 12;
+   type CCR_register is record
+      FS   : Unsigned_1;
+      DUTY : Unsigned_1;
+      CCR  : Unsigned_12;
    end record;
 
    -- Hardware representation
-   for CCR use record
+   for CCR_register use record
       FS   at 0 range 15 .. 15;
       DUTY at 0 range 14 .. 14;
       CCR  at 0 range 0 .. 11;
@@ -232,7 +238,14 @@ package STM32F4.I2C with Preelaborate is
    --
 
    -- Register type
-   type TRISE is mod 2 ** 6;
+   type TRISE_register is record
+      TRISE : Unsigned_6;
+   end record;
+
+   -- Hardware representation
+   for TRISE_register use record
+      TRISE at 0 range 0 .. 5;
+   end record;
 
 
    --
@@ -240,13 +253,13 @@ package STM32F4.I2C with Preelaborate is
    --
 
    -- Register type
-   type FLTR is record
-      ANOFF : mod 2 ** 1;
-      DNF   : mod 2 ** 4;
+   type FLTR_register is record
+      ANOFF : Unsigned_1;
+      DNF   : Unsigned_4;
    end record;
 
    -- Hardware representation
-   for FLTR use record
+   for FLTR_register use record
       ANOFF at 0 range 4 .. 4;
       DNF   at 0 range 0 .. 3;
    end record;
@@ -256,6 +269,21 @@ package STM32F4.I2C with Preelaborate is
    -- REGISTER MAP --
    ------------------
 
+   -- Register type
+   type I2C_Register_Map is record
+      CR1   : CR1_register;
+      CR2   : CR2_register;
+      OAR1  : OAR1_register;
+      OAR2  : OAR2_register;
+      DR    : DR_register;
+      SR1   : SR1_register;
+      SR2   : SR2_register;
+      CCR   : CCR_register;
+      TRISE : TRISE_register;
+      FLTR  : FLTR_register;
+   end record;
+
+   -- Hardware representation
    for I2C_Register_Map use record
       CR1   at CR1_OFFSET_ADDRESS   range 0 .. 15;
       CR2   at CR2_OFFSET_ADDRESS   range 0 .. 12;
@@ -274,7 +302,7 @@ package STM32F4.I2C with Preelaborate is
    -- HARDWARE REPRESENTATION --
    -----------------------------
 
-   type I2C_Ports is (1, 2, 3);
+   type I2C_Ports is range 1 .. 3;
 
    pragma Warnings (Off, "*component of*");
    type I2C_Port_Set is array (I2C_Ports) of I2C_Register_Map
@@ -282,6 +310,6 @@ package STM32F4.I2C with Preelaborate is
    pragma Warnings (On, "*component of*");
 
    I2C : I2C_Port_Set
-      with Address => System'To_Address (I2C_Base_Address);
+      with Volatile, Address => System'To_Address (I2C_BASE_ADDRESS);
 
 end STM32F4.I2C;

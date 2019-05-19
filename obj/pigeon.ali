@@ -19,19 +19,20 @@ RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U pigeon%b		pigeon.adb		7a4349c5 OO SE SU IL
+U pigeon%b		pigeon.adb		10cab150 OO SE SU IL
 W ada%s			ada.ads			ada.ali
 W ada.real_time%s	a-reatim.adb		a-reatim.ali
-W lights%s		lights.adb		lights.ali
+W stm32f4%s		stm32f4.ads		stm32f4.ali
+W stm32f4.gpio%s	stm32f4-gpio.ads	stm32f4-gpio.ali
 
 D ada.ads		20180524194940 76789da1 ada%s
 D a-reatim.ads		20180524194940 4c16970e ada.real_time%s
 D interfac.ads		20180524194940 5ab55268 interfaces%s
 D i-stm32.ads		20180524194940 4d2e1e9b interfaces.stm32%s
 D i-stm32-pwr.ads	20180524194940 10ed2a13 interfaces.stm32.pwr%s
-D lights.ads		20180524060830 0d95c03d lights%s
-D pigeon.adb		20190514225150 3bc01ef6 pigeon%b
-D st-stm32f4-gpio.ads	00000000000000 00000000
+D pigeon.adb		20190519024044 c8186921 pigeon%b
+D stm32f4.ads		20190519023746 550ffb99 stm32f4%s
+D stm32f4-gpio.ads	20190518192732 c1cbb4e6 stm32f4.gpio%s
 D system.ads		20180524194940 db831581 system%s
 D s-bb.ads		20180524194940 09e072ae system.bb%s
 D s-bbbopa.ads		20180524194940 95d97b26 system.bb.board_parameters%s
@@ -47,16 +48,25 @@ D s-multip.ads		20180524194940 f33e0e35 system.multiprocessors%s
 D s-osinte.ads		20180524194940 229b14dd system.os_interface%s
 D s-stm32.ads		20180524194940 e898dba2 system.stm32%s
 D s-stoele.ads		20180524194940 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20180524194940 34867c83 system.unsigned_types%s
 X 1 ada.ads
-16K9*Ada 20e8 7|3r6 12r19
+16K9*Ada 20e8 6|8r6 8r25
 X 2 a-reatim.ads
-41K13*Real_Time 182e18 7|3w10 12r23
-51M9*Time<19|46M9>
-53m4*Time_Last{51M9} 7|12r33
-X 6 lights.ads
-10K9*Lights 61e11 7|1w6 1r35
-X 7 pigeon.adb
-9U11*pigeon 9b11 14l5 14t11
+41K13*Real_Time 182e18 6|8w10 8r29
+51M9*Time<19|46M9> 6|23r16
+61I9*Time_Span<19|81I9>
+68V13*Clock{51M9}<19|134p13> 6|31s20
+72V14*"+"{51M9} 6|33s29 35s29
+131V13*Seconds{61I9} 6|33s31 35s31
+X 6 pigeon.adb
+14U11*pigeon 14b11 68l5 68t11
+23m4 led_delay{2|51M9} 31m7 33r19 35r19
+X 7 stm32f4.ads
+1K9*STM32F4 6|2w6 2r25 4r6 4r25 7|25e12
+X 8 stm32f4-gpio.ads
+6K17*GPIO 6|4w14 4r33 8|179e17
+169n33*D{169E9} 6|28r9 32r12 34r12
 X 19 s-bbtime.ads
 46M9*Time
+81I9*Time_Span<long_long_integer>
 

@@ -32,27 +32,26 @@ package STM32F4.USART with Preelaborate is
    -- REGISTERS --
    ---------------
 
-
    --
    -- Status register
    --
 
    -- Register type
-   type SR is record
-      CTS  : mod 2 ** 1;
-      LBD  : mod 2 ** 1;
-      TXE  : mod 2 ** 1;
-      TC   : mod 2 ** 1;
-      RXNE : mod 2 ** 1;
-      IDLE : mod 2 ** 1;
-      ORE  : mod 2 ** 1;
-      NF   : mod 2 ** 1;
-      FE   : mod 2 ** 1;
-      PE   : mod 2 ** 1;
+   type SR_register is record
+      CTS  : Unsigned_1;
+      LBD  : Unsigned_1;
+      TXE  : Unsigned_1;
+      TC   : Unsigned_1;
+      RXNE : Unsigned_1;
+      IDLE : Unsigned_1;
+      ORE  : Unsigned_1;
+      NF   : Unsigned_1;
+      FE   : Unsigned_1;
+      PE   : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for SR use record
+   for SR_register use record
       CTS  at 0 range 9 .. 9;
       LBD  at 0 range 8 .. 8;
       TXE  at 0 range 7 .. 7;
@@ -71,7 +70,14 @@ package STM32F4.USART with Preelaborate is
    --
 
    -- Register type
-   type DR is mod 2 ** 8;
+   type DR_register is record
+      DR : Unsigned_9;
+   end record;
+
+   -- Hardware representation
+   for DR_register use record
+      DR at 0 range 0 .. 8;
+   end record;
 
 
    --
@@ -79,13 +85,13 @@ package STM32F4.USART with Preelaborate is
    --
 
    -- Register type
-   type BRR is record
-      DIV_MANTISSA : mod 2 ** 12;
-      DIV_FRACTION : mod 2 ** 4;
+   type BRR_register is record
+      DIV_MANTISSA : Unsigned_12;
+      DIV_FRACTION : Unsigned_4;
    end record;
 
    -- Hardware representation
-   for BRR use record
+   for BRR_register use record
       DIV_MANTISSA at 0 range 4 .. 15;
       DIV_FRACTION at 0 range 0 .. 3;
    end record;
@@ -96,26 +102,26 @@ package STM32F4.USART with Preelaborate is
    --
 
    -- Register type
-   type CR1 is record
-      OVER8  : mod 2 ** 1;
-      UE     : mod 2 ** 1;
-      M      : mod 2 ** 1;
-      WAKE   : mod 2 ** 1;
-      PCE    : mod 2 ** 1;
-      PS     : mod 2 ** 1;
-      PEIE   : mod 2 ** 1;
-      TXEIE  : mod 2 ** 1;
-      TCIE   : mod 2 ** 1;
-      RXNEIE : mod 2 ** 1;
-      IDLEIE : mod 2 ** 1;
-      TE     : mod 2 ** 1;
-      RE     : mod 2 ** 1;
-      RWU    : mod 2 ** 1;
-      SBK    : mod 2 ** 1;
+   type CR1_register is record
+      OVER8  : Unsigned_1;
+      UE     : Unsigned_1;
+      M      : Unsigned_1;
+      WAKE   : Unsigned_1;
+      PCE    : Unsigned_1;
+      PS     : Unsigned_1;
+      PEIE   : Unsigned_1;
+      TXEIE  : Unsigned_1;
+      TCIE   : Unsigned_1;
+      RXNEIE : Unsigned_1;
+      IDLEIE : Unsigned_1;
+      TE     : Unsigned_1;
+      RE     : Unsigned_1;
+      RWU    : Unsigned_1;
+      SBK    : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for CR1 use record
+   for CR1_register use record
       OVER8  at 0 range 15 .. 15;
       UE     at 0 range 13 .. 13;
       M      at 0 range 12 .. 12;
@@ -139,20 +145,20 @@ package STM32F4.USART with Preelaborate is
    --
 
    -- Register type
-   type CR2 is record
-      LINEN : mod 2 ** 1;
-      STOP  : mod 2 ** 2;
-      CLKEN : mod 2 ** 1;
-      CPOL  : mod 2 ** 1;
-      CPHA  : mod 2 ** 1;
-      LBCL  : mod 2 ** 1;
-      LBDIE : mod 2 ** 1;
-      LBDL  : mod 2 ** 1;
-      ADD   : mod 2 ** 4;
+   type CR2_register is record
+      LINEN : Unsigned_1;
+      STOP  : Unsigned_2;
+      CLKEN : Unsigned_1;
+      CPOL  : Unsigned_1;
+      CPHA  : Unsigned_1;
+      LBCL  : Unsigned_1;
+      LBDIE : Unsigned_1;
+      LBDL  : Unsigned_1;
+      ADD   : Unsigned_4;
    end record;
 
    -- Hardware representation
-   for CR2 use record
+   for CR2_register use record
       LINEN at 0 range 14 .. 14;
       STOP  at 0 range 12 .. 13;
       CLKEN at 0 range 11 .. 11;
@@ -170,23 +176,23 @@ package STM32F4.USART with Preelaborate is
    --
 
    -- Register type
-   type CR3 is record
-      ONEBIT : mod 2 ** 1;
-      CTSIE  : mod 2 ** 1;
-      CTSE   : mod 2 ** 1;
-      RTSE   : mod 2 ** 1;
-      DMAT   : mod 2 ** 1;
-      DMAR   : mod 2 ** 1;
-      SCEN   : mod 2 ** 1;
-      NACK   : mod 2 ** 1;
-      HDSEL  : mod 2 ** 1;
-      IRLP   : mod 2 ** 1;
-      IREN   : mod 2 ** 1;
-      EIE    : mod 2 ** 1;
+   type CR3_register is record
+      ONEBIT : Unsigned_1;
+      CTSIE  : Unsigned_1;
+      CTSE   : Unsigned_1;
+      RTSE   : Unsigned_1;
+      DMAT   : Unsigned_1;
+      DMAR   : Unsigned_1;
+      SCEN   : Unsigned_1;
+      NACK   : Unsigned_1;
+      HDSEL  : Unsigned_1;
+      IRLP   : Unsigned_1;
+      IREN   : Unsigned_1;
+      EIE    : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for CR3 use record
+   for CR3_register use record
       ONEBIT at 0 range 11 .. 11;
       CTSIE  at 0 range 10 .. 10;
       CTSE   at 0 range 9 .. 9;
@@ -207,13 +213,13 @@ package STM32F4.USART with Preelaborate is
    --
 
    -- Register type
-   type GTPR is record
-      GT  : mod 2 ** 8;
-      PSC : mod 2 ** 8;
+   type GTPR_register is record
+      GT  : Unsigned_8;
+      PSC : Unsigned_8;
    end record;
 
    -- Hardware representation
-   for GTPR use record
+   for GTPR_register use record
       GT  at 0 range 8 .. 15;
       PSC at 0 range 0 .. 7;
    end record;
@@ -223,6 +229,18 @@ package STM32F4.USART with Preelaborate is
    -- REGISTER MAP --
    ------------------
 
+   -- Register type
+   type USART_Register_Map is record
+      SR   : SR_register;
+      DR   : DR_register;
+      BRR  : BRR_register;
+      CR1  : CR1_register;
+      CR2  : CR2_register;
+      CR3  : CR3_register;
+      GTPR : GTPR_register;
+   end record;
+
+   -- Hardware representation
    for USART_Register_Map use record
       SR   at SR_OFFSET_ADDRESS   range 0 .. 9;
       DR   at DR_OFFSET_ADDRESS   range 0 .. 8;
@@ -237,5 +255,41 @@ package STM32F4.USART with Preelaborate is
    -----------------------------
    -- HARDWARE REPRESENTATION --
    -----------------------------
+
+   type USART_Ports is range 1 .. 8;
+   type USART_access is array (USART_Ports) of access USART_Register_Map;
+
+   USART_1 : aliased USART_Register_Map
+      with Address => System'To_Address (USART_1_BASE_ADDRESS);
+   
+   USART_2 : aliased USART_Register_Map
+      with Address => System'To_Address (USART_2_BASE_ADDRESS);
+   
+   USART_3 : aliased USART_Register_Map
+      with Address => System'To_Address (USART_3_BASE_ADDRESS);
+   
+   UART_4 : aliased USART_Register_Map
+      with Address => System'To_Address (UART_4_BASE_ADDRESS);
+   
+   UART_5 : aliased USART_Register_Map
+      with Address => System'To_Address (UART_5_BASE_ADDRESS);
+   
+   USART_6 : aliased USART_Register_Map
+      with Address => System'To_Address (USART_6_BASE_ADDRESS);
+   
+   UART_7 : aliased USART_Register_Map
+      with Address => System'To_Address (UART_7_BASE_ADDRESS);
+   
+   UART_8 : aliased USART_Register_Map
+      with Address => System'To_Address (UART_8_BASE_ADDRESS);
+
+   USART : USART_access := (1 => USART_1'Access,
+                            2 => USART_2'Access,
+                            3 => USART_3'Access,
+                            4 => UART_4'Access,
+                            5 => UART_5'Access,
+                            6 => USART_6'Access,
+                            7 => UART_7'Access,
+                            8 => UART_8'Access);
 
 end STM32F4.USART;

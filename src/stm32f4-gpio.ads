@@ -35,7 +35,7 @@ package STM32F4.GPIO with Preelaborate is
    --
 
    -- Register type
-   type MODER is array (mod 16) of mod 2 ** 2 with Pack;
+   type MODER_register is new Unsigned_16_2;
 
 
    --
@@ -43,7 +43,7 @@ package STM32F4.GPIO with Preelaborate is
    --
 
    -- Register type
-   type OTYPER is array (mod 16) of mod 2 ** 1 with Pack;
+   type OTYPER_register is new Unsigned_16_1;
 
 
    --
@@ -51,7 +51,7 @@ package STM32F4.GPIO with Preelaborate is
    --
 
    -- Register type
-   type OSPEEDR is array (mod 16) of mod 2 ** 2 with Pack;
+   type OSPEEDR_register is new Unsigned_16_2;
 
 
    --
@@ -59,7 +59,7 @@ package STM32F4.GPIO with Preelaborate is
    --
 
    -- Register type
-   type PUPDR is array (mod 16) of mod 2 ** 2 with Pack;
+   type PUPDR_register is new Unsigned_16_2;
 
 
    --
@@ -67,7 +67,7 @@ package STM32F4.GPIO with Preelaborate is
    --
 
    -- Register type
-   type IDR is array (mod 16) of mod 2 ** 1 with Pack;
+   type IDR_register is new Unsigned_16_1;
 
 
    --
@@ -75,7 +75,7 @@ package STM32F4.GPIO with Preelaborate is
    --
 
    -- Register type
-   type ODR is array (mod 16) of mod 2 ** 1 with Pack;
+   type ODR_register is new Unsigned_16_1;
 
 
    --
@@ -83,13 +83,13 @@ package STM32F4.GPIO with Preelaborate is
    --
 
    -- Register type
-   type BSRR is record
-      BR : array (mod 16) of mod 2 ** 1 with Pack;
-      BS : array (mod 16) of mod 2 ** 1 with Pack;
+   type BSRR_register is record
+      BR : Unsigned_16_1;
+      BS : Unsigned_16_1;
    end record;
 
    -- Hardware representation
-   for BSRR use record
+   for BSRR_register use record
       BR at 0 range 16 .. 31;
       BS at 0 range 0 .. 15;
    end record;
@@ -100,13 +100,13 @@ package STM32F4.GPIO with Preelaborate is
    --
 
    -- Register type
-   type LCKR is record
-      LCKK : mod 2 ** 1;
-      LCK  : array (mod 16) of mod 2 ** 1 with Pack;
+   type LCKR_register is record
+      LCKK : Unsigned_1;
+      LCK  : Unsigned_16_1;
    end record;
 
    -- Hardware representation
-   for LCKR use record
+   for LCKR_register use record
       LCKK at 0 range 16 .. 16;
       LCK  at 0 range 0 .. 15;
    end record;
@@ -117,7 +117,7 @@ package STM32F4.GPIO with Preelaborate is
    --
 
    -- Register type
-   type AFRL is array (mod 8) of mod 2 ** 4 with Pack;
+   type AFRL_register is new Unsigned_8_4;
 
 
    --
@@ -125,7 +125,7 @@ package STM32F4.GPIO with Preelaborate is
    --
 
    -- Register type
-   type AFRH is array (mod 8) of mod 2 ** 4 with Pack;
+   type AFRH_register is new Unsigned_8_4;
 
 
 
@@ -133,6 +133,21 @@ package STM32F4.GPIO with Preelaborate is
    -- REGISTER MAP --
    ------------------
 
+   -- Register type
+   type GPIO_Register_Map is record
+      MODER   : MODER_register;
+      OTYPER  : OTYPER_register;
+      OSPEEDR : OSPEEDR_register;
+      PUPDR   : PUPDR_register;
+      IDR     : IDR_register;
+      ODR     : ODR_register;
+      BSRR    : BSRR_register;
+      LCKR    : LCKR_register;
+      AFRL    : AFRL_register;
+      AFRH    : AFRH_register;
+   end record;
+
+   -- Hardware representation
    for GPIO_Register_Map use record
       MODER   at MODER_OFFSET_ADDRESS   range 0 .. 31;
       OTYPER  at OTYPER_OFFSET_ADDRESS  range 0 .. 15;
@@ -159,6 +174,6 @@ package STM32F4.GPIO with Preelaborate is
    pragma Warnings (On, "*component of*");
 
    GPIO : GPIO_Port_Set
-      with Address => System'To_Address (GPIO_Base_Address);
+      with Volatile, Address => System'To_Address (GPIO_BASE_ADDRESS);
 
 end STM32F4.GPIO;

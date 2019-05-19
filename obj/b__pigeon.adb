@@ -11,14 +11,10 @@ package body ada_main is
    E043 : Short_Integer; pragma Import (Ada, E043, "system__exception_table_E");
    E112 : Short_Integer; pragma Import (Ada, E112, "system__bb__timing_events_E");
    E006 : Short_Integer; pragma Import (Ada, E006, "ada__real_time_E");
-   E127 : Short_Integer; pragma Import (Ada, E127, "system__tasking__protected_objects_E");
-   E134 : Short_Integer; pragma Import (Ada, E134, "system__tasking__restricted__stages_E");
-   E139 : Short_Integer; pragma Import (Ada, E139, "st__stm32f4__gpio_E");
-   E138 : Short_Integer; pragma Import (Ada, E138, "st__stm32f4__rcc_E");
-   E122 : Short_Integer; pragma Import (Ada, E122, "button_E");
-   E120 : Short_Integer; pragma Import (Ada, E120, "lights_E");
+   E120 : Short_Integer; pragma Import (Ada, E120, "stm32f4__gpio_E");
+   E121 : Short_Integer; pragma Import (Ada, E121, "stm32f4__rcc_E");
 
-   Sec_Default_Sized_Stacks : array (1 .. 3) of aliased System.Secondary_Stack.SS_Stack (System.Parameters.Runtime_Default_Sec_Stack_Size);
+   Sec_Default_Sized_Stacks : array (1 .. 1) of aliased System.Secondary_Stack.SS_Stack (System.Parameters.Runtime_Default_Sec_Stack_Size);
 
    Local_Priority_Specific_Dispatching : constant String := "";
    Local_Interrupt_States : constant String := "";
@@ -79,14 +75,6 @@ package body ada_main is
 
       procedure Runtime_Initialize (Install_Handler : Integer);
       pragma Import (C, Runtime_Initialize, "__gnat_runtime_initialize");
-      procedure Install_Restricted_Handlers_Sequential;
-      pragma Import (C,Install_Restricted_Handlers_Sequential, "__gnat_attach_all_handlers");
-
-      Partition_Elaboration_Policy : Character;
-      pragma Import (C, Partition_Elaboration_Policy, "__gnat_partition_elaboration_policy");
-
-      procedure Activate_All_Tasks_Sequential;
-      pragma Import (C, Activate_All_Tasks_Sequential, "__gnat_activate_all_tasks");
       Binder_Sec_Stacks_Count : Natural;
       pragma Import (Ada, Binder_Sec_Stacks_Count, "__gnat_binder_ss_count");
       Default_Sized_SS_Pool : System.Address;
@@ -103,7 +91,6 @@ package body ada_main is
       Locking_Policy := 'C';
       Queuing_Policy := ' ';
       Task_Dispatching_Policy := 'F';
-      Partition_Elaboration_Policy := 'S';
       Priority_Specific_Dispatching :=
         Local_Priority_Specific_Dispatching'Address;
       Num_Specific_Dispatching := 0;
@@ -117,7 +104,7 @@ package body ada_main is
 
       ada_main'Elab_Body;
       Default_Secondary_Stack_Size := System.Parameters.Runtime_Default_Sec_Stack_Size;
-      Binder_Sec_Stacks_Count := 3;
+      Binder_Sec_Stacks_Count := 1;
       Default_Sized_SS_Pool := Sec_Default_Sized_Stacks'Address;
 
       Runtime_Initialize (1);
@@ -132,22 +119,10 @@ package body ada_main is
       E045 := E045 + 1;
       Ada.Real_Time'Elab_Body;
       E006 := E006 + 1;
-      System.Tasking.Protected_Objects'Elab_Body;
-      E127 := E127 + 1;
-      System.Tasking.Restricted.Stages'Elab_Body;
-      E134 := E134 + 1;
-      ST.STM32F4.GPIO'ELAB_SPEC;
-      E139 := E139 + 1;
-      ST.STM32F4.RCC'ELAB_SPEC;
-      E138 := E138 + 1;
-      Button'Elab_Spec;
-      Button'Elab_Body;
-      E122 := E122 + 1;
-      Lights'Elab_Spec;
-      Lights'Elab_Body;
+      STM32F4.GPIO'ELAB_SPEC;
       E120 := E120 + 1;
-      Install_Restricted_Handlers_Sequential;
-      Activate_All_Tasks_Sequential;
+      STM32F4.RCC'ELAB_SPEC;
+      E121 := E121 + 1;
    end adainit;
 
    procedure Ada_Main_Program;
@@ -173,16 +148,12 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\st.o
-   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\st-stm32f4.o
-   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\st-stm32f4-exti.o
-   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\st-stm32f4-gpio.o
-   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\st-stm32f4-rcc.o
-   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\button.o
-   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\lights.o
-   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\pigeon.o
-   --   -LC:\Users\trasmussen\Documents\STM\pigeon\obj\
-   --   -LC:\Users\trasmussen\Documents\STM\pigeon\obj\
+   --   C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4.o
+   --   C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4-gpio.o
+   --   C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4-rcc.o
+   --   C:\Users\Tarrin\Documents\STM\pigeon\obj\pigeon.o
+   --   -LC:\Users\Tarrin\Documents\STM\pigeon\obj\
+   --   -LC:\Users\Tarrin\Documents\STM\pigeon\obj\
    --   -LC:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\adalib\
    --   -static
    --   -lgnarl

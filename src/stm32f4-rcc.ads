@@ -46,23 +46,23 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type CR is record
-      PLLI2SRDY : mod 2 ** 1;
-      PLLI2SON  : mod 2 ** 1;
-      PLLRDY    : mod 2 ** 1;
-      PLLON     : mod 2 ** 1;
-      CSSON     : mod 2 ** 1;
-      HSEBYP    : mod 2 ** 1;
-      HSERDY    : mod 2 ** 1;
-      HSEON     : mod 2 ** 1;
-      HSICAL    : mod 2 ** 8;
-      HSITRIM   : mod 2 ** 5;
-      HSIRDY    : mod 2 ** 1;
-      HSION     : mod 2 ** 1;
+   type CR_register is record
+      PLLI2SRDY : Unsigned_1;
+      PLLI2SON  : Unsigned_1;
+      PLLRDY    : Unsigned_1;
+      PLLON     : Unsigned_1;
+      CSSON     : Unsigned_1;
+      HSEBYP    : Unsigned_1;
+      HSERDY    : Unsigned_1;
+      HSEON     : Unsigned_1;
+      HSICAL    : Unsigned_8;
+      HSITRIM   : Unsigned_5;
+      HSIRDY    : Unsigned_1;
+      HSION     : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for CR use record
+   for CR_register use record
       PLLI2SRDY at 0 range 27 .. 27;
       PLLI2SON  at 0 range 26 .. 26;
       PLLRDY    at 0 range 25 .. 25;
@@ -83,16 +83,16 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type PLLCFGR is record
-      PLLQ   : mod 2 ** 4;
-      PLLSRC : mod 2 ** 2;
-      PLLP   : mod 2 ** 1;
-      PLLN   : mod 2 ** 9;
-      PLLM   : mod 2 ** 6;
+   type PLLCFGR_register is record
+      PLLQ   : Unsigned_4;
+      PLLSRC : Unsigned_1;
+      PLLP   : Unsigned_1;
+      PLLN   : Unsigned_9;
+      PLLM   : Unsigned_6;
    end record;
 
    -- Hardware representation
-   for PLLCFGR use record
+   for PLLCFGR_register use record
       PLLQ   at 0 range 24 .. 27;
       PLLSRC at 0 range 22 .. 22;
       PLLP   at 0 range 16 .. 17;
@@ -106,22 +106,22 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type CFGR is record
-      MCO2    : mod 2 ** 2;
-      MCO2PRE : mod 2 ** 3;
-      MCO1PRE : mod 2 ** 3;
-      I2SSCR  : mod 2 ** 1;
-      MCO1    : mod 2 ** 2;
-      RTCPRE  : mod 2 ** 5;
-      PPRE2   : mod 2 ** 3;
-      PPRE1   : mod 2 ** 3;
-      HPRE    : mod 2 ** 4;
-      SWS     : mod 2 ** 2;
-      SW      : mod 2 ** 2;
+   type CFGR_register is record
+      MCO2    : Unsigned_2;
+      MCO2PRE : Unsigned_3;
+      MCO1PRE : Unsigned_3;
+      I2SSCR  : Unsigned_1;
+      MCO1    : Unsigned_2;
+      RTCPRE  : Unsigned_5;
+      PPRE2   : Unsigned_3;
+      PPRE1   : Unsigned_3;
+      HPRE    : Unsigned_4;
+      SWS     : Unsigned_2;
+      SW      : Unsigned_2;
    end record;
 
    -- Hardware representation
-   for CFGR use record
+   for CFGR_register use record
       MCO2    at 0 range 30 .. 31;
       MCO2PRE at 0 range 27 .. 29;
       MCO1PRE at 0 range 24 .. 26;
@@ -141,31 +141,31 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type CIR is record
-      CSSC        : mod 2 ** 1;
-      PLLI2SRDYC  : mod 2 ** 1;
-      PLLRDYC     : mod 2 ** 1;
-      HSERDYC     : mod 2 ** 1;
-      HSIRDYC     : mod 2 ** 1;
-      LSERDYC     : mod 2 ** 1;
-      LSIRDYC     : mod 2 ** 1;
-      PLLI2SRDYIE : mod 2 ** 1;
-      PLLRDYIE    : mod 2 ** 1;
-      HSERDYIE    : mod 2 ** 1;
-      HSIRDYIE    : mod 2 ** 1;
-      LSERDYIE    : mod 2 ** 1;
-      LSIRDYIE    : mod 2 ** 1;
-      CSSF        : mod 2 ** 1;
-      PLLI2SRDYF  : mod 2 ** 1;
-      PLLRDYF     : mod 2 ** 1;
-      HSERDYF     : mod 2 ** 1;
-      HSIRDYF     : mod 2 ** 1;
-      LSERDYF     : mod 2 ** 1;
-      LSIRDYF     : mod 2 ** 1;
+   type CIR_register is record
+      CSSC        : Unsigned_1;
+      PLLI2SRDYC  : Unsigned_1;
+      PLLRDYC     : Unsigned_1;
+      HSERDYC     : Unsigned_1;
+      HSIRDYC     : Unsigned_1;
+      LSERDYC     : Unsigned_1;
+      LSIRDYC     : Unsigned_1;
+      PLLI2SRDYIE : Unsigned_1;
+      PLLRDYIE    : Unsigned_1;
+      HSERDYIE    : Unsigned_1;
+      HSIRDYIE    : Unsigned_1;
+      LSERDYIE    : Unsigned_1;
+      LSIRDYIE    : Unsigned_1;
+      CSSF        : Unsigned_1;
+      PLLI2SRDYF  : Unsigned_1;
+      PLLRDYF     : Unsigned_1;
+      HSERDYF     : Unsigned_1;
+      HSIRDYF     : Unsigned_1;
+      LSERDYF     : Unsigned_1;
+      LSIRDYF     : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for CIR use record
+   for CIR_register use record
       CSSC        at 0 range 23 .. 23;
       PLLI2SRDYC  at 0 range 21 .. 21;
       PLLRDYC     at 0 range 20 .. 20;
@@ -194,25 +194,25 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type AHB1RSTR is record
-      OTGHSRST  : mod 2 ** 1;
-      ETHMACRST : mod 2 ** 1;
-      DMA2RST   : mod 2 ** 1;
-      DMA1RST   : mod 2 ** 1;
-      CRCRST    : mod 2 ** 1;
-      GPIOIRST  : mod 2 ** 1;
-      GPIOHRST  : mod 2 ** 1;
-      GPIOGRST  : mod 2 ** 1;
-      GPIOFRST  : mod 2 ** 1;
-      GPIOERST  : mod 2 ** 1;
-      GPIODRST  : mod 2 ** 1;
-      GPIOCRST  : mod 2 ** 1;
-      GPIOBRST  : mod 2 ** 1;
-      GPIOARST  : mod 2 ** 1;
+   type AHB1RSTR_register is record
+      OTGHSRST  : Unsigned_1;
+      ETHMACRST : Unsigned_1;
+      DMA2RST   : Unsigned_1;
+      DMA1RST   : Unsigned_1;
+      CRCRST    : Unsigned_1;
+      GPIOIRST  : Unsigned_1;
+      GPIOHRST  : Unsigned_1;
+      GPIOGRST  : Unsigned_1;
+      GPIOFRST  : Unsigned_1;
+      GPIOERST  : Unsigned_1;
+      GPIODRST  : Unsigned_1;
+      GPIOCRST  : Unsigned_1;
+      GPIOBRST  : Unsigned_1;
+      GPIOARST  : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for AHB1RSTR use record
+   for AHB1RSTR_register use record
       OTGHSRST  at 0 range 29 .. 29;
       ETHMACRST at 0 range 25 .. 25;
       DMA2RST   at 0 range 22 .. 22;
@@ -235,16 +235,16 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type AHB2RSTR is record
-      OTGFSRST : mod 2 ** 1;
-      RNGRST   : mod 2 ** 1;
-      HASHRST  : mod 2 ** 1;
-      CRYPRST  : mod 2 ** 1;
-      DCMIRST  : mod 2 ** 1;
+   type AHB2RSTR_register is record
+      OTGFSRST : Unsigned_1;
+      RNGRST   : Unsigned_1;
+      HASHRST  : Unsigned_1;
+      CRYPRST  : Unsigned_1;
+      DCMIRST  : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for AHB2RSTR use record
+   for AHB2RSTR_register use record
       OTGFSRST at 0 range 7 .. 7;
       RNGRST   at 0 range 6 .. 6;
       HASHRST  at 0 range 5 .. 5;
@@ -258,12 +258,12 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type AHB3RSTR is record
-      FSMCRST : mod 2 ** 1;
+   type AHB3RSTR_register is record
+      FSMCRST : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for AHB3RSTR use record
+   for AHB3RSTR_register use record
       FSMCRST at 0 range 0 .. 0;
    end record;
 
@@ -273,34 +273,34 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type APB1RSTR is record
-      DACRST   : mod 2 ** 1;
-      PWRRST   : mod 2 ** 1;
-      CAN2RST  : mod 2 ** 1;
-      CAN1RST  : mod 2 ** 1;
-      I2C3RST  : mod 2 ** 1;
-      I2C2RST  : mod 2 ** 1;
-      I2C1RST  : mod 2 ** 1;
-      UART5RST : mod 2 ** 1;
-      UART4RST : mod 2 ** 1;
-      UART3RST : mod 2 ** 1;
-      UART2RST : mod 2 ** 1;
-      SPI3RST  : mod 2 ** 1;
-      SPI2RST  : mod 2 ** 1;
-      WWDGRST  : mod 2 ** 1;
-      TIM14RST : mod 2 ** 1;
-      TIM13RST : mod 2 ** 1;
-      TIM12RST : mod 2 ** 1;
-      TIM7RST  : mod 2 ** 1;
-      TIM6RST  : mod 2 ** 1;
-      TIM5RST  : mod 2 ** 1;
-      TIM4RST  : mod 2 ** 1;
-      TIM3RST  : mod 2 ** 1;
-      TIM2RST  : mod 2 ** 1;
+   type APB1RSTR_register is record
+      DACRST   : Unsigned_1;
+      PWRRST   : Unsigned_1;
+      CAN2RST  : Unsigned_1;
+      CAN1RST  : Unsigned_1;
+      I2C3RST  : Unsigned_1;
+      I2C2RST  : Unsigned_1;
+      I2C1RST  : Unsigned_1;
+      UART5RST : Unsigned_1;
+      UART4RST : Unsigned_1;
+      UART3RST : Unsigned_1;
+      UART2RST : Unsigned_1;
+      SPI3RST  : Unsigned_1;
+      SPI2RST  : Unsigned_1;
+      WWDGRST  : Unsigned_1;
+      TIM14RST : Unsigned_1;
+      TIM13RST : Unsigned_1;
+      TIM12RST : Unsigned_1;
+      TIM7RST  : Unsigned_1;
+      TIM6RST  : Unsigned_1;
+      TIM5RST  : Unsigned_1;
+      TIM4RST  : Unsigned_1;
+      TIM3RST  : Unsigned_1;
+      TIM2RST  : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for APB1RSTR use record
+   for APB1RSTR_register use record
       DACRST   at 0 range 29 .. 29;
       PWRRST   at 0 range 28 .. 28;
       CAN2RST  at 0 range 26 .. 26;
@@ -332,22 +332,22 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type APB2RSTR is record
-      TIM11     : mod 2 ** 1;
-      TIM10     : mod 2 ** 1;
-      TIM9      : mod 2 ** 1;
-      SYSCFGRST : mod 2 ** 1;
-      SPI1RST   : mod 2 ** 1;
-      SDIORST   : mod 2 ** 1;
-      ADCRST    : mod 2 ** 1;
-      USART6RST : mod 2 ** 1;
-      USART1RST : mod 2 ** 1;
-      TIM8RST   : mod 2 ** 1;
-      TIM1RST   : mod 2 ** 1;
+   type APB2RSTR_register is record
+      TIM11     : Unsigned_1;
+      TIM10     : Unsigned_1;
+      TIM9      : Unsigned_1;
+      SYSCFGRST : Unsigned_1;
+      SPI1RST   : Unsigned_1;
+      SDIORST   : Unsigned_1;
+      ADCRST    : Unsigned_1;
+      USART6RST : Unsigned_1;
+      USART1RST : Unsigned_1;
+      TIM8RST   : Unsigned_1;
+      TIM1RST   : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for APB2RSTR use record
+   for APB2RSTR_register use record
       TIM11     at 0 range 18 .. 18;
       TIM10     at 0 range 17 .. 17;
       TIM9      at 0 range 16 .. 16;
@@ -367,51 +367,51 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type AHB1ENR is record
-      OTGHSULPIEN  : mod 2 ** 1;
-      OTGHSEN      : mod 2 ** 1;
-      ETHMACPTPEN  : mod 2 ** 1;
-      ETHMACRXEN   : mod 2 ** 1;
-      ETHMACTXEN   : mod 2 ** 1;
-      ETHMACEN     : mod 2 ** 1;
-      DMA2EN       : mod 2 ** 1;
-      DMA1EN       : mod 2 ** 1;
-      CCMDATARAMEN : mod 2 ** 1;
-      BKPSRAMEN    : mod 2 ** 1;
-      CRCEN        : mod 2 ** 1;
-      GPIOIEN      : mod 2 ** 1;
-      GPIOHEN      : mod 2 ** 1;
-      GPIOGEN      : mod 2 ** 1;
-      GPIOFEN      : mod 2 ** 1;
-      GPIOEEN      : mod 2 ** 1;
-      GPIODEN      : mod 2 ** 1;
-      GPIOCEN      : mod 2 ** 1;
-      GPIOBEN      : mod 2 ** 1;
-      GPIOAEN      : mod 2 ** 1;
+   type AHB1ENR_register is record
+      OTGHSULPIEN  : Unsigned_1;
+      OTGHSEN      : Unsigned_1;
+      ETHMACPTPEN  : Unsigned_1;
+      ETHMACRXEN   : Unsigned_1;
+      ETHMACTXEN   : Unsigned_1;
+      ETHMACEN     : Unsigned_1;
+      DMA2EN       : Unsigned_1;
+      DMA1EN       : Unsigned_1;
+      CCMDATARAMEN : Unsigned_1;
+      BKPSRAMEN    : Unsigned_1;
+      CRCEN        : Unsigned_1;
+      GPIOIEN      : Unsigned_1;
+      GPIOHEN      : Unsigned_1;
+      GPIOGEN      : Unsigned_1;
+      GPIOFEN      : Unsigned_1;
+      GPIOEEN      : Unsigned_1;
+      GPIODEN      : Unsigned_1;
+      GPIOCEN      : Unsigned_1;
+      GPIOBEN      : Unsigned_1;
+      GPIOAEN      : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for AHB1ENR use record
-      OTGHSULPIEN  at 30 range 30;
-      OTGHSEN      at 29 range 29;
-      ETHMACPTPEN  at 28 range 28;
-      ETHMACRXEN   at 27 range 27;
-      ETHMACTXEN   at 26 range 26;
-      ETHMACEN     at 25 range 25;
-      DMA2EN       at 22 range 22;
-      DMA1EN       at 21 range 21;
-      CCMDATARAMEN at 20 range 20;
-      BKPSRAMEN    at 18 range 18;
-      CRCEN        at 12 range 12;
-      GPIOIEN      at 8 range 8;
-      GPIOHEN      at 7 range 7;
-      GPIOGEN      at 6 range 6;
-      GPIOFEN      at 5 range 5;
-      GPIOEEN      at 4 range 4;
-      GPIODEN      at 3 range 3;
-      GPIOCEN      at 2 range 2;
-      GPIOBEN      at 1 range 1;
-      GPIOAEN      at 0 range 0;
+   for AHB1ENR_register use record
+      OTGHSULPIEN  at 0 range 30 .. 30;
+      OTGHSEN      at 0 range 29 .. 29;
+      ETHMACPTPEN  at 0 range 28 .. 28;
+      ETHMACRXEN   at 0 range 27 .. 27;
+      ETHMACTXEN   at 0 range 26 .. 26;
+      ETHMACEN     at 0 range 25 .. 25;
+      DMA2EN       at 0 range 22 .. 22;
+      DMA1EN       at 0 range 21 .. 21;
+      CCMDATARAMEN at 0 range 20 .. 20;
+      BKPSRAMEN    at 0 range 18 .. 18;
+      CRCEN        at 0 range 12 .. 12;
+      GPIOIEN      at 0 range 8 .. 8;
+      GPIOHEN      at 0 range 7 .. 7;
+      GPIOGEN      at 0 range 6 .. 6;
+      GPIOFEN      at 0 range 5 .. 5;
+      GPIOEEN      at 0 range 4 .. 4;
+      GPIODEN      at 0 range 3 .. 3;
+      GPIOCEN      at 0 range 2 .. 2;
+      GPIOBEN      at 0 range 1 .. 1;
+      GPIOAEN      at 0 range 0 .. 0;
    end record;
 
 
@@ -420,16 +420,16 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type AHB2ENR is record
-      OTGFSEN : mod 2 ** 1;
-      RNGEN   : mod 2 ** 1;
-      HASHEN  : mod 2 ** 1;
-      CRYP    : mod 2 ** 1;
-      DCMI    : mod 2 ** 1;
+   type AHB2ENR_register is record
+      OTGFSEN : Unsigned_1;
+      RNGEN   : Unsigned_1;
+      HASHEN  : Unsigned_1;
+      CRYP    : Unsigned_1;
+      DCMI    : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for AHB2ENR use record
+   for AHB2ENR_register use record
       OTGFSEN at 0 range 7 .. 7;
       RNGEN   at 0 range 6 .. 6;
       HASHEN  at 0 range 5 .. 5;
@@ -443,12 +443,12 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type AHB3ENR is record
-      FSMCEN : mod 2 ** 1;
+   type AHB3ENR_register is record
+      FSMCEN : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for AHB3ENR use record
+   for AHB3ENR_register use record
       FSMCEN at 0 range 0 .. 0;
    end record;
 
@@ -458,34 +458,34 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type APB1ENR is record
-      DACEN    : mod 2 ** 1;
-      PWREN    : mod 2 ** 1;
-      CAN2EN   : mod 2 ** 1;
-      CAN1EN   : mod 2 ** 1;
-      I2C3EN   : mod 2 ** 1;
-      I2C2EN   : mod 2 ** 1;
-      I2C1EN   : mod 2 ** 1;
-      UART5EN  : mod 2 ** 1;
-      UART4EN  : mod 2 ** 1;
-      USART3EN : mod 2 ** 1;
-      USART2EN : mod 2 ** 1;
-      SPI3EN   : mod 2 ** 1;
-      SPI2EN   : mod 2 ** 1;
-      WWDGEN   : mod 2 ** 1;
-      TIM14EN  : mod 2 ** 1;
-      TIM13EN  : mod 2 ** 1;
-      TIM12EN  : mod 2 ** 1;
-      TIM7EN   : mod 2 ** 1;
-      TIM6EN   : mod 2 ** 1;
-      TIM5EN   : mod 2 ** 1;
-      TIM4EN   : mod 2 ** 1;
-      TIM3EN   : mod 2 ** 1;
-      TIM2EN   : mod 2 ** 1;
+   type APB1ENR_register is record
+      DACEN    : Unsigned_1;
+      PWREN    : Unsigned_1;
+      CAN2EN   : Unsigned_1;
+      CAN1EN   : Unsigned_1;
+      I2C3EN   : Unsigned_1;
+      I2C2EN   : Unsigned_1;
+      I2C1EN   : Unsigned_1;
+      UART5EN  : Unsigned_1;
+      UART4EN  : Unsigned_1;
+      USART3EN : Unsigned_1;
+      USART2EN : Unsigned_1;
+      SPI3EN   : Unsigned_1;
+      SPI2EN   : Unsigned_1;
+      WWDGEN   : Unsigned_1;
+      TIM14EN  : Unsigned_1;
+      TIM13EN  : Unsigned_1;
+      TIM12EN  : Unsigned_1;
+      TIM7EN   : Unsigned_1;
+      TIM6EN   : Unsigned_1;
+      TIM5EN   : Unsigned_1;
+      TIM4EN   : Unsigned_1;
+      TIM3EN   : Unsigned_1;
+      TIM2EN   : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for APB1ENR use record
+   for APB1ENR_register use record
       DACEN    at 0 range 29 .. 29;
       PWREN    at 0 range 28 .. 28;
       CAN2EN   at 0 range 26 .. 26;
@@ -517,24 +517,24 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type APB2ENR is record
-      TIM11EN  : mod 2 ** 1;
-      TIM10EN  : mod 2 ** 1;
-      TIM9EN   : mod 2 ** 1;
-      SYSCFGEN : mod 2 ** 1;
-      SPI1EN   : mod 2 ** 1;
-      SDIOEN   : mod 2 ** 1;
-      ADC3EN   : mod 2 ** 1;
-      ADC2EN   : mod 2 ** 1;
-      ADC1EN   : mod 2 ** 1;
-      USART6EN : mod 2 ** 1;
-      USART1EN : mod 2 ** 1;
-      TIM8EN   : mod 2 ** 1;
-      TIM1EN   : mod 2 ** 1;
+   type APB2ENR_register is record
+      TIM11EN  : Unsigned_1;
+      TIM10EN  : Unsigned_1;
+      TIM9EN   : Unsigned_1;
+      SYSCFGEN : Unsigned_1;
+      SPI1EN   : Unsigned_1;
+      SDIOEN   : Unsigned_1;
+      ADC3EN   : Unsigned_1;
+      ADC2EN   : Unsigned_1;
+      ADC1EN   : Unsigned_1;
+      USART6EN : Unsigned_1;
+      USART1EN : Unsigned_1;
+      TIM8EN   : Unsigned_1;
+      TIM1EN   : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for APB2ENR use record
+   for APB2ENR_register use record
       TIM11EN  at 0 range 18 .. 18;
       TIM10EN  at 0 range 17 .. 17;
       TIM9EN   at 0 range 16 .. 16;
@@ -556,33 +556,33 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type AHB1LPENR is record
-      OTGHSULPILPEN : mod 2 ** 1;
-      OTGHSLPEN     : mod 2 ** 1;
-      ETHPTPLPEN    : mod 2 ** 1;
-      ETHRXLPEN     : mod 2 ** 1;
-      ETHTXLPEN     : mod 2 ** 1;
-      ETHMACLPEN    : mod 2 ** 1;
-      DMA2LPEN      : mod 2 ** 1;
-      DMA1LPEN      : mod 2 ** 1;
-      BKPSRAMLPEN   : mod 2 ** 1;
-      SRAM2LPEN     : mod 2 ** 1;
-      SRAM1LPEN     : mod 2 ** 1;
-      FLITFLPEN     : mod 2 ** 1;
-      CRCLPEN       : mod 2 ** 1;
-      GPIOILPEN     : mod 2 ** 1;
-      GPIOHLPEN     : mod 2 ** 1;
-      GPIOGLPEN     : mod 2 ** 1;
-      GPIOFLPEN     : mod 2 ** 1;
-      GPIOELPEN     : mod 2 ** 1;
-      GPIODLPEN     : mod 2 ** 1;
-      GPIOCLPEN     : mod 2 ** 1;
-      GPIOBLPEN     : mod 2 ** 1;
-      GPIOALPEN     : mod 2 ** 1;
+   type AHB1LPENR_register is record
+      OTGHSULPILPEN : Unsigned_1;
+      OTGHSLPEN     : Unsigned_1;
+      ETHPTPLPEN    : Unsigned_1;
+      ETHRXLPEN     : Unsigned_1;
+      ETHTXLPEN     : Unsigned_1;
+      ETHMACLPEN    : Unsigned_1;
+      DMA2LPEN      : Unsigned_1;
+      DMA1LPEN      : Unsigned_1;
+      BKPSRAMLPEN   : Unsigned_1;
+      SRAM2LPEN     : Unsigned_1;
+      SRAM1LPEN     : Unsigned_1;
+      FLITFLPEN     : Unsigned_1;
+      CRCLPEN       : Unsigned_1;
+      GPIOILPEN     : Unsigned_1;
+      GPIOHLPEN     : Unsigned_1;
+      GPIOGLPEN     : Unsigned_1;
+      GPIOFLPEN     : Unsigned_1;
+      GPIOELPEN     : Unsigned_1;
+      GPIODLPEN     : Unsigned_1;
+      GPIOCLPEN     : Unsigned_1;
+      GPIOBLPEN     : Unsigned_1;
+      GPIOALPEN     : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for AHB1LPENR use record
+   for AHB1LPENR_register use record
       OTGHSULPILPEN at 0 range 30 .. 30;
       OTGHSLPEN     at 0 range 29 .. 29;
       ETHPTPLPEN    at 0 range 28 .. 28;
@@ -613,16 +613,16 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type AHB2LPENR is record
-      OTGFSLPEN : mod 2 ** 1;
-      RNGLPEN   : mod 2 ** 1;
-      HASHLPEN  : mod 2 ** 1;
-      CRYPLPEN  : mod 2 ** 1;
-      DCMILPEN  : mod 2 ** 1;
+   type AHB2LPENR_register is record
+      OTGFSLPEN : Unsigned_1;
+      RNGLPEN   : Unsigned_1;
+      HASHLPEN  : Unsigned_1;
+      CRYPLPEN  : Unsigned_1;
+      DCMILPEN  : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for AHB2LPENR use record
+   for AHB2LPENR_register use record
       OTGFSLPEN at 0 range 7 .. 7;
       RNGLPEN   at 0 range 6 .. 6;
       HASHLPEN  at 0 range 5 .. 5;
@@ -636,12 +636,12 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type AHB3LPENR is record
-      FSMCLPEN : mod 2 ** 1;
+   type AHB3LPENR_register is record
+      FSMCLPEN : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for AHB3LPENR use record
+   for AHB3LPENR_register use record
       FSMCLPEN at 0 range 0 .. 0;
    end record;
 
@@ -651,34 +651,34 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type APB1LPENR is record
-      DACLPEN    : mod 2 ** 1;
-      PWRLPEN    : mod 2 ** 1;
-      CAN2LPEN   : mod 2 ** 1;
-      CAN1LPEN   : mod 2 ** 1;
-      I2C3LPEN   : mod 2 ** 1;
-      I2C2LPEN   : mod 2 ** 1;
-      I2C1LPEN   : mod 2 ** 1;
-      UART5LPEN  : mod 2 ** 1;
-      UART4LPEN  : mod 2 ** 1;
-      USART3LPEN : mod 2 ** 1;
-      USART2LPEN : mod 2 ** 1;
-      SPI3LPEN   : mod 2 ** 1;
-      SPI2LPEN   : mod 2 ** 1;
-      WWDGLPEN   : mod 2 ** 1;
-      TIM14LPEN  : mod 2 ** 1;
-      TIM13LPEN  : mod 2 ** 1;
-      TIM12LPEN  : mod 2 ** 1;
-      TIM7LPEN   : mod 2 ** 1;
-      TIM6LPEN   : mod 2 ** 1;
-      TIM5LPEN   : mod 2 ** 1;
-      TIM4LPEN   : mod 2 ** 1;
-      TIM3LPEN   : mod 2 ** 1;
-      TIM2LPEN   : mod 2 ** 1;
+   type APB1LPENR_register is record
+      DACLPEN    : Unsigned_1;
+      PWRLPEN    : Unsigned_1;
+      CAN2LPEN   : Unsigned_1;
+      CAN1LPEN   : Unsigned_1;
+      I2C3LPEN   : Unsigned_1;
+      I2C2LPEN   : Unsigned_1;
+      I2C1LPEN   : Unsigned_1;
+      UART5LPEN  : Unsigned_1;
+      UART4LPEN  : Unsigned_1;
+      USART3LPEN : Unsigned_1;
+      USART2LPEN : Unsigned_1;
+      SPI3LPEN   : Unsigned_1;
+      SPI2LPEN   : Unsigned_1;
+      WWDGLPEN   : Unsigned_1;
+      TIM14LPEN  : Unsigned_1;
+      TIM13LPEN  : Unsigned_1;
+      TIM12LPEN  : Unsigned_1;
+      TIM7LPEN   : Unsigned_1;
+      TIM6LPEN   : Unsigned_1;
+      TIM5LPEN   : Unsigned_1;
+      TIM4LPEN   : Unsigned_1;
+      TIM3LPEN   : Unsigned_1;
+      TIM2LPEN   : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for APB1LPENR use record
+   for APB1LPENR_register use record
       DACLPEN    at 0 range 29 .. 29;
       PWRLPEN    at 0 range 28 .. 28;
       CAN2LPEN   at 0 range 26 .. 26;
@@ -710,24 +710,24 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type APB2LPENR is record
-      TIM11LPEN  : mod 2 ** 1;
-      TIM10LPEN  : mod 2 ** 1;
-      TIM9LPEN   : mod 2 ** 1;
-      SYSCFGLPEN : mod 2 ** 1;
-      SPI1LPEN   : mod 2 ** 1;
-      SDIOLPEN   : mod 2 ** 1;
-      ADC3LPEN   : mod 2 ** 1;
-      ADC2LPEN   : mod 2 ** 1;
-      ADC1LPEN   : mod 2 ** 1;
-      USART6LPEN : mod 2 ** 1;
-      USART1LPEN : mod 2 ** 1;
-      TIM8LPEN   : mod 2 ** 1;
-      TIM1LPEN   : mod 2 ** 1;
+   type APB2LPENR_register is record
+      TIM11LPEN  : Unsigned_1;
+      TIM10LPEN  : Unsigned_1;
+      TIM9LPEN   : Unsigned_1;
+      SYSCFGLPEN : Unsigned_1;
+      SPI1LPEN   : Unsigned_1;
+      SDIOLPEN   : Unsigned_1;
+      ADC3LPEN   : Unsigned_1;
+      ADC2LPEN   : Unsigned_1;
+      ADC1LPEN   : Unsigned_1;
+      USART6LPEN : Unsigned_1;
+      USART1LPEN : Unsigned_1;
+      TIM8LPEN   : Unsigned_1;
+      TIM1LPEN   : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for APB2LPENR use record
+   for APB2LPENR_register use record
       TIM11LPEN  at 0 range 18 .. 18;
       TIM10LPEN  at 0 range 17 .. 17;
       TIM9LPEN   at 0 range 16 .. 16;
@@ -749,17 +749,17 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type BDCR is record
-      BDRST  : mod 2 ** 1;
-      TRCEN  : mod 2 ** 1;
-      RTCSEL : mod 2 ** 2;
-      LSEBYP : mod 2 ** 1;
-      LSERDY : mod 2 ** 1;
-      LSEON  : mod 2 ** 1;
+   type BDCR_register is record
+      BDRST  : Unsigned_1;
+      TRCEN  : Unsigned_1;
+      RTCSEL : Unsigned_2;
+      LSEBYP : Unsigned_1;
+      LSERDY : Unsigned_1;
+      LSEON  : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for BDCR use record
+   for BDCR_register use record
       BDRST  at 0 range 16 .. 16;
       TRCEN  at 0 range 15 .. 15;
       RTCSEL at 0 range 8 .. 9;
@@ -774,21 +774,21 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type CSR is record
-      LPWRRSTF : mod 2 ** 1;
-      WWDGRSTF : mod 2 ** 1;
-      IWDGRSTF : mod 2 ** 1;
-      SFTRSTF  : mod 2 ** 1;
-      PORRSTF  : mod 2 ** 1;
-      PINRSTF  : mod 2 ** 1;
-      BORRSTF  : mod 2 ** 1;
-      RMVF     : mod 2 ** 1;
-      LSIRDY   : mod 2 ** 1;
-      LSION    : mod 2 ** 1;
+   type CSR_register is record
+      LPWRRSTF : Unsigned_1;
+      WWDGRSTF : Unsigned_1;
+      IWDGRSTF : Unsigned_1;
+      SFTRSTF  : Unsigned_1;
+      PORRSTF  : Unsigned_1;
+      PINRSTF  : Unsigned_1;
+      BORRSTF  : Unsigned_1;
+      RMVF     : Unsigned_1;
+      LSIRDY   : Unsigned_1;
+      LSION    : Unsigned_1;
    end record;
 
    -- Hardware representation
-   for CSR use record
+   for CSR_register use record
       LPWRRSTF at 0 range 31 .. 31;
       WWDGRSTF at 0 range 30 .. 30;
       IWDGRSTF at 0 range 29 .. 29;
@@ -807,15 +807,15 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type SSCGR is record
-      SSCGEN    : mod 2 ** 1;
-      SPREADSEL : mod 2 ** 1;
-      INCSTEP   : mod 2 ** 15;
-      MODPER    : mod 2 ** 13;
+   type SSCGR_register is record
+      SSCGEN    : Unsigned_1;
+      SPREADSEL : Unsigned_1;
+      INCSTEP   : Unsigned_15;
+      MODPER    : Unsigned_13;
    end record;
 
    -- Hardware representation
-   for SSCGR use record
+   for SSCGR_register use record
       SSCGEN    at 0 range 31 .. 31;
       SPREADSEL at 0 range 30 .. 30;
       INCSTEP   at 0 range 13 .. 27;
@@ -828,13 +828,13 @@ package STM32F4.RCC with Preelaborate is
    --
 
    -- Register type
-   type PLLI2SCFGR is record
-      PLLI2SR : mod 2 ** 3;
-      PLLI2SN : mod 2 ** 9;
+   type PLLI2SCFGR_register is record
+      PLLI2SR : Unsigned_3;
+      PLLI2SN : Unsigned_9;
    end record;
 
    -- Hardware representation
-   for PLLI2SCFGR use record
+   for PLLI2SCFGR_register use record
       PLLI2SR at 0 range 28 .. 30;
       PLLI2SN at 0 range 6 .. 14;
    end record;
@@ -844,6 +844,34 @@ package STM32F4.RCC with Preelaborate is
    -- REGISTER MAP --
    ------------------
 
+   -- Register type
+   type RCC_Register_Map is record
+      CR         : CR_register;
+      PLLCFGR    : PLLCFGR_register;
+      CFGR       : CFGR_register;
+      CIR        : CIR_register;
+      AHB1RSTR   : AHB1RSTR_register;
+      AHB2RSTR   : AHB2RSTR_register;
+      AHB3RSTR   : AHB3RSTR_register;
+      APB1RSTR   : APB1RSTR_register;
+      APB2RSTR   : APB2RSTR_register;
+      AHB1ENR    : AHB1ENR_register;
+      AHB2ENR    : AHB2ENR_register;
+      AHB3ENR    : AHB3ENR_register;
+      APB1ENR    : APB1ENR_register;
+      APB2ENR    : APB2ENR_register;
+      AHB1LPENR  : AHB1LPENR_register;
+      AHB2LPENR  : AHB2LPENR_register;
+      AHB3LPENR  : AHB3LPENR_register;
+      APB1LPENR  : APB1LPENR_register;
+      APB2LPENR  : APB2LPENR_register;
+      BDCR       : BDCR_register;
+      CSR        : CSR_register;
+      SSCGR      : SSCGR_register;
+      PLLI2SCFGR : PLLI2SCFGR_register;
+   end record;
+
+   -- Hardware representation
    for RCC_Register_Map use record
       CR         at CR_OFFSET_ADDRESS         range 0 .. 27;
       PLLCFGR    at PLLCFGR_OFFSET_ADDRESS    range 0 .. 27;
@@ -876,6 +904,6 @@ package STM32F4.RCC with Preelaborate is
    -----------------------------
 
    RCC : RCC_Register_Map
-      with Address => System'To_Address (RCC_Base_Address);
+      with Volatile, Address => System'To_Address (RCC_BASE_ADDRESS);
 
 end STM32F4.RCC;
