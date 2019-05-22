@@ -5,6 +5,27 @@ with System; use System;
 
 package STM32F4.USART with Preelaborate is
 
+   --type SR_register is private;
+   --type DR_register is private;
+   --type BRR_register is private;
+   --type CR1_register is private;
+   --type CR2_register is private;
+   --type CR3_register is private;
+   --type GTPR_register is private;
+
+   type USART_Register_Map is private;
+   type USART_access is private;
+
+   USART : USART_access := (1 => USART_1'Access,
+                            2 => USART_2'Access,
+                            3 => USART_3'Access,
+                            4 => UART_4'Access,
+                            5 => UART_5'Access,
+                            6 => USART_6'Access,
+                            7 => UART_7'Access,
+                            8 => UART_8'Access);
+
+   private
 
    ----------------------
    -- MEMORY ADDRESSES --
@@ -19,13 +40,13 @@ package STM32F4.USART with Preelaborate is
    UART_7_BASE_ADDRESS  : constant := 16#4000_7800#;
    UART_8_BASE_ADDRESS  : constant := 16#4000_7C00#;
 
-   SR_OFFSET_ADDRESS    : constant := 16#00#;
-   DR_OFFSET_ADDRESS    : constant := 16#04#;
-   BRR_OFFSET_ADDRESS   : constant := 16#08#;
-   CR1_OFFSET_ADDRESS   : constant := 16#0C#;
-   CR2_OFFSET_ADDRESS   : constant := 16#10#;
-   CR3_OFFSET_ADDRESS   : constant := 16#14#;
-   GTPR_OFFSET_ADDRESS  : constant := 16#18#;
+   SR_OFFSET_ADDRESS   : constant := 16#00#;
+   DR_OFFSET_ADDRESS   : constant := 16#04#;
+   BRR_OFFSET_ADDRESS  : constant := 16#08#;
+   CR1_OFFSET_ADDRESS  : constant := 16#0C#;
+   CR2_OFFSET_ADDRESS  : constant := 16#10#;
+   CR3_OFFSET_ADDRESS  : constant := 16#14#;
+   GTPR_OFFSET_ADDRESS : constant := 16#18#;
 
 
    ---------------
@@ -282,14 +303,5 @@ package STM32F4.USART with Preelaborate is
    
    UART_8 : aliased USART_Register_Map
       with Address => System'To_Address (UART_8_BASE_ADDRESS);
-
-   USART : USART_access := (1 => USART_1'Access,
-                            2 => USART_2'Access,
-                            3 => USART_3'Access,
-                            4 => UART_4'Access,
-                            5 => UART_5'Access,
-                            6 => USART_6'Access,
-                            7 => UART_7'Access,
-                            8 => UART_8'Access);
 
 end STM32F4.USART;

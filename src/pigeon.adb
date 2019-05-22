@@ -1,9 +1,9 @@
---with stm32f4;       use stm32f4;
 with STM32F4;       use STM32F4;
---with stm32f4.rcc;   use stm32f4.rcc;
+with STM32F4.RCC;   use STM32F4.RCC;
 with STM32F4.GPIO;  use STM32F4.GPIO;
---with STM32F4.RCC;  use STM32F4.RCC;
---with stm32f4.usart; use stm32f4.usart;
+with STM32F4.USART; use STM32F4.USART;
+with STM32F4.I2C;   use STM32F4.I2C;
+with STM32F4.SPI;   use STM32F4.SPI;
 
 with Ada.Real_Time; use Ada.Real_Time;
 

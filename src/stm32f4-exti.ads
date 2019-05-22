@@ -5,6 +5,8 @@ with System; use System;
 
 package STM32F4.EXTI with Preelaborate is
 
+   private
+
 
    ----------------------
    -- MEMORY ADDRESSES --
