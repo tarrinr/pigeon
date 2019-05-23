@@ -1,12 +1,12 @@
-with STM32F4;       use STM32F4;
-with STM32F4.GPIO;  use STM32F4.GPIO;
-with STM32F4.USART; use STM32F4.USART;
+with STM32F4;        use STM32F4;
+with STM32F4.GPIOL;  use STM32F4.GPIOL;
+with STM32F4.USARTL; use STM32F4.USARTL;
 
-----------
--- DOUT --
-----------
+-----------
+-- DEBUG --
+-----------
 
-procedure DOUT is
+package DEBUG is
 
    -- GPIO configuration for USART1
    GPIO_PORT   : constant := B;
@@ -57,8 +57,8 @@ begin
    GPIO(GPIO_PORT).PUPDR(USART_RX_PIN) := GPIO_PUPD;
 
    -- Set alternate function of GPIO
-   GPIO(GPIO_PORT).AFRLR(USART_TX_PIN) := GPIO_AFRL;
-   GPIO(GPIO_PORT).AFRLR(USART_RX_PIN) := GPIO_AFRL;
+   GPIO(GPIO_PORT).AFRL(USART_TX_PIN) := GPIO_AFRL;
+   GPIO(GPIO_PORT).AFRL(USART_RX_PIN) := GPIO_AFRL;
 
 
    --
@@ -81,4 +81,4 @@ begin
    -- Set transmitter enable of USART
    USART(USART_PORT).CR1.TE := 1;
 
-end DOUT;
+end DEBUG;

@@ -3,9 +3,7 @@
 
 with System; use System;
 
-package STM32F4.EXTI with Preelaborate is
-
-   private
+package STM32F4.EXTIL with Preelaborate is
 
 
    ----------------------
@@ -106,4 +104,4 @@ package STM32F4.EXTI with Preelaborate is
    EXTI : EXTI_Register_Map
       with Volatile, Address => System'To_Address (EXTI_BASE_ADDRESS);
 
-end STM32F4.EXTI;
+end STM32F4.EXTIL;

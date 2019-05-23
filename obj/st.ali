@@ -10,31 +10,38 @@ A -mthumb
 A -gnatwa
 A -gnatQ
 A -gnatw.X
-P ES ZX
+P DB ES ZX
 
 RN
 RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
 
-U st%s			st.ads			2a9112eb NE OO PU PK IU
+U st%s			st.ads			93817dc6 NE OO PU PK IU
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
 
-D st.ads		20180524060830 2a9112eb st%s
+D st.ads		20190523021120 93817dc6 st%s
 D system.ads		20180524194940 db831581 system%s
-D c:\users\trasmussen\documents\stm\pigeon\gnat.adc  20190516144236 00000000
+D s-unstyp.ads		20180524194940 34867c83 system.unsigned_types%s
+D c:\users\tarrin\documents\stm\pigeon\gnat.adc  20190518151352 00000000
 X 1 st.ads
-10K9*ST 32l5 32e7
-12E9*Enable_Type 12e41 13r8
-12n25*Disable{12E9} 13r25
-12n34*Enable{12E9} 13r39
-16E9*Enabled_Type 16e44 17r8
-16n26*Disabled{16E9} 17r26
-16n36*Enabled{16E9} 17r41
-20E9*Occurred_Type 20e50 21r8
-20n27*Not_Occurred{20E9} 21r27
-20n41*Occurred{20E9} 21r46
-24E9*Clear_Type 24e44 25r8
-24n24*Do_Not_Clear{24E9} 25r24
-24n38*Clear{24E9} 25r43
-28E9*Reset_Type 28e44 29r8
-28n24*Do_Not_Reset{28E9} 29r24
-28n38*Reset{28E9} 29r43
+1K9*ST 25l5 25e7
+3M10*Unsigned_1 20r46
+4M10*Unsigned_2 21r46
+5M10*Unsigned_3
+6M10*Unsigned_4 22r46
+7M10*Unsigned_5
+8M10*Unsigned_6
+9M10*Unsigned_7
+10M10*Unsigned_8
+11M10*Unsigned_9
+12M10*Unsigned_10
+13M10*Unsigned_11
+14M10*Unsigned_12
+15M10*Unsigned_13
+16M10*Unsigned_14
+17M10*Unsigned_15
+18M10*Unsigned_16
+20A10*Unsigned_16_1(3M10)<integer>
+21A10*Unsigned_16_2(4M10)<integer>
+22A10*Unsigned_8_4(6M10)<integer>
 

@@ -5,8 +5,11 @@ C:\Users\Tarrin\Documents\STM\pigeon\pigeon.gpr
 20190516005008
 [BOUND OBJECT FILES]
 C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4.o
-C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4-gpio.o
-C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4-rcc.o
+C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4-gpiol.o
+C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4-i2cl.o
+C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4-rccl.o
+C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4-spil.o
+C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4-usartl.o
 C:\Users\Tarrin\Documents\STM\pigeon\obj\pigeon.o
 [GENERATED SOURCE FILES]
 b__pigeon.ads

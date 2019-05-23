@@ -3,9 +3,7 @@
 
 with System; use System;
 
-package STM32F4.RCC with Preelaborate is
-
-   private
+package STM32F4.RCCL with Preelaborate is
 
 
    ----------------------
@@ -908,4 +906,4 @@ package STM32F4.RCC with Preelaborate is
    RCC : RCC_Register_Map
       with Volatile, Address => System'To_Address (RCC_BASE_ADDRESS);
 
-end STM32F4.RCC;
+end STM32F4.RCCL;

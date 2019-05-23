@@ -18,13 +18,13 @@ RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U stm32f4.gpio%s	stm32f4-gpio.ads	4f475afe EE OO PR PK IU
+U stm32f4.gpiol%s	stm32f4-gpiol.ads	5cbafae3 EE OO PR PK IU
 W stm32f4%s		stm32f4.ads		stm32f4.ali
 W system%s		system.ads		system.ali
 Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
 
-D stm32f4.ads		20190519023746 550ffb99 stm32f4%s
-D stm32f4-gpio.ads	20190518192732 c1cbb4e6 stm32f4.gpio%s
+D stm32f4.ads		20190523022346 550ffb99 stm32f4%s
+D stm32f4-gpiol.ads	20190523022440 d23614fb stm32f4.gpiol%s
 D system.ads		20180524194940 db831581 system%s
 D s-stoele.ads		20180524194940 2dc34a04 system.storage_elements%s
 D s-unstyp.ads		20180524194940 34867c83 system.unsigned_types%s
@@ -37,8 +37,8 @@ X 1 stm32f4.ads
 20A10*Unsigned_16_1(3M10)<integer> 2|46r32 70r29 78r29 87r12 88r12 105r14
 21A10*Unsigned_16_2(4M10)<integer> 2|38r31 54r33 62r31
 22A10*Unsigned_8_4(6M10)<integer> 2|120r30 128r30
-X 2 stm32f4-gpio.ads
-6K17*GPIO 1|1k9 2|179l13 179e17
+X 2 stm32f4-gpiol.ads
+6K17*GPIOL 1|1k9 2|179l13 179e18
 13N4*GPIO_BASE_ADDRESS 177r52
 14N4*GPIO_OFFSET_ADDRESS 173r51
 16N4*MODER_OFFSET_ADDRESS 152r18

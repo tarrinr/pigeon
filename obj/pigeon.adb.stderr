@@ -1,19 +1,10 @@
-pigeon.adb:2:21: warning: use clause for package "RCC" has no effect
-pigeon.adb:3:21: warning: use clause for package "GPIO" has no effect
-pigeon.adb:4:21: warning: use clause for package "USART" has no effect
-pigeon.adb:5:21: warning: use clause for package "I2C" has no effect
-pigeon.adb:6:21: warning: use clause for package "SPI" has no effect
-pigeon.adb:28:04: incorrect use of "GPIO"
-pigeon.adb:28:09: "D" is not visible (more references follow)
-pigeon.adb:28:09: non-visible (private) declaration at stm32f4-gpio.ads:171
-pigeon.adb:32:07: incorrect use of "GPIO"
-pigeon.adb:34:07: incorrect use of "GPIO"
-stm32f4-usart.ads:19:04: premature usage of incomplete private type "USART_access" defined at line 17
-stm32f4-usart.ads:19:34: "USART_1" is undefined
-stm32f4-usart.ads:20:34: "USART_2" is undefined
-stm32f4-usart.ads:21:34: "USART_3" is undefined
-stm32f4-usart.ads:22:34: "UART_4" is undefined
-stm32f4-usart.ads:23:34: "UART_5" is undefined
-stm32f4-usart.ads:24:34: "USART_6" is undefined
-stm32f4-usart.ads:25:34: "UART_7" is undefined
-stm32f4-usart.ads:26:34: "UART_8" is undefined
+pigeon.adb:4:22: warning: use clause for package "USARTL" has no effect
+pigeon.adb:5:22: warning: use clause for package "I2CL" has no effect
+pigeon.adb:6:22: warning: use clause for package "SPIL" has no effect
+pigeon.adb:8:06: "pigeon (body)" depends on "dout (body)"
+pigeon.adb:8:06: "dout (body)" depends on "dout (spec)"
+pigeon.adb:8:06: file "dout.ads" not found
+pigeon.adb:8:06: warning: unit "DOUT" is not referenced
+pigeon.adb:22:04: "DOUT" is undefined
+pigeon.adb:22:09: missing operand
+dout.adb:9:08: keyword "body" expected here [see file name]

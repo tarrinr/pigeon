@@ -3,9 +3,7 @@
 
 with System; use System;
 
-package STM32F4.SPI with Preelaborate is
-
-   private
+package STM32F4.SPIL with Preelaborate is
 
 
    ----------------------
@@ -304,4 +302,4 @@ package STM32F4.SPI with Preelaborate is
                         5 => SPI_5'Access,
                         6 => SPI_6'Access);
 
-end STM32F4.SPI;
+end STM32F4.SPIL;

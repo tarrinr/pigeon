@@ -27,7 +27,7 @@ RV NO_ELABORATION_CODE
 RV NO_OBSOLESCENT_FEATURES
 RV SPARK_05
 
-U ada_main%b		b__pigeon.adb		6a90acea OO PK IL
+U ada_main%b		b__pigeon.adb		af718622 OO PK IL
 Z system%s		system.ads		system.ali
 
 U ada_main%s		b__pigeon.ads		b96f3683 EE NE OO PK IL
@@ -35,69 +35,72 @@ W system%s		system.ads		system.ali
 W system.parameters%s	s-parame.adb		s-parame.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
-D b__pigeon.ads		20190519024012 e548b400 ada_main%s
-D b__pigeon.adb		20190519024012 8fd818ea ada_main%b
+D b__pigeon.ads		20190523023338 e548b400 ada_main%s
+D b__pigeon.adb		20190523023338 4a393222 ada_main%b
 D system.ads		20180524194940 db831581 system%s
 D s-parame.ads		20180524194940 d106111e system.parameters%s
 D s-secsta.ads		20180524194940 56a2861c system.secondary_stack%s
 D s-stoele.ads		20180524194940 2dc34a04 system.storage_elements%s
 X 1 b__pigeon.ads
-6K9*ada_main 151l5 151e13 2|7b14 163l5 163t13
+6K9*ada_main 154l5 154e13 2|7b14 175l5 175t13
 9a4*GNAT_Version{string} 11r22
-13a4*Ada_Main_Program_Name{string} 14r22 2|139r52
-16U14*adainit 17i<c,adainit>22 2|40b14 126l8 126t15 144s7
-19U14*adafinal 20i<c,adafinal>22 2|24b14 38l8 38t16 146s7
-22U14*main 23i<c,main>22 2|131b14 148t7
+13a4*Ada_Main_Program_Name{string} 14r22 2|148r52
+16U14*adainit 17i<c,adainit>22 2|43b14 135l8 135t15 153s7
+19U14*adafinal 20i<c,adafinal>22 2|27b14 41l8 41t16 155s7
+22U14*main 23i<c,main>22 2|140b14 157t7
 X 2 b__pigeon.adb
-9i4 E098{short_integer} 9m46 9r46 116m7 116r15
-10i4 E045{short_integer} 10m46 10r46 119m7 119r15
-11i4 E043{short_integer} 11m46 11r46 114m7 114r15
-12i4 E112{short_integer} 12m46 12r46 118m7 118r15
-13i4 E006{short_integer} 13m46 13r46 121m7 121r15
-14i4 E120{short_integer} 14m46 14r46 123m7 123r15
-15i4 E121{short_integer} 15m46 15r46 125m7 125r15
-17a4 Sec_Default_Sized_Stacks(5|43R9) 108m32 108r32
-19a4 Local_Priority_Specific_Dispatching{string} 95r9
-20a4 Local_Interrupt_States{string} 98r27
-22b4 Is_Elaborated{boolean} 32r14 35m7 84r10 87m7
-25U17*s_stalib_adafinal 26b<c,system__standard_library__adafinal>25 37s7
-28U17*Runtime_Finalize 29b<c,__gnat_runtime_finalize>25 36s7
-41i7*Main_Priority{integer} 42m25 42r25 88m7
-43i7*Time_Slice_Value{integer} 44m25 44r25 89m7
-45e7*WC_Encoding{character} 46m25 46r25 90m7
-47e7*Locking_Policy{character} 48m25 48r25 91m7
-49e7*Queuing_Policy{character} 50m25 50r25 92m7
-51e7*Task_Dispatching_Policy{character} 52m25 52r25 93m7
-53m7*Priority_Specific_Dispatching{3|80M9} 54m25 54r25 94m7
-55i7*Num_Specific_Dispatching{integer} 56m25 56r25 96m7
-57i7*Main_CPU{integer} 58m25 58r25 97m7
-59m7*Interrupt_States{3|80M9} 60m25 60r25 98m7
-61i7*Num_Interrupt_States{integer} 62m25 62r25 99m7
-63i7*Unreserve_All_Interrupts{integer} 64m25 64r25 100m7
-65i7*Detect_Blocking{integer} 66m25 66r25 101m7
-67i7*Default_Stack_Size{integer} 68m25 68r25 102m7
-69i7*Default_Secondary_Stack_Size{4|56I9} 70m25 70r25 106m7
-71i7*Leap_Seconds_Support{integer} 72m25 72r25 103m7
-73m7*Bind_Env_Addr{3|80M9} 74m25 74r25
-76U17*Runtime_Initialize 76>37 77b<c,__gnat_runtime_initialize>25 110s7
-76i37 Install_Handler{integer}
-78i7*Binder_Sec_Stacks_Count{natural} 79m27 79r27 107m7
-80m7*Default_Sized_SS_Pool{3|80M9} 81m27 81r27 108m7
-128U14 Ada_Main_Program 129b<ada,_ada_pigeon>24 145s7
-132U17*Initialize 132>29 133b<c,__gnat_initialize>25 143s7
-132m29 Addr{3|80M9}
-135U17*Finalize 136b<c,__gnat_finalize>25 147s7
-137a7 SEH(integer) 143m19 143r19
-139m7 Ensure_Reference{3|80M9} 140r24
+9i4 E098{short_integer} 9m46 9r46 119m7 119r15
+10i4 E045{short_integer} 10m46 10r46 122m7 122r15
+11i4 E043{short_integer} 11m46 11r46 117m7 117r15
+12i4 E112{short_integer} 12m46 12r46 121m7 121r15
+13i4 E006{short_integer} 13m46 13r46 124m7 124r15
+14i4 E120{short_integer} 14m46 14r46 126m7 126r15
+15i4 E121{short_integer} 15m46 15r46 128m7 128r15
+16i4 E122{short_integer} 16m46 16r46 130m7 130r15
+17i4 E123{short_integer} 17m46 17r46 132m7 132r15
+18i4 E124{short_integer} 18m46 18r46 134m7 134r15
+20a4 Sec_Default_Sized_Stacks(5|43R9) 111m32 111r32
+22a4 Local_Priority_Specific_Dispatching{string} 98r9
+23a4 Local_Interrupt_States{string} 101r27
+25b4 Is_Elaborated{boolean} 35r14 38m7 87r10 90m7
+28U17*s_stalib_adafinal 29b<c,system__standard_library__adafinal>25 40s7
+31U17*Runtime_Finalize 32b<c,__gnat_runtime_finalize>25 39s7
+44i7*Main_Priority{integer} 45m25 45r25 91m7
+46i7*Time_Slice_Value{integer} 47m25 47r25 92m7
+48e7*WC_Encoding{character} 49m25 49r25 93m7
+50e7*Locking_Policy{character} 51m25 51r25 94m7
+52e7*Queuing_Policy{character} 53m25 53r25 95m7
+54e7*Task_Dispatching_Policy{character} 55m25 55r25 96m7
+56m7*Priority_Specific_Dispatching{3|80M9} 57m25 57r25 97m7
+58i7*Num_Specific_Dispatching{integer} 59m25 59r25 99m7
+60i7*Main_CPU{integer} 61m25 61r25 100m7
+62m7*Interrupt_States{3|80M9} 63m25 63r25 101m7
+64i7*Num_Interrupt_States{integer} 65m25 65r25 102m7
+66i7*Unreserve_All_Interrupts{integer} 67m25 67r25 103m7
+68i7*Detect_Blocking{integer} 69m25 69r25 104m7
+70i7*Default_Stack_Size{integer} 71m25 71r25 105m7
+72i7*Default_Secondary_Stack_Size{4|56I9} 73m25 73r25 109m7
+74i7*Leap_Seconds_Support{integer} 75m25 75r25 106m7
+76m7*Bind_Env_Addr{3|80M9} 77m25 77r25
+79U17*Runtime_Initialize 79>37 80b<c,__gnat_runtime_initialize>25 113s7
+79i37 Install_Handler{integer}
+81i7*Binder_Sec_Stacks_Count{natural} 82m27 82r27 110m7
+83m7*Default_Sized_SS_Pool{3|80M9} 84m27 84r27 111m7
+137U14 Ada_Main_Program 138b<ada,_ada_pigeon>24 154s7
+141U17*Initialize 141>29 142b<c,__gnat_initialize>25 152s7
+141m29 Addr{3|80M9}
+144U17*Finalize 145b<c,__gnat_finalize>25 156s7
+146a7 SEH(integer) 152m19 152r19
+148m7 Ensure_Reference{3|80M9} 149r24
 X 3 system.ads
-50K9*System 1|3w6 4r6 5r6 2|17r57 17r90 53r39 59r26 69r38 73r23 80r31 106r39
-. 132r36 139r34 3|164e11
-80M9*Address 2|53r46 59r33 73r30 80r38 132r43 139r41
+50K9*System 1|3w6 4r6 5r6 2|20r57 20r90 56r39 62r26 72r38 76r23 83r31 109r39
+. 141r36 148r34 3|164e11
+80M9*Address 2|56r46 62r33 76r30 83r38 141r43 148r41
 X 4 s-parame.ads
-49K16*Parameters 1|4w13 2|17r97 69r45 106r46 4|186e22
-56I9*Size_Type<integer> 2|69r56
-87i4*Runtime_Default_Sec_Stack_Size{56I9} 2|17r108 106r57
+49K16*Parameters 1|4w13 2|20r97 72r45 109r46 4|186e22
+56I9*Size_Type<integer> 2|72r56
+87i4*Runtime_Default_Sec_Stack_Size{56I9} 2|20r108 109r57
 X 5 s-secsta.ads
-37K16*Secondary_Stack 1|5w13 2|17r64 5|154e27
-43R9*SS_Stack 2|17r80 5|119e14
+37K16*Secondary_Stack 1|5w13 2|20r64 5|154e27
+43R9*SS_Stack 2|20r80 5|119e14
 

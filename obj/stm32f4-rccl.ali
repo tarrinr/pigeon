@@ -18,13 +18,13 @@ RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U stm32f4.rcc%s		stm32f4-rcc.ads		591bffa0 EE OO PR PK IU
+U stm32f4.rccl%s	stm32f4-rccl.ads	5d2643d4 EE OO PR PK IU
 W stm32f4%s		stm32f4.ads		stm32f4.ali
 W system%s		system.ads		system.ali
 Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
 
-D stm32f4.ads		20190519023746 550ffb99 stm32f4%s
-D stm32f4-rcc.ads	20190518192732 d79711b8 stm32f4.rcc%s
+D stm32f4.ads		20190523022346 550ffb99 stm32f4%s
+D stm32f4-rccl.ads	20190523022458 d3aaadcc stm32f4.rccl%s
 D system.ads		20180524194940 db831581 system%s
 D s-stoele.ads		20180524194940 2dc34a04 system.storage_elements%s
 D s-unstyp.ads		20180524194940 34867c83 system.unsigned_types%s
@@ -61,8 +61,8 @@ X 1 stm32f4.ads
 11M10*Unsigned_9 2|90r16 833r17
 15M10*Unsigned_13 2|814r19
 17M10*Unsigned_15 2|813r19
-X 2 stm32f4-rcc.ads
-6K17*RCC 1|1k9 2|909l13 909e16
+X 2 stm32f4-rccl.ads
+6K17*RCCL 1|1k9 2|909l13 909e17
 13N4*RCC_BASE_ADDRESS 907r52
 15N4*CR_OFFSET_ADDRESS 876r21
 16N4*PLLCFGR_OFFSET_ADDRESS 877r21

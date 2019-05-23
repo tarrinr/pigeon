@@ -3,9 +3,7 @@
 
 with System; use System;
 
-package STM32F4.I2C with Preelaborate is
-
-   private
+package STM32F4.I2CL with Preelaborate is
 
 
    ----------------------
@@ -314,4 +312,4 @@ package STM32F4.I2C with Preelaborate is
    I2C : I2C_Port_Set
       with Volatile, Address => System'To_Address (I2C_BASE_ADDRESS);
 
-end STM32F4.I2C;
+end STM32F4.I2CL;

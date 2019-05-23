@@ -3,9 +3,7 @@
 
 with System; use System;
 
-package STM32F4.GPIO with Preelaborate is
-
-   private
+package STM32F4.GPIOL with Preelaborate is
 
 
    ----------------------
@@ -178,4 +176,4 @@ package STM32F4.GPIO with Preelaborate is
    GPIO : GPIO_Port_Set
       with Volatile, Address => System'To_Address (GPIO_BASE_ADDRESS);
 
-end STM32F4.GPIO;
+end STM32F4.GPIOL;
