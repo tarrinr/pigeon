@@ -148,6 +148,8 @@ package ada_main is
    --  stm32f4.rccl%s
    --  stm32f4.spil%s
    --  stm32f4.usartl%s
+   --  debug%s
+   --  debug%b
    --  pigeon%b
    --  END ELABORATION ORDER
 

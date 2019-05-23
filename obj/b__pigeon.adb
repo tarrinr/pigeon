@@ -11,11 +11,12 @@ package body ada_main is
    E043 : Short_Integer; pragma Import (Ada, E043, "system__exception_table_E");
    E112 : Short_Integer; pragma Import (Ada, E112, "system__bb__timing_events_E");
    E006 : Short_Integer; pragma Import (Ada, E006, "ada__real_time_E");
-   E120 : Short_Integer; pragma Import (Ada, E120, "stm32f4__gpiol_E");
-   E121 : Short_Integer; pragma Import (Ada, E121, "stm32f4__i2cl_E");
-   E122 : Short_Integer; pragma Import (Ada, E122, "stm32f4__rccl_E");
-   E123 : Short_Integer; pragma Import (Ada, E123, "stm32f4__spil_E");
+   E122 : Short_Integer; pragma Import (Ada, E122, "stm32f4__gpiol_E");
+   E125 : Short_Integer; pragma Import (Ada, E125, "stm32f4__i2cl_E");
+   E123 : Short_Integer; pragma Import (Ada, E123, "stm32f4__rccl_E");
+   E126 : Short_Integer; pragma Import (Ada, E126, "stm32f4__spil_E");
    E124 : Short_Integer; pragma Import (Ada, E124, "stm32f4__usartl_E");
+   E120 : Short_Integer; pragma Import (Ada, E120, "debug_E");
 
    Sec_Default_Sized_Stacks : array (1 .. 1) of aliased System.Secondary_Stack.SS_Stack (System.Parameters.Runtime_Default_Sec_Stack_Size);
 
@@ -123,15 +124,16 @@ package body ada_main is
       Ada.Real_Time'Elab_Body;
       E006 := E006 + 1;
       STM32F4.GPIOL'ELAB_SPEC;
-      E120 := E120 + 1;
-      STM32F4.I2CL'ELAB_SPEC;
-      E121 := E121 + 1;
-      STM32F4.RCCL'ELAB_SPEC;
       E122 := E122 + 1;
-      STM32F4.SPIL'ELAB_SPEC;
+      STM32F4.I2CL'ELAB_SPEC;
+      E125 := E125 + 1;
+      STM32F4.RCCL'ELAB_SPEC;
       E123 := E123 + 1;
+      STM32F4.SPIL'ELAB_SPEC;
+      E126 := E126 + 1;
       STM32F4.USARTL'ELAB_SPEC;
       E124 := E124 + 1;
+      E120 := E120 + 1;
    end adainit;
 
    procedure Ada_Main_Program;
@@ -157,15 +159,16 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4.o
-   --   C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4-gpiol.o
-   --   C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4-i2cl.o
-   --   C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4-rccl.o
-   --   C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4-spil.o
-   --   C:\Users\Tarrin\Documents\STM\pigeon\obj\stm32f4-usartl.o
-   --   C:\Users\Tarrin\Documents\STM\pigeon\obj\pigeon.o
-   --   -LC:\Users\Tarrin\Documents\STM\pigeon\obj\
-   --   -LC:\Users\Tarrin\Documents\STM\pigeon\obj\
+   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\stm32f4.o
+   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\stm32f4-gpiol.o
+   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\stm32f4-i2cl.o
+   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\stm32f4-rccl.o
+   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\stm32f4-spil.o
+   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\stm32f4-usartl.o
+   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\debug.o
+   --   C:\Users\trasmussen\Documents\STM\pigeon\obj\pigeon.o
+   --   -LC:\Users\trasmussen\Documents\STM\pigeon\obj\
+   --   -LC:\Users\trasmussen\Documents\STM\pigeon\obj\
    --   -LC:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\adalib\
    --   -static
    --   -lgnarl

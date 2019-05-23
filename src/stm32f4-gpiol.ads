@@ -166,7 +166,7 @@ package STM32F4.GPIOL with Preelaborate is
    -- HARDWARE REPRESENTATION --
    -----------------------------
 
-   type GPIO_Ports is (A, B, C, D, E, F, G, H, I, J, K);
+   type GPIO_Ports is (A, B, C, D, E, F, G, H, I);
 
    pragma Warnings (Off, "*component of*");
    type GPIO_Port_Set is array (GPIO_Ports) of GPIO_Register_Map

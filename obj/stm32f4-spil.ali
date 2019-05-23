@@ -14,6 +14,7 @@ P DB ES ZX
 
 RN
 RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASK_HIERARCHY
 RV NO_IMPLEMENTATION_ATTRIBUTES
 RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_IMPLICIT_LOOPS
@@ -25,12 +26,12 @@ W stm32f4%s		stm32f4.ads		stm32f4.ali
 W system%s		system.ads		system.ali
 Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
 
-D stm32f4.ads		20190523022346 550ffb99 stm32f4%s
-D stm32f4-spil.ads	20190523023336 16161546 stm32f4.spil%s
+D stm32f4.ads		20190522190824 550ffb99 stm32f4%s
+D stm32f4-spil.ads	20190523142016 16161546 stm32f4.spil%s
 D system.ads		20180524194940 db831581 system%s
 D s-stoele.ads		20180524194940 2dc34a04 system.storage_elements%s
 D s-unstyp.ads		20180524194940 34867c83 system.unsigned_types%s
-D c:\users\tarrin\documents\stm\pigeon\gnat.adc  20190518151352 00000000
+D c:\users\trasmussen\documents\stm\pigeon\gnat.adc  20190523142016 00000000
 X 1 stm32f4.ads
 1K9*STM32F4 25e12 2|6r9 305r5
 3M10*Unsigned_1 2|41r18 42r18 43r18 44r18 45r18 46r18 47r18 48r18 49r18 50r18

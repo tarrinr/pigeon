@@ -13,22 +13,23 @@ A -gnatw.X
 P DB ES ZX
 
 RN
+RR NO_TASK_HIERARCHY
 RV NO_IMPLEMENTATION_ATTRIBUTES
 RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U stm32f4.gpiol%s	stm32f4-gpiol.ads	5cbafae3 EE OO PR PK IU
+U stm32f4.gpiol%s	stm32f4-gpiol.ads	ee6a2ae1 EE OO PR PK IU
 W stm32f4%s		stm32f4.ads		stm32f4.ali
 W system%s		system.ads		system.ali
 Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
 
-D stm32f4.ads		20190523022346 550ffb99 stm32f4%s
-D stm32f4-gpiol.ads	20190523022440 d23614fb stm32f4.gpiol%s
+D stm32f4.ads		20190522190824 550ffb99 stm32f4%s
+D stm32f4-gpiol.ads	20190523213834 60e6c4f9 stm32f4.gpiol%s
 D system.ads		20180524194940 db831581 system%s
 D s-stoele.ads		20180524194940 2dc34a04 system.storage_elements%s
 D s-unstyp.ads		20180524194940 34867c83 system.unsigned_types%s
-D c:\users\tarrin\documents\stm\pigeon\gnat.adc  20190518151352 00000000
+D c:\users\trasmussen\documents\stm\pigeon\gnat.adc  20190523142016 00000000
 X 1 stm32f4.ads
 1K9*STM32F4 25e12 2|6r9 179r5
 3M10*Unsigned_1 2|104r14
@@ -76,7 +77,7 @@ X 2 stm32f4-gpiol.ads
 145r7*LCKR{103R9} 159r7
 146a7*AFRL{120A9} 160r7
 147a7*AFRH{128A9} 161r7
-169E9*GPIO_Ports 169e56 172r33
+169E9*GPIO_Ports 169e50 172r33
 169n24*A{169E9}
 169n27*B{169E9}
 169n30*C{169E9}
@@ -86,8 +87,6 @@ X 2 stm32f4-gpiol.ads
 169n42*G{169E9}
 169n45*H{169E9}
 169n48*I{169E9}
-169n51*J{169E9}
-169n54*K{169E9}
 172A9*GPIO_Port_Set(137R9)<169E9> 176r11
 176a4*GPIO{172A9}
 X 3 system.ads
