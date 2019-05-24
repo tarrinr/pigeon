@@ -1,23 +1,43 @@
+-- File: pigeon.adb
+-- Tarrin Rasmussen 05/2019
+
+--------------
+-- PACKAGES --
+--------------
+
+-- Libraries
 with STM32F4;        use STM32F4;
 with STM32F4.RCCL;   use STM32F4.RCCL;
 with STM32F4.GPIOL;  use STM32F4.GPIOL;
---with STM32F4.USARTL; use STM32F4.USARTL;
---with STM32F4.I2CL;   use STM32F4.I2CL;
---with STM32F4.SPIL;   use STM32F4.SPIL;
 
+-- Ada packages
+with Ada.Real_Time;                use Ada.Real_Time;
+
+-- User defined packages
 with DEBUG; use DEBUG;
 
-with Ada.Real_Time; use Ada.Real_Time;
 
-------------
--- PIGEON --
-------------
+---------------
+-- PROCEDURE --
+---------------
 
 procedure pigeon is
+
+
+-------------------------
+-- DECLARATION SECTION --
+-------------------------
+
+   pragma Priority (2);
 
    led_delay : Time;
    led : Unsigned_1 := 0;
    rc : integer := 0;
+
+
+------------------------
+-- EXECUTABLE SECTION --
+------------------------
 
 begin
 
@@ -25,9 +45,6 @@ begin
    --
    -- Initialize interfaces
    --
-
-   -- Initialize debug interface
-   pragma debug (debug_init);
 
    DOUT("############################\n");
    DOUT("## PIGEON DEBUG INTERFACE ##\n");

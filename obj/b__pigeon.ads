@@ -142,6 +142,19 @@ package ada_main is
    --  ada.real_time%b
    --  ada.real_time.delays%s
    --  ada.real_time.delays%b
+   --  system.tasking.protected_objects%s
+   --  system.tasking.protected_objects%b
+   --  system.tasking.protected_objects.multiprocessors%s
+   --  system.tasking.protected_objects.multiprocessors%b
+   --  system.tasking.protected_objects.single_entry%s
+   --  system.tasking.protected_objects.single_entry%b
+   --  system.tasking.restricted%s
+   --  system.tasking.restricted.stages%s
+   --  system.tasking.restricted.stages%b
+   --  ada.task_identification%s
+   --  ada.task_identification%b
+   --  ada.synchronous_task_control%s
+   --  ada.synchronous_task_control%b
    --  stm32f4%s
    --  stm32f4.gpiol%s
    --  stm32f4.rccl%s

@@ -1,5 +1,5 @@
 V "GNAT Lib v2018"
-M P W=b
+M P 2 W=b
 A -O2
 A -gnatA
 A --RTS=C:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\
@@ -16,12 +16,11 @@ P DB LC TF  ES ZX
 
 RN
 RV NO_DELAY
-RV NO_IMPLICIT_CONDITIONALS
 RR NO_TASK_HIERARCHY
 RV NO_IMPLEMENTATION_PRAGMAS
 RV SPARK_05
 
-U pigeon%b		pigeon.adb		83d6ca2b NE OO SU IL
+U pigeon%b		pigeon.adb		956ad8c6 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.real_time%s	a-reatim.adb		a-reatim.ali
 Z ada.real_time.delays%s  a-retide.adb		a-retide.ali
@@ -29,19 +28,23 @@ W debug%s		debug.adb		debug.ali
 W stm32f4%s		stm32f4.ads		stm32f4.ali
 W stm32f4.gpiol%s	stm32f4-gpiol.ads	stm32f4-gpiol.ali
 W stm32f4.rccl%s	stm32f4-rccl.ads	stm32f4-rccl.ali
+Z system%s		system.ads		system.ali
+Z system.tasking.restricted.stages%s  s-tarest.adb  s-tarest.ali
 
 D ada.ads		20180524194940 76789da1 ada%s
+D a-except.ads		20180524194940 291912d5 ada.exceptions%s
 D a-reatim.ads		20180524194940 4c16970e ada.real_time%s
 D a-retide.ads		20180524194940 081cdaa4 ada.real_time.delays%s
-D debug.ads		20190524013728 295f3905 debug%s
+D a-unccon.ads		20180524194940 0e9b276f ada.unchecked_conversion%s
+D debug.ads		20190524213542 f334b78b debug%s
 D interfac.ads		20180524194940 5ab55268 interfaces%s
 D i-stm32.ads		20180524194940 4d2e1e9b interfaces.stm32%s
 D i-stm32-pwr.ads	20180524194940 10ed2a13 interfaces.stm32.pwr%s
-D pigeon.adb		20190524022104 00dcf68c pigeon%b
-D stm32f4.ads		20190524013714 550ffb99 stm32f4%s
-D stm32f4-gpiol.ads	20190524002750 60e6c4f9 stm32f4.gpiol%s
-D stm32f4-rccl.ads	20190523022458 d3aaadcc stm32f4.rccl%s
-D stm32f4-usartl.ads	20190524012424 73409902 stm32f4.usartl%s
+D pigeon.adb		20190524222008 cc0b6aef pigeon%b
+D stm32f4.ads		20190522190824 550ffb99 stm32f4%s
+D stm32f4-gpiol.ads	20190523213834 60e6c4f9 stm32f4.gpiol%s
+D stm32f4-rccl.ads	20190523142016 d3aaadcc stm32f4.rccl%s
+D stm32f4-usartl.ads	20190524151726 73409902 stm32f4.usartl%s
 D system.ads		20180524194940 db831581 system%s
 D s-bb.ads		20180524194940 09e072ae system.bb%s
 D s-bbbopa.ads		20180524194940 95d97b26 system.bb.board_parameters%s
@@ -55,50 +58,64 @@ D s-bbthqu.ads		20180524194940 db3cad46 system.bb.threads.queues%s
 D s-bbtime.ads		20180524194940 ad086247 system.bb.time%s
 D s-multip.ads		20180524194940 f33e0e35 system.multiprocessors%s
 D s-osinte.ads		20180524194940 229b14dd system.os_interface%s
+D s-parame.ads		20180524194940 d106111e system.parameters%s
+D s-secsta.ads		20180524194940 56a2861c system.secondary_stack%s
+D s-stalib.ads		20180524194940 09bd3940 system.standard_library%s
 D s-stm32.ads		20180524194940 e898dba2 system.stm32%s
 D s-stoele.ads		20180524194940 2dc34a04 system.storage_elements%s
+D s-tasinf.ads		20180524194940 801abd01 system.task_info%s
+D s-taspri.ads		20180524194940 351848fa system.task_primitives%s
+D s-taskin.ads		20180524194940 58b15916 system.tasking%s
+D s-tasres.ads		20180524194940 0c8ef6fb system.tasking.restricted%s
+D s-tarest.ads		20180524194940 c88b6d9a system.tasking.restricted.stages%s
+D s-traent.ads		20180524194940 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20180524194940 34867c83 system.unsigned_types%s
-D c:\users\tarrin\documents\stm\pigeon\gnat.adc  20190523025838 00000000
+D c:\users\trasmussen\documents\stm\pigeon\gnat.adc  20190523142016 00000000
 X 1 ada.ads
-16K9*Ada 20e8 8|10r6 10r25
-X 2 a-reatim.ads
-41K13*Real_Time 182e18 8|10w10 10r29
-51M9*Time<23|46M9> 8|18r16
-61I9*Time_Span<23|81I9>
-68V13*Clock{51M9}<23|134p13> 8|116s20
-72V14*"+"{51M9} 8|119s29
-128V13*Milliseconds{61I9} 8|119s31
-X 4 debug.ads
-10K9*DEBUG 45e10 8|8w6 8r17
-40U14*debug_init 8|30s18
-43U14*DOUT 8|32s4 33s4 34s4 36s4 39s4 43s10 45s10 49s4 53s10 55s10 59s4 63s10
-. 65s10 69s4 73s10 75s10 79s4 83s10 85s10
-X 8 pigeon.adb
-16U11*pigeon 16b11 122l5 122t11
-18m4 led_delay{2|51M9} 116m7 119r19
-19m4 led{9|3M10} 117r26 118m7 118r14
-20i4 rc{integer} 41r9 51r9 61r9 71r9 81r9
-X 9 stm32f4.ads
-1K9*STM32F4 8|1w6 1r26 2r6 2r26 3r6 3r26 9|25e12
-3M10*Unsigned_1 8|19r10
+16K9*Ada 20e8 10|14r6 14r40
+X 3 a-reatim.ads
+41K13*Real_Time 182e18 10|14w10 14r44
+51M9*Time<25|46M9> 10|33r16
+61I9*Time_Span<25|81I9>
+68V13*Clock{51M9}<25|134p13> 10|133s20
+72V14*"+"{51M9} 10|136s29
+128V13*Milliseconds{61I9} 10|136s31
+X 6 debug.ads
+18K9*DEBUG 53e10 10|17w6 17r17
+51U14*DOUT 10|49s4 50s4 51s4 53s4 56s4 60s10 62s10 66s4 70s10 72s10 76s4
+. 80s10 82s10 86s4 90s10 92s10 96s4 100s10 102s10
+X 10 pigeon.adb
+24U11*pigeon 24b11 139l5 139t11
+33m4 led_delay{3|51M9} 133m7 136r19
+34m4 led{11|3M10} 134r26 135m7 135r14
+35i4 rc{integer} 58r9 68r9 78r9 88r9 98r9
+X 11 stm32f4.ads
+1K9*STM32F4 10|9w6 9r26 10r6 10r26 11r6 11r26 11|25e12
+3M10*Unsigned_1 10|34r10
 4M10*Unsigned_2
 20A10*Unsigned_16_1(3M10)<integer>
 21A10*Unsigned_16_2(4M10)<integer>
-X 10 stm32f4-gpiol.ads
-6K17*GPIOL 8|3w14 3r34 10|179e18
-38A9*MODER_register<9|21A10>(9|4M10)<integer>
-78A9*ODR_register<9|20A10>(9|3M10)<integer>
-138a7*MODER{38A9} 8|114m12 114r12
-143a7*ODR{78A9} 8|117m15 117r15
-169n33*D{169E9} 8|114r9 117r12
+X 12 stm32f4-gpiol.ads
+6K17*GPIOL 10|11w14 11r34 12|179e18
+38A9*MODER_register<11|21A10>(11|4M10)<integer>
+78A9*ODR_register<11|20A10>(11|3M10)<integer>
+138a7*MODER{38A9} 10|131m12 131r12
+143a7*ODR{78A9} 10|134m15 134r15
+169n33*D{169E9} 10|131r9 134r12
 172A9*GPIO_Port_Set(137R9)<169E9>
-176a4*GPIO{172A9} 8|114m4 114r4 117m7 117r7
-X 11 stm32f4-rccl.ads
-6K17*RCCL 8|2w14 2r34 11|909e17
-387m7*GPIODEN{9|3M10} 8|113m16
-858r7*AHB1ENR{370R9} 8|113m8
-906r4*RCC{848R9} 8|113m4
-X 23 s-bbtime.ads
+176a4*GPIO{172A9} 10|131m4 131r4 134m7 134r7
+X 13 stm32f4-rccl.ads
+6K17*RCCL 10|10w14 10r34 13|909e17
+387m7*GPIODEN{11|3M10} 10|130m16
+858r7*AHB1ENR{370R9} 10|130m8
+906r4*RCC{848R9} 10|130m4
+X 25 s-bbtime.ads
 46M9*Time
 81I9*Time_Span<long_long_integer>
+X 29 s-secsta.ads
+46P9*SS_Stack_Ptr(43R9)
+X 35 s-taskin.ads
+407V13*Get_Sec_Stack{29|46P9} 408i<c,__gnat_get_secondary_stack>22
+X 37 s-tarest.ads
+232U14*Activate_All_Tasks_Sequential 233i<c,__gnat_activate_all_tasks>22
 

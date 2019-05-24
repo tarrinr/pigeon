@@ -1,30 +1,87 @@
-------------------------
--- DEBUG PACKAGE BODY --
-------------------------
+-- File: debug.adb
+-- Tarrin Rasmussen 05/2019
+
+--------------
+-- PACKAGES --
+--------------
+
+-- Libraries
+with STM32F4.RCCL;   use STM32F4.RCCL;
+
+-- Ada packages
+with Ada.Synchronous_Task_Control; use Ada.Synchronous_Task_Control;
+
+
+------------------
+-- PACKAGE BODY --
+------------------
 
 package body DEBUG is
 
+   initialized : Boolean := false;
 
-   ----------------
-   -- PROCEDURES --
-   ----------------
+   type counter is mod 100;
+   type circular_buffer is array (counter) of Character;
+
+   buffer        : circular_buffer;
+   head          : counter := 0;
+   tail          : counter := 0;
+   Activate_Task : Suspension_Object;
+
+
+   --
+   -- Tasks
+   --
 
    -- Output debug message to USART console
-   procedure debug_message (message : string) is
+   task debug_task is
+      pragma Priority (1);
+   end debug_task;
+
+   task body debug_task is
    begin
-      for i in 1 .. message'LENGTH loop
-         USART(USART_PORT).DR.DR := Character'POS(message (i));
+      Suspend_Until_True (Activate_Task);
+      while head /= tail loop
+         USART(USART_PORT).DR.DR := Character'POS (buffer (head));
+         head := head + 1;
          while USART(USART_PORT).SR.TXE = 0 loop
             null;
          end loop;
       end loop;
-   end debug_message;
+   end debug_task;
 
+
+   --
+   -- Procedures
+   --
+
+   -- Place message in circular buffer
+   procedure fill_buffer (message : string) is
+   begin
+      if not initialized then
+         debug_init;
+         initialized := true;
+      end if;
+      for i in message'RANGE loop
+         buffer (tail) := message (i);
+         while tail + 1 = head loop
+            null;
+         end loop;
+         tail := tail + 1;
+         if not debug_task'TERMINATED then
+            Set_True(Activate_Task);
+         end if;
+      end loop;
+   end fill_buffer;
+
+
+   -- Output debug message to USART console task
    procedure DOUT (message : string) is
    begin
-      pragma debug (debug_message (message));
-   end;
+      pragma Debug (fill_buffer (message));
+   end DOUT;
 
+   -- Initialize debugging interface
    procedure debug_init is
    begin
 

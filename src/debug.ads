@@ -1,18 +1,26 @@
+-- File: debug.ads
+-- Tarrin Rasmussen 05/2019
+
+--------------
+-- PACKAGES --
+--------------
+
+-- Libraries
 with STM32F4;        use STM32F4;
-with STM32F4.RCCL;   use STM32F4.RCCL;
 with STM32F4.GPIOL;  use STM32F4.GPIOL;
 with STM32F4.USARTL; use STM32F4.USARTL;
 
---------------------------------
--- DEBUG PACKAGE SPECIFICATION--
---------------------------------
+
+---------------------------
+-- PACKAGE SPECIFICATION --
+---------------------------
 
 package DEBUG is
 
 
-   -------------
-   -- GLOBALS --
-   -------------
+   --
+   -- Globals
+   --
 
    -- GPIO configuration for USART
    GPIO_PORT   : constant GPIO_Ports := B;
@@ -32,9 +40,9 @@ package DEBUG is
    USART_BR_FRAC     : constant := 16#03#; -- 0.1875 for 9600 bps
 
 
-   ----------------
-   -- PROCEDURES --
-   ----------------
+   --
+   -- Procedures
+   --
 
    -- Initialize debug interface
    procedure debug_init;
