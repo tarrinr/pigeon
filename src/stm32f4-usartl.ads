@@ -16,8 +16,6 @@ package STM32F4.USARTL with Preelaborate is
    UART_4_BASE_ADDRESS  : constant := 16#4000_4C00#;
    UART_5_BASE_ADDRESS  : constant := 16#4000_5000#;
    USART_6_BASE_ADDRESS : constant := 16#4001_1400#;
-   UART_7_BASE_ADDRESS  : constant := 16#4000_7800#;
-   UART_8_BASE_ADDRESS  : constant := 16#4000_7C00#;
 
    SR_OFFSET_ADDRESS   : constant := 16#00#;
    DR_OFFSET_ADDRESS   : constant := 16#04#;
@@ -256,7 +254,7 @@ package STM32F4.USARTL with Preelaborate is
    -- HARDWARE REPRESENTATION --
    -----------------------------
 
-   type USART_Ports is range 1 .. 8;
+   type USART_Ports is range 1 .. 6;
    type USART_access is array (USART_Ports) of access USART_Register_Map;
 
    USART_1 : aliased USART_Register_Map
@@ -276,20 +274,12 @@ package STM32F4.USARTL with Preelaborate is
    
    USART_6 : aliased USART_Register_Map
       with Address => System'To_Address (USART_6_BASE_ADDRESS);
-   
-   UART_7 : aliased USART_Register_Map
-      with Address => System'To_Address (UART_7_BASE_ADDRESS);
-   
-   UART_8 : aliased USART_Register_Map
-      with Address => System'To_Address (UART_8_BASE_ADDRESS);
 
    USART : USART_access := (1 => USART_1'Access,
                             2 => USART_2'Access,
                             3 => USART_3'Access,
                             4 => UART_4'Access,
                             5 => UART_5'Access,
-                            6 => USART_6'Access,
-                            7 => UART_7'Access,
-                            8 => UART_8'Access);
+                            6 => USART_6'Access);
 
 end STM32F4.USARTL;

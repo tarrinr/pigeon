@@ -144,9 +144,7 @@ package ada_main is
    --  ada.real_time.delays%b
    --  stm32f4%s
    --  stm32f4.gpiol%s
-   --  stm32f4.i2cl%s
    --  stm32f4.rccl%s
-   --  stm32f4.spil%s
    --  stm32f4.usartl%s
    --  debug%s
    --  debug%b

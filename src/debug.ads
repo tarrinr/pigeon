@@ -14,7 +14,7 @@ package DEBUG is
    -- GLOBALS --
    -------------
 
-   -- GPIO configuration for USART1
+   -- GPIO configuration for USART
    GPIO_PORT   : constant GPIO_Ports := B;
    GPIO_MODE   : constant := 2#10#;   -- Alternate function mode
    GPIO_OTYPE  : constant := 2#00#;   -- Push-pull
@@ -22,8 +22,8 @@ package DEBUG is
    GPIO_PUPD   : constant := 2#00#;   -- No pull up/down
    GPIO_AFRX   : constant := 2#0111#; -- USART1
 
-   -- USART1 configuration
-   USART_PORT        : constant := 1;
+   -- USART configuration
+   USART_PORT        : constant USART_Ports := 1;
    USART_TX_PIN      : constant := 6;
    USART_RX_PIN      : constant := 7;
    USART_WORD_LENGTH : constant := 16#00#; -- 8 data bits

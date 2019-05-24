@@ -21,16 +21,6 @@ procedure pigeon is
 
 begin
 
-   RCC.AHB1ENR.GPIODEN := 2#1#;
-   GPIO(D).MODER(15) := 2#01#;
-
-   loop
-      led_delay := Clock;
-      GPIO(D).ODR(15) := led;
-      led := led + 1;
-      delay until led_delay + Milliseconds(50);
-   end loop;
-
 
    --
    -- Initialize interfaces
@@ -51,7 +41,7 @@ begin
    case rc is
       when 0 =>
          DOUT("done\n");
-      when 1 =>
+      when others =>
          DOUT("\n### ERROR: I2C initialization failed\n");
    end case;
 
@@ -61,7 +51,7 @@ begin
    case rc is
       when 0 =>
          DOUT("done\n");
-      when 1 =>
+      when others =>
          DOUT("\n### ERROR: SPI1 initialization failed\n");
    end case;
 
@@ -71,7 +61,7 @@ begin
    case rc is
       when 0 =>
          DOUT("done\n");
-      when 1 =>
+      when others =>
          DOUT("\n### ERROR: SPI2 initialization failed\n");
    end case;
 
@@ -81,7 +71,7 @@ begin
    case rc is
       when 0 =>
          DOUT("done\n");
-      when 1 =>
+      when others =>
          DOUT("\n### ERROR: DCMI initialization failed\n");
    end case;
 
@@ -91,7 +81,7 @@ begin
    case rc is
       when 0 =>
          DOUT("done\n");
-      when 1 =>
+      when others =>
          DOUT("\n### ERROR: GPIO initialization failed\n");
    end case;
 
@@ -119,5 +109,14 @@ begin
    --   rc := peripherals.transmit;
    --   rc := peripherals.save;
    --end loop;
+
+   RCC.AHB1ENR.GPIODEN := 2#1#;
+   GPIO(D).MODER(15) := 2#01#;
+   loop
+      led_delay := Clock;
+      GPIO(D).ODR(15) := led;
+      led := led + 1;
+      delay until led_delay + Milliseconds(50);
+   end loop;
 
 end pigeon;

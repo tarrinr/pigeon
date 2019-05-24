@@ -1,4 +1,3 @@
-
 ------------------------
 -- DEBUG PACKAGE BODY --
 ------------------------
@@ -14,7 +13,7 @@ package body DEBUG is
    procedure debug_message (message : string) is
    begin
       for i in 1 .. message'LENGTH loop
-         USART(USART_PORT).DR.DR := Unsigned_9(Character'POS(message (i)));
+         USART(USART_PORT).DR.DR := Character'POS(message (i));
          while USART(USART_PORT).SR.TXE = 0 loop
             null;
          end loop;
@@ -54,6 +53,22 @@ package body DEBUG is
             RCC.AHB1ENR.GPIOHEN := 1;
          when I =>
             RCC.AHB1ENR.GPIOIEN := 1;
+      end case;
+
+      -- Enable USART peripheral clock
+      case USART_PORT is
+         when 1 =>
+            RCC.APB2ENR.USART1EN := 1;
+         when 2 =>
+            RCC.APB1ENR.USART2EN := 1;
+         when 3 =>
+            RCC.APB1ENR.USART3EN := 1;
+         when 4 =>
+            RCC.APB1ENR.UART4EN  := 1;
+         when 5 =>
+            RCC.APB1ENR.UART5EN  := 1;
+         when 6 =>
+            RCC.APB2ENR.USART6EN := 1;
       end case;
 
 

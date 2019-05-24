@@ -12,6 +12,7 @@ project pigeon is
    end Compiler;
 
    package Builder is
+	  for Default_Switches ("ada") use ("-g");
       for Global_Configuration_Pragmas use "gnat.adc";
    end Builder;
 
