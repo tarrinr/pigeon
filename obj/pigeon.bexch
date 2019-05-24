@@ -1,0 +1,24 @@
+[GENERATED OBJECT FILE]
+b__pigeon.o
+[PROJECT FILES]
+C:\Users\trasmussen\Documents\STM\pigeon\pigeon.gpr
+20190524151726
+[BOUND OBJECT FILES]
+C:\Users\trasmussen\Documents\STM\pigeon\obj\stm32f4.o
+C:\Users\trasmussen\Documents\STM\pigeon\obj\stm32f4-gpiol.o
+C:\Users\trasmussen\Documents\STM\pigeon\obj\stm32f4-rccl.o
+C:\Users\trasmussen\Documents\STM\pigeon\obj\stm32f4-usartl.o
+C:\Users\trasmussen\Documents\STM\pigeon\obj\debug.o
+C:\Users\trasmussen\Documents\STM\pigeon\obj\pigeon.o
+[GENERATED SOURCE FILES]
+b__pigeon.ads
+b__pigeon.adb
+b__pigeon.ali
+[RESULTING OPTIONS]
+-LC:\Users\trasmussen\Documents\STM\pigeon\obj\
+-LC:\Users\trasmussen\Documents\STM\pigeon\obj\
+-LC:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\adalib\
+-static
+-static-libgcc
+C:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\adalib\libgnarl.a
+C:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\adalib\libgnat.a

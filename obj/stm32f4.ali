@@ -1,0 +1,49 @@
+V "GNAT Lib v2018"
+A -O2
+A -gnatA
+A --RTS=C:\gnat\2018-arm-elf\arm-eabi\lib\gnat\ravenscar-full-stm32f4\
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -g
+A -gnatwa
+A -gnatQ
+A -gnatw.X
+P DB ES ZX
+
+RN
+RR NO_TASK_HIERARCHY
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U stm32f4%s		stm32f4.ads		550ffb99 NE OO PU PK IU
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D stm32f4.ads		20190522190824 550ffb99 stm32f4%s
+D system.ads		20180524194940 db831581 system%s
+D s-unstyp.ads		20180524194940 34867c83 system.unsigned_types%s
+D c:\users\trasmussen\documents\stm\pigeon\gnat.adc  20190523142016 00000000
+X 1 stm32f4.ads
+1K9*STM32F4 25l5 25e12
+3M10*Unsigned_1 20r46
+4M10*Unsigned_2 21r46
+5M10*Unsigned_3
+6M10*Unsigned_4 22r46
+7M10*Unsigned_5
+8M10*Unsigned_6
+9M10*Unsigned_7
+10M10*Unsigned_8
+11M10*Unsigned_9
+12M10*Unsigned_10
+13M10*Unsigned_11
+14M10*Unsigned_12
+15M10*Unsigned_13
+16M10*Unsigned_14
+17M10*Unsigned_15
+18M10*Unsigned_16
+20A10*Unsigned_16_1(3M10)<integer>
+21A10*Unsigned_16_2(4M10)<integer>
+22A10*Unsigned_8_4(6M10)<integer>
+
