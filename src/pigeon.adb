@@ -11,7 +11,7 @@ with STM32F4.RCCL;   use STM32F4.RCCL;
 with STM32F4.GPIOL;  use STM32F4.GPIOL;
 
 -- Ada packages
-with Ada.Real_Time;                use Ada.Real_Time;
+with Ada.Real_Time; use Ada.Real_Time;
 
 -- User defined packages
 with DEBUG; use DEBUG;
@@ -28,7 +28,7 @@ procedure pigeon is
 -- DECLARATION SECTION --
 -------------------------
 
-   pragma Priority (2);
+   --pragma Priority (2);
 
    led_delay : Time;
    led : Unsigned_1 := 0;
@@ -61,49 +61,49 @@ begin
       when others =>
          DOUT("\n### ERROR: I2C initialization failed\n");
    end case;
-
-   -- Initialize SPI1 interface
-   DOUT(" > Initializing SPI1 interface... ");
-   --rc := SPI1_init;
-   case rc is
-      when 0 =>
-         DOUT("done\n");
-      when others =>
-         DOUT("\n### ERROR: SPI1 initialization failed\n");
-   end case;
-
-   -- Initialize SPI2 interface
-   DOUT(" > Initializing SPI2 interface... ");
-   --rc := SPI2_init;
-   case rc is
-      when 0 =>
-         DOUT("done\n");
-      when others =>
-         DOUT("\n### ERROR: SPI2 initialization failed\n");
-   end case;
-
-   -- Initialize DCMI interface
-   DOUT(" > Initializing DCMI interface... ");
-   --rc := DCMI_init;
-   case rc is
-      when 0 =>
-         DOUT("done\n");
-      when others =>
-         DOUT("\n### ERROR: DCMI initialization failed\n");
-   end case;
-
-   -- Initialize GPIO interface
-   DOUT(" > Initializing GPIO interface... ");
-   --rc := GPIO_init;
-   case rc is
-      when 0 =>
-         DOUT("done\n");
-      when others =>
-         DOUT("\n### ERROR: GPIO initialization failed\n");
-   end case;
-
-   --loop
-   --   -- Read sensors
+--
+--   -- Initialize SPI1 interface
+--   DOUT(" > Initializing SPI1 interface... ");
+--   --rc := SPI1_init;
+--   case rc is
+--      when 0 =>
+--         DOUT("done\n");
+--      when others =>
+--         DOUT("\n### ERROR: SPI1 initialization failed\n");
+--   end case;
+--
+--   -- Initialize SPI2 interface
+--   DOUT(" > Initializing SPI2 interface... ");
+--   --rc := SPI2_init;
+--   case rc is
+--      when 0 =>
+--         DOUT("done\n");
+--      when others =>
+--         DOUT("\n### ERROR: SPI2 initialization failed\n");
+--   end case;
+--
+--   -- Initialize DCMI interface
+--   DOUT(" > Initializing DCMI interface... ");
+--   --rc := DCMI_init;
+--   case rc is
+--      when 0 =>
+--         DOUT("done\n");
+--      when others =>
+--         DOUT("\n### ERROR: DCMI initialization failed\n");
+--   end case;
+--
+--   -- Initialize GPIO interface
+--   DOUT(" > Initializing GPIO interface... ");
+--   --rc := GPIO_init;
+--   case rc is
+--      when 0 =>
+--         DOUT("done\n");
+--      when others =>
+--         DOUT("\n### ERROR: GPIO initialization failed\n");
+--   end case;
+--
+--   --loop
+--   --   -- Read sensors
    --   DOUT(" > Reading sensors... ");
    --   --rc := peripherals.read;
    --   case rc is
@@ -135,5 +135,6 @@ begin
       led := led + 1;
       delay until led_delay + Milliseconds(50);
    end loop;
+
 
 end pigeon;
