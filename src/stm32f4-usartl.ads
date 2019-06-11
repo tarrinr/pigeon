@@ -46,7 +46,8 @@ package STM32F4.USARTL with Preelaborate is
       NF   : Unsigned_1;
       FE   : Unsigned_1;
       PE   : Unsigned_1;
-   end record;
+   end record
+   with Volatile_Full_Access, Size => 16;
 
    -- Hardware representation
    for SR_register use record
@@ -70,7 +71,8 @@ package STM32F4.USARTL with Preelaborate is
    -- Register type
    type DR_register is record
       DR : Unsigned_9;
-   end record;
+   end record
+   with Volatile_Full_Access, Size => 16;
 
    -- Hardware representation
    for DR_register use record
@@ -86,7 +88,8 @@ package STM32F4.USARTL with Preelaborate is
    type BRR_register is record
       DIV_MANTISSA : Unsigned_12;
       DIV_FRACTION : Unsigned_4;
-   end record;
+   end record
+   with Volatile_Full_Access, Size => 16;
 
    -- Hardware representation
    for BRR_register use record
@@ -116,7 +119,8 @@ package STM32F4.USARTL with Preelaborate is
       RE     : Unsigned_1;
       RWU    : Unsigned_1;
       SBK    : Unsigned_1;
-   end record;
+   end record
+   with Volatile_Full_Access, Size => 16;
 
    -- Hardware representation
    for CR1_register use record
@@ -153,7 +157,8 @@ package STM32F4.USARTL with Preelaborate is
       LBDIE : Unsigned_1;
       LBDL  : Unsigned_1;
       ADD   : Unsigned_4;
-   end record;
+   end record
+   with Volatile_Full_Access, Size => 16;
 
    -- Hardware representation
    for CR2_register use record
@@ -187,7 +192,8 @@ package STM32F4.USARTL with Preelaborate is
       IRLP   : Unsigned_1;
       IREN   : Unsigned_1;
       EIE    : Unsigned_1;
-   end record;
+   end record
+   with Volatile_Full_Access, Size => 16;
 
    -- Hardware representation
    for CR3_register use record
@@ -214,7 +220,8 @@ package STM32F4.USARTL with Preelaborate is
    type GTPR_register is record
       GT  : Unsigned_8;
       PSC : Unsigned_8;
-   end record;
+   end record
+   with Volatile_Full_Access, Size => 16;
 
    -- Hardware representation
    for GTPR_register use record
@@ -240,12 +247,12 @@ package STM32F4.USARTL with Preelaborate is
 
    -- Hardware representation
    for USART_Register_Map use record
-      SR   at SR_OFFSET_ADDRESS   range 0 .. 9;
-      DR   at DR_OFFSET_ADDRESS   range 0 .. 8;
+      SR   at SR_OFFSET_ADDRESS   range 0 .. 15;
+      DR   at DR_OFFSET_ADDRESS   range 0 .. 15;
       BRR  at BRR_OFFSET_ADDRESS  range 0 .. 15;
       CR1  at CR1_OFFSET_ADDRESS  range 0 .. 15;
-      CR2  at CR2_OFFSET_ADDRESS  range 0 .. 14;
-      CR3  at CR3_OFFSET_ADDRESS  range 0 .. 11;
+      CR2  at CR2_OFFSET_ADDRESS  range 0 .. 15;
+      CR3  at CR3_OFFSET_ADDRESS  range 0 .. 15;
       GTPR at GTPR_OFFSET_ADDRESS range 0 .. 15;
    end record;
 

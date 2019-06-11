@@ -28,7 +28,7 @@ procedure pigeon is
 -- DECLARATION SECTION --
 -------------------------
 
-   --pragma Priority (2);
+   pragma Priority (1);
 
    led_delay : Time;
    led : Unsigned_1 := 0;
@@ -40,7 +40,6 @@ procedure pigeon is
 ------------------------
 
 begin
-
 
    --
    -- Initialize interfaces

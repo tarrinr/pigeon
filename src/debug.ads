@@ -39,7 +39,7 @@ package DEBUG is
    USART_BR_MAN      : constant := 16#68#; -- 104 for 9600 bps
    USART_BR_FRAC     : constant := 16#03#; -- 0.1875 for 9600 bps
 
-
+output : Unsigned_9 := 2#010101010#;
    --
    -- Procedures
    --

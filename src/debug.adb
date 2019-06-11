@@ -35,19 +35,19 @@ package body DEBUG is
 
    -- Output debug message to USART console
    task debug_task is
-      pragma Priority (1);
+      pragma Priority (2);
    end debug_task;
 
    task body debug_task is
    begin
       Suspend_Until_True (Activate_Task);
-      while head /= tail loop
-         USART(USART_PORT).DR.DR := Character'POS (buffer (head));
-         head := head + 1;
-         while USART(USART_PORT).SR.TXE = 0 loop
-            null;
-         end loop;
-      end loop;
+      --while head /= tail loop
+      --   USART(USART_PORT).DR.DR := Character'POS (buffer (head));
+      --   head := head + 1;
+      --   while USART(USART_PORT).SR.TXE = 0 loop
+      --      null;
+      --   end loop;
+      --end loop;
    end debug_task;
 
 
@@ -62,16 +62,16 @@ package body DEBUG is
          debug_init;
          initialized := true;
       end if;
-      for i in message'RANGE loop
-         buffer (tail) := message (i);
-         while tail + 1 = head loop
+   --   for i in message'RANGE loop
+   --      buffer (tail) := message (i);
+   --      while tail + 1 = head loop
             null;
-         end loop;
-         tail := tail + 1;
-         if not debug_task'TERMINATED then
-            Set_True(Activate_Task);
-         end if;
-      end loop;
+   --      end loop;
+   --      tail := tail + 1;
+   --      if not debug_task'TERMINATED then
+   --         Set_True(Activate_Task);
+   --      end if;
+   --   end loop;
    end fill_buffer;
 
 
@@ -184,6 +184,13 @@ package body DEBUG is
 
       -- Set transmitter enable of USART
       USART(USART_PORT).CR1.TE := 1;
+
+      while true loop
+         USART(USART_PORT).DR.DR := output;
+         --while USART(USART_PORT).SR.TXE = 0 loop
+            null;
+         --end loop;
+      end loop;
 
    end debug_init;   
 
