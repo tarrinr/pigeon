@@ -15,7 +15,7 @@ with STM32F4.USARTL; use STM32F4.USARTL;
 -- PACKAGE SPECIFICATION --
 ---------------------------
 
-package DEBUG is
+package DEBUG with Elaborate_Body is
 
 
    --
@@ -39,13 +39,10 @@ package DEBUG is
    USART_BR_MAN      : constant := 16#68#; -- 104 for 9600 bps
    USART_BR_FRAC     : constant := 16#03#; -- 0.1875 for 9600 bps
 
-output : Unsigned_9 := 2#010101010#;
+
    --
    -- Procedures
    --
-
-   -- Initialize debug interface
-   procedure debug_init;
 
    -- Output debug message to USART console
    procedure DOUT (message : string);
