@@ -6,7 +6,6 @@
 --------------
 
 -- Libraries
-with STM32F4;        use STM32F4;
 with STM32F4.GPIOL;  use STM32F4.GPIOL;
 with STM32F4.USARTL; use STM32F4.USARTL;
 
@@ -45,6 +44,6 @@ package DEBUG with Elaborate_Body is
    --
 
    -- Output debug message to USART console
-   procedure DOUT (message : string);
+   procedure DOUT (message : String);
 
 end DEBUG;

@@ -6,7 +6,8 @@
 --------------
 
 -- Libraries
-with STM32F4.RCCL;   use STM32F4.RCCL;
+with STM32F4;      use STM32F4;
+with STM32F4.RCCL; use STM32F4.RCCL;
 
 -- Ada packages
 with Ada.Synchronous_Task_Control; use Ada.Synchronous_Task_Control;
@@ -47,14 +48,14 @@ package body DEBUG is
 
          while head /= tail loop
 
-            USART(USART_PORT).DR.DR := Character'POS (buffer (head));
-
-            head := head + 1;
-            Set_True (buffer_not_full);
-
             while USART(USART_PORT).SR.TXE = 0 loop
                null;
             end loop;
+         
+            USART(USART_PORT).DR.DR := 2#11111111#;
+
+            head := head + 1;
+            Set_True (buffer_not_full);
 
          end loop;
 
@@ -65,36 +66,6 @@ package body DEBUG is
    --
    -- Procedures
    --
-
-   -- Place message in circular buffer
-   procedure fill_buffer (message : String) is
-   begin
-
-      if not initialized then
-         debug_init;
-         initialized := true;
-      end if;
-
-      for i in message'RANGE loop
-         buffer (tail) := message (i);
-
-         if tail + 1 = head then
-            Suspend_Until_True (buffer_not_full);
-         end if;
-
-         tail := tail + 1;
-      end loop;
-
-      Set_True (buffer_not_empty);
-
-   end fill_buffer;
-
-
-   -- Output debug message to USART console task
-   procedure DOUT (message : String) is
-   begin
-      pragma Debug (fill_buffer (message));
-   end DOUT;
 
    -- Initialize debugging interface
    procedure debug_init is
@@ -201,5 +172,36 @@ package body DEBUG is
       USART(USART_PORT).CR1.TE := 1;
 
    end debug_init;
+
+
+   -- Place message in circular buffer
+   procedure fill_buffer (message : String) is
+   begin
+
+      if not initialized then
+         debug_init;
+         initialized := true;
+      end if;
+
+      Set_True (buffer_not_empty);
+
+      for i in message'RANGE loop
+         buffer (tail) := message (i);
+
+         if tail + 1 = head then
+            Suspend_Until_True (buffer_not_full);
+         end if;
+
+         tail := tail + 1;
+      end loop;
+
+   end fill_buffer;
+
+
+   -- Output debug message to USART console task
+   procedure DOUT (message : String) is
+   begin
+      pragma Debug (fill_buffer (message));
+   end DOUT;
 
 end DEBUG;

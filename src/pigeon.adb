@@ -6,9 +6,8 @@
 --------------
 
 -- Libraries
-with STM32F4;        use STM32F4;
-with STM32F4.RCCL;   use STM32F4.RCCL;
-with STM32F4.GPIOL;  use STM32F4.GPIOL;
+--with STM32F4.RCCL;   use STM32F4.RCCL;
+--with STM32F4.GPIOL;  use STM32F4.GPIOL;
 
 -- Ada packages
 with Ada.Real_Time; use Ada.Real_Time;
@@ -132,5 +131,9 @@ begin
    --   led := led + 1;
    --   delay until led_delay + Milliseconds(50);
    --end loop;
+
+   loop
+      delay until Time_Last;
+   end loop;
 
 end PIGEON;
